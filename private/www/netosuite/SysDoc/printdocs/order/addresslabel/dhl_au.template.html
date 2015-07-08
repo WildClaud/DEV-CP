@@ -1,0 +1,56 @@
+<table width="345" border="0" align="center" cellpadding="4" cellspacing="0" style="font-size:16px;"><tr>
+  <td colspan="2" style="font-size:16px;">
+Delivery Address:<br />
+<font style="text-transform:uppercase;"><b>
+<!--##[%NOHTML%]##-->[@ship_first_name@] [@ship_last_name@]<!--##[%END NOHTML%]##--></b><br />
+<b>
+<!--##[%DATA id:'ship_company' if:'ne' value:''%]##--><!--##[%NOHTML%]##-->[@ship_company@]<!--##[%END NOHTML%]##--><br><!--##[%END DATA%]##-->
+</b>
+<b>
+<!--##[%NOHTML%]##-->[@ship_street1@]<!--##[%END NOHTML%]##--></b><br/><b>
+<!--##[%DATA id:'ship_street2' if:'ne' value:''%]##--><!--##[%NOHTML%]##-->[@ship_street2@]<!--##[%END NOHTML%]##-->
+</b><br/><b><!--##[%END DATA%]##-->
+<!--##[%NOHTML%]##-->[@ship_city@]<!--##[%END NOHTML%]##--></b><br><b>
+<!--##[%NOHTML%]##-->[@ship_state@] [@ship_zip@]<!--##[%END NOHTML%]##--></b><br />
+</font>
+</td></tr>
+<tr>
+  <td>
+<!--##[%DATA id:'signature' if:'eq' value:'y'%]##--><b>SIGNATURE REQUIRED</b><br /><!--##[%END DATA%]##-->
+<br />
+<b>Receivers Phone:</b>  <!--##[%NOHTML%]##-->[@ship_phone@]<!--##[%END NOHTML%]##--><br />
+<br />
+<b>Instructions:</b> 
+<!--##[%DATA id:'ship_comment' if:'ne' value:''%][%PARAM if_true%]##-->
+<!--##[%NOHTML%]##--><!--##[%FORMAT type:'text' maxlength:'255'%]##-->[@ship_comment@]<!--##[%END FORMAT%]##--><!--##[%END NOHTML%]##-->
+<!--##[%END PARAM%][%PARAM if_false%]##-->
+n/a
+<!--##[%END PARAM%][%END DATA%]##-->
+</td>
+	<td>
+<!--##[%DATA id:'bin_loc' if:'ne' value:''%]##-->Bin#: <!--##[%NOHTML%]##-->[@bin_loc@]<!--##[%END NOHTML%]##--><br /><!--##[%END DATA%]##-->
+</td>
+</tr>
+<tr>
+  <td colspan="2" align="center">
+	<img src="[%BARCODE_URL fn:'' height:'50'%][@order_id@][%END BARCODE_URL%]" border="0"/>
+	</td>
+</tr>
+<tr>
+  <td colspan="2" style="padding-bottom:2px;">
+<b>Return Address:</b><br />
+<font style="text-transform:uppercase;">
+<!--##[%DATA id:'bill_company' if:'ne' value:''%]##--><!--##[%NOHTML%]##-->[@bill_company@]<!--##[%END NOHTML%]##--><br><!--##[%END DATA%]##-->
+<!--##[%NOHTML%]##-->[@bill_street1@]<!--##[%END NOHTML%]##--><br>
+<!--##[%DATA id:'bill_street2' if:'ne' value:''%]##--><!--##[%NOHTML%]##-->[@bill_street2@]<!--##[%END NOHTML%]##--><br><!--##[%END DATA%]##-->
+<!--##[%NOHTML%]##-->[@bill_city@], [@bill_state_name@] [@bill_zip@]<!--##[%END NOHTML%]##--><br />
+<!--##[%NOHTML%]##-->[@bill_country_name@]<!--##[%END NOHTML%]##--><br />
+</font>
+Customer Ref No.1: <!--##[%NOHTML%]##-->[@order_id@]<!--##[%END NOHTML%]##--><br />
+<!--##[%DATA id:'customer_po' if:'ne' value:''%]##-->Customer Ref No.2: <!--##[%NOHTML%]##-->[@customer_po@]<!--##[%END NOHTML%]##--><br><!--##[%END DATA%]##-->
+</td>
+</tr>
+<tr>
+	<td colspan="2" align="center"><font style="font-size:8px;">Printed With Neto E-commerce Software www.neto.com.au</font></td>
+</tr>
+</table>

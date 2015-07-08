@@ -1,0 +1,37 @@
+﻿
+<!--#Start Column Left# ##-->
+<!--##[%load_template file:"column_left/template.html"%][%END load_template%]##-->
+<!--# End Column Left# ##-->
+
+
+<h1>Category Sitemap</h1>
+
+[@page_content@]
+
+<!--##[%CATEGORYMENU sortby:'selected,sortorder,name' show_empty:'1'%]
+[%PARAM header%]##-->
+<ul>
+<!--##[%END PARAM%]
+[%PARAM *level_1%]##-->
+<ul>
+<li>
+<a href="[@url@]">[@name@]</a>
+<ul>[@next_level@]</ul>
+</li>
+</ul><!--##[%END PARAM%]
+[%PARAM *level_2%]##-->
+<li><a href="[@url@]">[@name@]</a>
+<ul>[@next_level@]</ul></li>
+<!--##[%END PARAM%]
+[%PARAM *level_3%]##-->
+<li><a href="[@url@]">[@name@]</a></li>
+<!--##[%END PARAM%]
+[%PARAM footer%]##-->
+</ul>
+<!--##[%END PARAM%]
+[%END CATEGORYMENU%]##-->
+
+
+<!--#Start Column Right# ##-->
+<!--##[%load_template file:"column_right/template.html"%][%END load_template%]##-->
+<!--# End Column Right# ##-->

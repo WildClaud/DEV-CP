@@ -1,0 +1,272 @@
+[%PICKING_LIST
+	order_id='[@form:id@]'
+	orders='[@form:orders@]'
+	orderlines='[@form:ols@]'
+	id_type='[@form:use@]'
+	warehouse_id='[@form:warehouse_id@]'
+	process_id='[@form:pid@]'
+	page_width='[@form:page_width@]'
+	admin_name='[@form:admin_name@]'
+	no_item_split='[@config:PICKING_SLIP_NO_ITEM_SPLIT@]'
+	sortby: 'pick_zone'
+%]
+[%PARAM *header%]
+<style type="text/css">
+	.order_id {
+		font-size: 14px;
+		margin: 10px 10px 10px 10px;
+	}
+	
+/****************** Start Order list style ***********************/
+	TABLE.itmlist { background-color:#b0b0b0; }
+	TABLE.itmlist TR.hdr { background-color: #dddddd; font-weight: bold; font-size: 10px;}
+
+	TABLE.itmlist TR.row:nth-child(even) { background-color: #ffffff; font-size: 10px;}
+	TABLE.itmlist TR.row:nth-child(odd) { background-color: #f5f5f5; font-size: 10px;}
+	
+	TABLE.tbllist { background-color:#333333; }
+	TABLE.tbllist TR TD { background-color:#ffffff; }
+/****************** End Order list style ***********************/
+</style>
+<div align="center" class="pageouter">
+[%END PARAM%][%PARAM *page_header%]
+[%IF [@count@]>0%]
+<hr class="pagebreak">
+[%/IF%]
+<div align="left" class="pageinner" style="width:[@page_width@];">
+[%END PARAM%][%PARAM *order_header%]
+
+	<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center"><tr>
+	<td align="left">
+	<div class="order_id"><b>
+[%IF [@process_id@] > 0%]
+<font size="4">Bulk Process # [@process_id@]</font>
+[%/IF%]
+	<br />
+	<font size="4">Picking Slip for Order # </font>
+	<font color="#CC0000" size="4">[%NOHTML%][@order_id@][%/NOHTML%]</font> &nbsp;
+	<br><font size="4">Customer: [%NOHTML%][@ship_first_name@] [@ship_last_name@] 
+		[%IF [@ship_company@] ne ''%]([@ship_company@])[%/IF%]
+	[%/NOHTML%]</font><br>
+[%FORMAT type:'date' default:''%][%PARAM format%]<font size="4">Date Required: #D/#M/#Y #H:#I (#w)</font><br>[%END PARAM%][@date_required@][%END FORMAT%]
+[%IF [@customer_po@] ne ''%]
+<font size="4">Purchase Order Number: [%NOHTML%][@customer_po@][%/NOHTML%]</font><br>
+[%/IF%]
+<font size="2"> 
+	[%NOHTML%][@ship_company@] [%/NOHTML%]<br />
+	[%NOHTML%][@ship_street1@] [@ship_street2@][%/NOHTML%]<br />
+	[%NOHTML%][@ship_city@][%/NOHTML%]<br />
+	[%NOHTML%][@ship_state@] [@ship_zip@], [@ship_country@][%/NOHTML%]</font><br>
+</b>
+Shipping With: [%NOHTML%][@shipping_method@][%/NOHTML%]<br>
+Estimated Shipping Weight: [@weight@]KG<br>
+		
+[%IF [@internal_notes@] ne ''%]
+<b>Internal Order Notes:</b> [%NOHTML%][@internal_notes@][%/NOHTML%]<br />
+[%/IF%]
+	
+[%IF [@special@] ne '')%]
+<font size="3"><b>Customer Instructions: [%NOHTML%][@special@][%/NOHTML%]</b></font>
+[%/IF%]
+	
+</div></td>
+
+[%IF [@process_id@] > 0%]
+<td width="1%" valign="top" nowrap><font class="small">
+		Printed By:<br />
+		[%NOHTML%][@admin_name@][%/NOHTML%]<br />
+		Date Printed:<br />
+		[%FORMAT type:'date' format:'#D-#M-#Y #H:#I'%]NOW[%END FORMAT%]<br />
+		Process # [@process_id@]<br />
+<img src="[%BARCODE_URL fn:'barcode' barcode:'[@process_id@]' height:'35' /%]" border="0"></font></td>
+[%/IF%]
+	</tr>
+</table>
+
+<table width="100%" cellpadding="2px" cellspacing="0" border="1" class="itmlist" align="center">
+<thead>
+<tr class="hdr">
+	<td width="50px">Image</td>
+	<td>Qty Ordered</td>
+	<td>SKU</td>
+	<td>Location</td>
+	<td>Brand/Product Name/Extra</td>
+	<td>Picked To Date</td>
+	<td>Pick Task</td>
+	<td>Unit</td>
+	<td>Picked</td>
+	<td>Pick Bin</td>
+	<td>Checked</td>
+</tr>
+</thead><tbody>
+[%END PARAM%][%PARAM *order_body%]
+
+<tr class="row">
+	<td align="center"><img src="[%ASSET_URL type:'item' id:'[@SKU@]' thumb:'thumb' /%]" width="50px" height="50px"></td>
+	<td align="center"><font style="font-size:13px;"><b>[@quantity@]</b></font></td>
+	<td nowrap><b>[%NOHTML%][@sku@][%/NOHTML%]</b></td>
+	<td nowrap valign="top"><b>[%NOHTML%][@pick_zone@][%/NOHTML%]</b><br>[@location@]</td>
+	<td valign="top">
+		<b><font style="font-size:12px;"><i>[%NOHTML%][@brand@][%/NOHTML%]</i><br>
+		[%NOHTML%][@model@][%/NOHTML%]
+[%IF [@extra@] ne ''%]
+<div><br>(<i>[%NOHTML%][@full_extra@][%/NOHTML%]</i>)</div>
+[%END IF%]
+		</font></b>
+[%IF [@config:PICKSLIP_SHOW_INTERNALNOTE@] AND [@internal_notes@] ne '' %]
+		<font style="font-size:12px;"><br><i>[[%NOHTML%][@internal_notes@][%/NOHTML%]</i></font>
+[%/IF%]	
+	</td>
+	<td align="center"><font style="font-size:13px;"><b>[@pick_qty@]</b></font></td>
+	<td align="center"><font style="font-size:13px; color:[%IF [@warehouse_quantity@] &gt; 0%]#000000[%ELSE%]#CC0000[%/IF%]"><b>[@pick_task@]</b></font></td>
+	<td align="center">[@item_unit@]</td>
+	<td align="center"><div style="border:1px solid #000000; background-color:#FFFFFF; width:20px; height:20px;"></div></td>
+	<td width="50px" align="center" class="tiny">[%NOHTML%][@bin_location@][%/NOHTML%]&nbsp;</td>
+	<td align="center"><div style="border:1px solid #000000; background-color:#FFFFFF; width:20px; height:20px;"></div></td>
+</tr>
+[%END PARAM%][%PARAM *order_footer%]
+</tbody>
+</table>
+<br />
+[%END PARAM%][%PARAM *component_header%]
+<br />
+<b>Items That Require Assembly:</b><br />
+<table width="100%" cellpadding="2px" cellspacing="0" border="1" class="itmlist" align="center">
+<tr class="hdr">
+	<td width="50px">Image</td>
+[%IF [@no_item_split@]%]
+	<td>Qty Ordered</td>
+[%/IF%]
+	<td>SKU</td>
+	<td>Location</td>
+	<td>Brand/Product Name/Extra</td>
+	<td>Picked To Date</td>
+	<td>Assemble Task</td>
+	<td>Unit</td>
+	<td>Assembled</td>
+	<td>Checked</td>
+</tr>
+[%END PARAM%][%PARAM *component_body%]
+
+<tr class="row">
+	<td align="center"><img src="[%ASSET_URL type:'item' id:'[@SKU@]' thumb:'thumb' /%]" width="50px" height="50px"></td>
+[%IF [@no_item_split@]%]
+		<td align="center"><b>[@quantity@]</b></td>
+[%/IF%]
+	<td nowrap><b>[%NOHTML%][@SKU@][%/NOHTML%]</b></td>
+	<td nowrap valign="top"><b>[%NOHTML%][@pick_zone@][%/NOHTML%]</b></td>
+	<td valign="top">
+		<b><font style="font-size:12px;"><i>[%NOHTML%][@brand@][%/NOHTML%]</i><br>
+		[%NOHTML%][@model@][%/NOHTML%]
+[%IF [@extra@] ne ''%]
+<div><br>(<i>[%NOHTML%][@full_extra@][%/NOHTML%]</i>)</div>
+[%END IF%]
+		</font></b>
+[%IF [@config:PICKSLIP_SHOW_INTERNALNOTE@] AND [@internal_notes@] ne '' %]
+		<font style="font-size:12px;"><br><i>[[%NOHTML%][@internal_notes@][%/NOHTML%]</i></font>
+[%/IF%]	
+	</td>
+	<td align="center"><b>[@pick_qty@]</b></td>
+	<td align="center"><b>[@pick_task@]</b></td>
+	<td align="center">[@item_unit@]</td>
+	<td align="center"><div style="border:1px solid #000000; background-color:#FFFFFF; width:20px; height:20px;"></div></td>
+	<td align="center"><div style="border:1px solid #000000; background-color:#FFFFFF; width:20px; height:20px;"></div></td>
+</tr>
+[%END PARAM%][%PARAM *component_sub_header%]
+
+<tr class="row"><td>&nbsp;</td><td colspan="9">
+<table width="100%" cellpadding="2px" cellspacing="0" border="1" align="center">
+<tr class="hdr">
+	<td width="50px">Image</td>
+[%IF [@no_item_split@]%]
+	<td>Qty Ordered</td>
+[%/IF%]
+	<td>SKU</td>
+	<td>Location</td>
+	<td>Brand/Product Name/Extra</td>
+	<td>Picked To Date</td>
+	<td>Assemble Task</td>
+	<td>Unit</td>
+</tr>
+[%END PARAM%][%PARAM *component_sub_body%]
+<tr class="row">
+	<td align="center"><img src="[%ASSET_URL type:'item' id:'[@SKU@]' thumb:'thumb' /%]" width="50px" height="50px"></td>
+[%IF [@no_item_split@]%]
+		<td align="center"><b>[@quantity@]</b></td>
+[%/IF%]
+	<td nowrap><b>[%NOHTML%][@SKU@][%/NOHTML%]</b></td>
+	<td nowrap valign="top"><b>[%NOHTML%][@pick_zone@][%/NOHTML%]</b><br>[@location@]</td>
+	<td valign="top">
+		<b><font style="font-size:12px;"><i>[%NOHTML%][@brand@][%/NOHTML%]</i><br>
+		[%NOHTML%][@model@][%/NOHTML%]
+[%IF [@extra@] ne ''%]
+<div><br>(<i>[%NOHTML%][@full_extra@][%/NOHTML%]</i>)</div>
+[%END IF%]
+		</font></b>
+[%IF [@config:PICKSLIP_SHOW_INTERNALNOTE@] AND [@internal_notes@] ne '' %]
+		<font style="font-size:12px;"><br><i>[[%NOHTML%][@internal_notes@][%/NOHTML%]</i></font>
+[%/IF%]	
+	</td>
+	<td align="center"><b>[@pick_qty@]</b></td>
+	<td align="center"><b>[@pick_task@]</b></td>
+	<td align="center">[@item_unit@]</td>
+</tr>
+[%END PARAM%][%PARAM *component_sub_footer%]
+</table></td></tr>
+[%END PARAM%][%PARAM *component_footer%]
+</table><br />
+[%END PARAM%][%PARAM *page_footer%]
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center"><tr>
+<td>
+<b>Printed By:</b> [%NOHTML%][@admin_name@][%/NOHTML%] &nbsp;<b>Date and Time Printed:</b> [%FORMAT type:'date' format:'#D/#M/#Y #H:#I'%]NOW[%END FORMAT%]<br /><br />
+<table width="100%" border="1" cellspacing="0" cellpadding="4" class="tbllist">
+  <tr>
+    <td><strong>No. Cartons</strong></td>
+	<td><strong>Weight</strong></td>
+    <td><strong>Length</strong></td>
+    <td><strong>Width </strong></td>
+    <td><strong>Height</strong></td>
+    <td><strong>Shipping Method</strong></td>
+    </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>  
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table><br />
+<b>Picked By:..................................................</b> 
+<b>Checked By:.................................................</b> 
+</td></tr></table>
+</div>
+[%END PARAM%][%PARAM *footer%]
+</div>
+[%END PARAM%]
+[%/PICKING_LIST%]

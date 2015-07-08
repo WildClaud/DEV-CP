@@ -1,0 +1,101 @@
+<table width="100%" border="0" cellpadding="4" cellspacing="0">
+  <tbody>
+    <tr>
+ 			<td valign="top" width="40%">
+ 				<table cellpadding="0px" cellspacing="0" border="0" width="100%" align="center">
+ 					<tr>
+ 						<td>
+<img width="150px" src="[%BARCODE_URL fn:'article' height:'20' cngmt:'[@cngmt_id@]' art:'[@art_id@]'%][@barcode@][%END BARCODE_URL%]" border="0"/><br>
+<font style="font-size:10px;">
+<!--##[%NOHTML%]##-->[@barcode@]<!--##[%END NOHTML%]##-->
+</font>
+						</td>
+					</tr>
+ 					<tr>
+ 						<td style="padding-bottom:8px;">
+<div style="padding: 2px 0 4px 0;"><font style="font-size:12px;"><b>Customer Details</b></font></div>
+<font style="font-size:12px;">
+<!--##[%NOHTML%]##-->[@ship_first_name@] [@ship_last_name@]<!--##[%END NOHTML%]##-->
+<br />
+<!--##[%IF [@ship_company@] ne ''%]##--><!--##[%NOHTML%]##-->[@ship_company@]<!--##[%END NOHTML%]##--><br><!--##[%/IF%]##-->
+<!--##[%NOHTML%]##-->[@ship_street1@]<!--##[%END NOHTML%]##--><br>
+<!--##[%IF [@ship_street2@] ne ''%]##--><!--##[%NOHTML%]##-->[@ship_street2@]<!--##[%END NOHTML%]##--><br><!--##[%/IF%]##-->
+<!--##[%NOHTML%]##-->[@ship_city@], [@ship_zip@], [@ship_state@]<!--##[%END NOHTML%]##-->
+</font>
+ 						</td>
+ 					</tr>
+ 				</table>
+ 				<table cellpadding="0px" cellspacing="0" border="0" width="100%" align="center">
+ 					<tr>
+ 						<td width="50%" style="padding-bottom:8px;" nowarp><font style="font-size:12px;"><b>Contact Number:</b></font></td>
+ 						<td style="padding-bottom:8px;" nowarp>
+<font style="font-size:12px;">
+<!--##[%NOHTML%]##-->[@ship_phone@]<!--##[%END NOHTML%]##-->
+</font>
+ 						</td>
+ 					</tr>
+ 					<tr>
+ 						<td nowarp><font style="font-size:12px;"><b>Quantity</b></font></td>
+ 						<td nowarp>
+<font style="font-size:12px;">
+<!--##[%NOHTML%]##-->[@count@] of [@total@]<!--##[%END NOHTML%]##-->
+</font>
+ 						</td>
+ 					</tr>
+ 				</table>
+ 			</td>
+ 			<td valign="top">
+ 				<table cellpadding="0px" cellspacing="0" border="0" width="100%" align="center">
+ 					<tr>
+ 						<td width="50%" align="right" nowarp><font style="font-size:10px;">Mail Call Line Ref</font></td>
+ 						<td align="right" nowarp><font style="font-size:30px;"><b>[@article_number@]</b></font></td>
+ 					</tr>
+ 				</table>
+ 				<table cellpadding="0px" cellspacing="0" border="0" width="100%" align="center">
+ 					<tr>
+ 						<td style="padding-bottom:8px;">
+<div style="padding: 2px 0 4px 0;"><font style="font-size:12px;"><b>Special instructions</b></font></div>
+<font style="font-size:12px;">
+<!--##[%IF [@ship_comment@] ne ''%]##-->
+<!--##[%NOHTML%][%FORMAT type:'text' maxlength:'255'%]##-->[@ship_comment@]<!--##[%END FORMAT%][%END NOHTML%]##-->
+<!--##[%ELSE%]##-->
+n/a
+<!--##[%/IF%]##-->
+</font>
+ 						</td>
+ 					</tr>
+ 					<tr>
+ 						<td style="padding-bottom:20px;">
+<font style="font-size:10px;">
+Customer Ref No.1: <!--##[%NOHTML%]##-->[@order_id@]<!--##[%END NOHTML%]##--><br />
+<!--##[%DATA id:'customer_po' if:'ne' value:''%]##-->Customer Ref No.2: <!--##[%NOHTML%]##-->[@customer_po@]<!--##[%END NOHTML%]##--><br><!--##[%END DATA%]##-->	
+</font>
+ 						</td>
+ 					</tr>
+ 				</table>
+ 				<table cellpadding="0px" cellspacing="0" border="0" width="100%" align="center">
+ 					<tr>
+ 						<td width="30%" style="padding-bottom:8px;" nowarp><font style="font-size:12px;"><b>Order #</b></font></td>
+ 						<td align="right" style="padding-bottom:8px;" nowarp>
+<font style="font-size:12px;">
+<!--##[%NOHTML%]##-->[@barcode@]<!--##[%END NOHTML%]##-->
+</font>
+ 						</td>
+ 					</tr>
+ 					<tr>
+ 						<td nowarp ><font style="font-size:12px;"><b>Timeslot</b></font></td>
+ 						<td align="right" nowarp>
+<font style="font-size:12px;">
+<!--##[%FORMAT type:'date' format:'#w'%]##-->[@article_group@]<!--##[%END FORMAT%]##-->
+</font>
+ 						</td>
+ 					</tr>
+ 				</table>
+ 			</td>
+    </tr>
+    <tr>
+	  <td align="center" colspan="2"><font style="font-size:8px;">Printed With Neto E-commerce Software www.neto.com.au</font></td>
+  </tr>
+  </tbody>
+</table>
+

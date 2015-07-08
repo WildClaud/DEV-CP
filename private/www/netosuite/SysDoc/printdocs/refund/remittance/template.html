@@ -1,0 +1,47 @@
+<table cellpadding="4" cellspacing="0" border="0" width="100%" align="center">
+	<tr>
+		<td valign="top" style="font-size:14px;">
+<b>
+<!--##[%NOHTML%]##-->[$COMPANY_NAME$]<!--##[%END NOHTML%]##--><br />
+<!--##[%NOHTML%]##-->[$COMPANY_ABN$]<!--##[%END NOHTML%]##--><br />
+<!--##[%NOHTML%]##-->[$COMPANY_ADDR$]<!--##[%END NOHTML%]##--><br />
+</b>
+		</td>
+		<td valign="top" style="font-size:18px;">
+<b>REMITTANCE ADVICE<br />
+DATE <!--##[%FORMAT type:'date' now:1 format:'#D/#M/#Y'%][%END FORMAT%]##-->
+</b>
+ 		</td>
+	</tr>
+</table>
+<br />
+<table width="100%" cellpadding="4" cellspacing="0" border="0">
+	<tr><td>Payee:</td></tr>
+	<tr><td>
+<!--##[%NOHTML%]##-->[@bill_first_name@] [@bill_last_name@]<!--##[%END NOHTML%]##--><br>
+<!--##[%DATA id:'bill_company' if:'ne' value:''%]##--><!--##[%NOHTML%]##-->[@bill_company@]<!--##[%END NOHTML%]##--><br><!--##[%END DATA%]##-->
+<!--##[%NOHTML%]##-->[@bill_street1@]<!--##[%END NOHTML%]##--><br>
+<!--##[%DATA id:'bill_street2' if:'ne' value:''%]##--><!--##[%NOHTML%]##-->[@bill_street2@]<!--##[%END NOHTML%]##--><br><!--##[%END DATA%]##-->
+<!--##[%NOHTML%]##-->[@bill_city@], [@bill_state@] [@bill_zip@]<!--##[%END NOHTML%]##--><br>
+<!--##[%NOHTML%]##-->[@bill_country_name@]<!--##[%END NOHTML%]##--><br />
+<br />
+Payment Number: [@refund_id@]
+</td></tr>
+</table>
+<br />
+<table width="100%" cellpadding="4" cellspacing="0" border="0">
+	<tr>
+		<td width="60%"><b>Memo</b></td>
+		<td width="20%"><b>Date</b></td>
+		<td width="20%"><b>Amount</b></td>
+	</tr>
+	<tr>
+		<td><!--##[%NOHTML%]##-->[@notes@]<!--##[%END NOHTML%]##--></td>
+		<td nowrap><!--##[%FORMAT type:'date' format:'#D/#M/#Y'%]##-->[@date_issued@]<!--##[%END FORMAT%]##--></td>
+		<td align="right" nowrap><!--##[%FORMAT type:'currency'%]##-->[@amount@]<!--##[%END FORMAT%]##--></td>
+	</tr>
+</table>
+
+
+
+

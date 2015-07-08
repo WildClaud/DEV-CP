@@ -1,0 +1,84 @@
+<!--[SUBJECT:[$COMPANY_NAME$] Invoice and Dispatch Notification For Items On Order #[@order_id@]]-->
+<!--[FROM:[$COMPANY_EMAIL$]]-->
+<!--[TO:[@email@]]-->
+<!--[BCC:[@secondary_email@]]-->
+Dear [@bill_first_name@],
+<!--##[%content_zone id:'email_tracking_header'%][%end content_zone%] ##--> 
+<p>
+Thank you for shopping with [$company_name$].
+</p>
+<p>
+Below is a list of items that have been dispatched to your nominated shipping address. A tax invoice has also been attached 
+to this email for your records.
+</p>
+<p>
+<!--##[%data id:'username' if:'ne' value:''%]##-->
+To track the progress of this and other orders online please go to <a href="[%URL page:'account'%][%END URL%]">your account</a> and select the order you want to track.
+<!--##[%END data%]##-->
+
+<!--##[%data id:'username' if:'eq' value:''%]##-->
+To track the progress of your order online please <a href="[%URL page:'account' type:'nr_track_order' id:'[@order_id@]' qs:'email=[@email@]&zip=[@ship_zip@]'%][%END URL%]">click here.</a>
+<!--##[%END data%]##-->
+</p>
+<hr />
+<h2>Items That Have Been Dispatched</h2>
+<!--##[%show_order id:'[@order_id@]' customer:'[@username@]'%][%PARAM *header%]##--> 
+<table align="center" border="0" cellpadding="2" cellspacing="0" width="700px">
+    <tr> 
+      <td width="70" valign="top"><strong>Image</strong></td>
+      <td width="32" valign="top"><strong>Qty</strong></td>
+      <td valign="top"><strong>Description</strong></td>
+      <td width="91" valign="top" nowrap><strong>Ship Method</strong></td>
+      <td colspan="2" valign="top" nowrap><strong>Consignment #</strong></td>
+  </tr>
+    <!--##[%END PARAM%][%PARAM *body%]##-->
+    <tr>
+      <td valign="top"><img border="0" src="[$homeurl$]/[%asset_url type:'product' id:'[@SKU@]' thumb:'thumbL'%][%END asset_url%]" alt="[@model@]" width="50px"  height="50px"></td>
+      <td valign="top">[@qty@]</td>
+      <td valign="top">[@model@]<i>[@extra@]</i>
+				<!--##[%DATA id:'aff_id' if:'eq' value:'[$AFF_RENTAL_ID$]' %]##-->&nbsp; <b>Rental</b><!--##[%END DATA%]##-->
+        <!--##[%DATA id:'aff_id' if:'eq' value:'[$AFF_EBAY_ID$]' %]##-->&nbsp; <b>EBay ID: [@aff_ref@]</b><!--##[%END DATA%]##-->
+        <!--##[%DATA id:'aff_id' if:'eq' value:'[$AFF_FREE_ID$]' %]##-->&nbsp; <b>Free Gift</b><!--##[%END DATA%]##-->
+        <!--##[%FORMAT type:'date' default:''%][%PARAM *format%]##--><br><b>Deliver On</b> #D/#M/#Y (#G:#I#a)<!--##[%END PARAM%][@date_delivery@][%END FORMAT%]##-->
+	  </td>
+      <td valign="top">[@ship_method@]</td>
+      <td colspan="2" valign="top"><!--##[%DATA id:'ship_tracking' if:'ne' value:'' %]##-->[@ship_tracking@]<!--##[%END DATA%]##-->
+     	 <!--##[%DATA id:'ship_tracking' if:'eq' value:'' %]##--> <!--##[%END DATA%]##-->
+        <!--##[%DATA id:'tracking_url' if:'ne' value:'' %]##--> <br /><a href="[@tracking_url@]" target="_blank">Online Tracking</a><!--##[%END DATA%]##-->
+        <!--##[%DATA id:'tracking_url' if:'eq' value:'' %]##--> <!--##[%END DATA%]##--></td>
+  </tr> 
+    <!--##[%multi_item_pack id:'[@order_id@]' counter:'[@counter@]'%][%PARAM *header%]##-->
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td><table border="0" cellpadding="1" cellspacing="0" width="100%" style="font-size:10px;">
+        <!--##[%END PARAM%][%PARAM *body%]##-->
+        <tr><td width="1%" nowrap valign="top">[@quantity@] x</td><td>[@description@]</td></tr>
+        <!--##[%END PARAM%][%PARAM *footer%]##-->
+        </table></td><td>&nbsp;</td>
+      <td colspan="2">&nbsp;</td>
+  </tr>
+    <!--##[%END PARAM%][%END multi_item_pack%]##--> 
+<tr>
+<td colspan="5">
+[@shipping_description@]
+</td>
+</tr>      
+<!--##[%END PARAM%][%PARAM *footer%]##--> 
+</table>
+<!--##[%END PARAM%]##-->
+<!--##[%END show_order%]##-->
+<p>
+<b>Please note:</b> some items on your order may arrive separately if they are sent using different shipping methods.
+</p>
+<hr />
+<h2><!--##[%DATA id:'if_invoiced' if:'=' value:'1'%][%PARAM if_true%]##-->
+Tax Invoice
+<!--##[%END PARAM%][%PARAM if_false%]##-->
+Order
+<!--##[%END PARAM%][%END DATA%]##--></h2>
+<!--##[%print_order id:'[@order_id@]'%][%END print_order%]##-->
+
+<hr />
+
+<!--##[%content_zone id:'email_tracking_footer'%][%end content_zone%] ##--> 

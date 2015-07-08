@@ -1,0 +1,124 @@
+<!--[SUBJECT:]-->
+<!--[TO:]-->
+<!--[FROM:]-->
+<!--[BCC:]-->
+[%show_order id:'[@order_id@]' hidechild:'1' warehouse_id:'[@warehouse_id@]'%][%PARAM *header%] 
+<table width="700" border="0" align="center" cellpadding="0" cellspacing="4">
+<tr><td valign="top">
+<table border="0" cellpadding="0" cellspacing="0">
+	<tr><td valign="bottom"><img src="[$homeurl$]/[$imageurl$]/logo.gif" border="0"></td></tr>
+	<tr>
+	  <td valign="top" align="left"><font size="1">ABN: [$COMPANY_ABN$]
+[%CONFIG id:'COMPANY_ACN' if:'ne' value:''%]&nbsp; ACN: [$COMPANY_ACN$][%END CONFIG%]</font></td>
+</tr>
+[%CONFIG id:'LOGO_FOOTER' if:'ne' value:''%]
+<tr><td><font size="1">[$LOGO_FOOTER$]</font></td></tr>
+[%END CONFIG%]
+</table></td>
+<td align="right"><table width="100%" border="0" cellpadding="2" cellspacing="0">
+  <tr><td align="right">
+  <font size="5" face="Arial, Helvetica, sans-serif"><b>
+   ORDER
+   </b></font></td></tr>
+  <tr><td align="right">
+  <font size="2" face="Arial, Helvetica, sans-serif"><b>
+ORDER #: [%NOHTML%][@order_id@][%END NOHTML%]</b></font></td></tr>
+	[%DATA id:'if_invoiced' if:'=' value:'1'%]
+	<tr>
+	  <td align="right"><font size="2" face="Arial, Helvetica, sans-serif"><b>Date:
+		[%format type:"date" format:"#D/#M/#Y"%][@date_invoiced@][%END format%]</b></font></td></tr>
+	[%END DATA%]	[%DATA id:'has_date_due' if:'=' value:'1'%]
+	[%END DATA%]
+</table></td></tr>
+<tr><td width="50%" valign="top" style="padding-left:30px;">
+    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="2">
+<tr><td><b>SHIP TO:</b></td></tr>
+<tr><td valign="top">
+[%DATA id:'ship_company' if:'ne' value:''%][%NOHTML%][@ship_company@][%END NOHTML%]<br>[%END DATA%]
+Tel:
+[%NOHTML%][@ship_phone@][%END NOHTML%]<br>
+[%NOHTML%][@ship_first_name@] [@ship_last_name@][%END NOHTML%]<br>
+[%NOHTML%][@ship_street1@][%END NOHTML%]<br>
+[%DATA id:'ship_street2' if:'ne' value:''%][%NOHTML%][@ship_street2@][%END NOHTML%]<br>[%END DATA%]
+[%NOHTML%][@ship_city@], [@ship_state@] [@ship_zip@][%END NOHTML%]<br>
+[%NOHTML%][@ship_country_name@][%END NOHTML%]
+</td></tr>
+<tr><td> 
+[%DATA id:'ship_comment' if:'ne' value:''%][%NOHTML%]<b>Delivery Instructions:</b>[@ship_comment@][%END NOHTML%][%END DATA%]
+[%DATA id:'ship_comment' if:'eq' value:''%][%END DATA%]</td>
+</tr></table>
+    </td>
+    <td width="50%" valign="top" style="padding-left:20px;">&nbsp;</td></tr>
+</table>
+<hr size="1"/>
+<font size="1">
+<table align="center" border="0" cellpadding="2" cellspacing="0" width="700" style="font-size:11px">
+  <tr> 
+    <td width="32"><strong>QTY</strong></td>
+[%CONFIG id:'INVOICE_SH_UNIT' if:'==' value:'1' %] 
+    <td width="32" nowrap><strong>UNIT</strong></td>
+[%END CONFIG%]
+    <td width="70"><strong>CODE</strong></td>
+    <td><strong>NAME</strong></td>
+ [%DATA id:'has_product_discounts' if:'==' value:'1' %] [%END DATA%]
+[%CONFIG id:'INVOICE_SH_TAX' if:'==' value:'1' %] [%END CONFIG%]  </tr>
+[%END PARAM%][%PARAM *body%]
+	<tr>
+    <td valign="top">[@qty@]</td>
+[%CONFIG id:'INVOICE_SH_UNIT' if:'==' value:'1' %] 
+    <td align="center" nowrap valign="top">[@unit@]&nbsp;</td>
+[%END CONFIG%]
+    <td valign="top">[@SKU@]</td>
+    <td valign="top">[@model@] <i>[@extra@]</i>
+      [%DATA id:'aff_id' if:'eq' value:'[$AFF_EBAY_ID$]' %]&nbsp; <b>EBay ID: [@aff_ref@]</b>[%END DATA%]
+      [%DATA id:'aff_id' if:'eq' value:'[$AFF_FREE_ID$]' %]&nbsp; <b>Free Gift</b>[%END DATA%]
+      [%DATA id:'aff_id' if:'eq' value:'[$AFF_RENTAL_ID$]' %]&nbsp; <b>(Rental)</b>[%END DATA%]
+      [%CONFIG id:'INVOICE_SH_SERIAL' if:'==' value:'1'%][%DATA id:'itm_serial' if:'ne' value:'' %]<br /><b>Serial # [@itm_serial@]</b>[%END DATA%][%END CONFIG%]
+      [%FORMAT type:'date' default:''%][%PARAM *format%]<br><b>Deliver On</b> #D/#M/#Y (#G:#I#a)[%END PARAM%][@date_delivery@][%END FORMAT%]
+      [%CONFIG id:'INVOICE_SH_NOTE' if:'==' value:'1'%][%DATA id:'itemnotes' if:'ne' value:'' %]<font style="font-size:10px" face="Arial, Helvetica, sans-serif"><i>[%FORMAT type:'text' nohtml:'1' addbr:'y'%][@itemnotes@][%END FORMAT%]</i></font>[%END DATA%][%END CONFIG%]
+    </td>
+ [%DATA id:'has_product_discounts' if:'==' value:'1' %] [%END DATA%]
+[%CONFIG id:'INVOICE_SH_TAX' if:'==' value:'1' %] [%END CONFIG%]	</tr> 
+	[%multi_item_pack id:'[@order_id@]' counter:'[@counter@]'%][%PARAM *header%]
+<tr>
+	<td>&nbsp;</td>
+[%CONFIG id:'INVOICE_SH_UNIT' if:'==' value:'1' %] 
+    <td>&nbsp;</td>
+[%END CONFIG%]
+	<td>&nbsp;</td>
+	<td><table border="0" cellpadding="1" cellspacing="0" width="100%" style="font-size:10px;">
+	  [%END PARAM%][%PARAM *body%]
+	  <tr><td width="1%" nowrap valign="top">[@quantity@] x</td><td>[@description@]</td></tr>
+	  [%END PARAM%][%PARAM *footer%]
+    </table></td>
+ [%DATA id:'has_product_discounts' if:'==' value:'1' %] [%END DATA%]
+[%CONFIG id:'INVOICE_SH_TAX' if:'==' value:'1' %] [%END CONFIG%]    </tr>
+	[%END PARAM%][%END multi_item_pack%]
+[%END PARAM%][%PARAM *footer%]
+	<tr>
+    <td>&nbsp;</td>
+[%CONFIG id:'INVOICE_SH_UNIT' if:'==' value:'1' %] 
+    <td>&nbsp;</td>
+[%END CONFIG%]
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+ [%DATA id:'has_product_discounts' if:'==' value:'1' %] [%END DATA%]
+[%CONFIG id:'INVOICE_SH_TAX' if:'==' value:'1' %] [%END CONFIG%]    </tr> 
+</table>
+</font>
+<hr size="1"/>
+<font size="1">
+<table width="700" align="center" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+<td width="50%">&nbsp;</td>
+<td width="50%" valign="top">
+<table width="350" align="center" cellpadding="0" cellspacing="2" border="0" style="font-size:11px">
+  <tr><td width="68%" align="right" nowrap>Ship Via:</td>
+    <td width="32%" align="right" nowrap>[@shipping_method@]</td></tr>
+</table>
+<br ></td></tr>
+</table>
+</font>
+
+[%END PARAM%]
+[%END show_order%]

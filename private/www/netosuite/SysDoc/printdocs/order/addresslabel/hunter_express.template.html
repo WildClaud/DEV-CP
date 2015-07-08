@@ -1,0 +1,107 @@
+<table width="550" align="center" cellpadding="2" cellspacing="0">
+	<tr>
+		<td style="font-size:12px;" valign="top">
+			<table cellpadding="0" cellspacing="0" border="0" width="100%" style="table-layout: fixed">
+				<tr>
+					<td valign="top">
+						<div style="text-transform: uppercase; font-size:18px; font-weight:bold;">
+							<strong>To:</strong> [%NOHTML%][@ship_first_name@] [@ship_last_name@][%END NOHTML%]<br>
+							[%NOHTML%][@ship_street1@][%END NOHTML%]<br>
+							[%DATA id:'ship_street2' if:'ne' value:''%][%NOHTML%][@ship_street2@][%END NOHTML%]<br>[%END DATA%]
+							[%NOHTML%][@ship_city@][%END NOHTML%]<br>
+							[%NOHTML%][@ship_state@][%END NOHTML%] [%NOHTML%][@ship_zip@][%END NOHTML%]
+						</div>
+					</td>
+					<td valign="top">
+						<div style="border: 2px solid black; width:10%; font-size:20px; padding:5px 20px;">
+							[@ship_port@]
+						</div>
+						<div style="border-bottom: 1px solid black; padding:5px;">
+							Name
+						</div>
+						<div style="border-bottom: 1px solid black; padding:5px;">
+							Signature
+						</div>
+						<div style="border-bottom: 1px solid black; padding:5px;">
+							Date/Time
+						</div>
+					</td>
+				</tr>
+				
+				<tr>
+					<td valign="top">
+						Ref [@order_id@] Cust Ref [@customer_po@]
+					</td>
+					<td valign="top" style="padding:5px;">
+
+						Items: [@count@]/[@total@] &nbsp;
+						Wgt: [@total_weight_kg@]kg &nbsp;
+Account: [@merchant_id@]
+
+					</td>
+				</tr>
+
+<tr>
+					<td valign="top" style="font-weight:bold; font-size:16px;">
+						CONSIGNMENT [@cngmt_number@]
+					</td>
+					<td valign="top" style="font-weight:bold; font-size:16px;">
+						[%NOHTML%][@shserv_name@][%END NOHTML%]
+					</td>
+				</tr>
+
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td align="center">
+			<img  width="70%" src="[%BARCODE_URL fn:'article' height:'30' cngmt:'[@cngmt_id@]' art:'[@art_id@]'%][@barcode@][%END BARCODE_URL%]" border="0"/><br>
+			[%NOHTML%][@barcode@][%END NOHTML%]
+		</td>
+	</tr>
+	<tr>
+		<td valign="top">
+			<table cellpadding="0" cellspacing="0" border="0" width="100%" style="table-layout: fixed">
+				<tr>
+					<td valign="top" >
+						<div style="text-transform: uppercase">
+							<strong>From:</strong> [%NOHTML%][@bill_first_name@] [@bill_last_name@][%END NOHTML%]<br>
+							[%NOHTML%][@bill_first_name@] [@bill_last_name@][%END NOHTML%]<br>
+							[%NOHTML%][@bill_street1@][%END NOHTML%]<br>
+							[%DATA id:'bill_street2' if:'ne' value:''%][%NOHTML%][@bill_street2@][%END NOHTML%]<br>[%END DATA%]
+							[%NOHTML%][@bill_city@][%END NOHTML%] &nbsp; [%NOHTML%][@bill_zip@][%END NOHTML%]<br>
+							[%NOHTML%][@bill_phone@][%END NOHTML%]<br>
+							[%FORMAT type:'date' now:1 format:'#d/#M/#Y' default:'n/a'%][@date_manifest@][%END FORMAT%]
+						</div>
+					</td>
+					<td valign="top">
+						<div style="text-transform: uppercase">
+							<strong>To:</strong> [%NOHTML%][@ship_first_name@] [@ship_last_name@][%END NOHTML%]<br>
+							[%NOHTML%][@ship_street1@][%END NOHTML%]<br>
+							[%DATA id:'ship_street2' if:'ne' value:''%][%NOHTML%][@ship_street2@][%END NOHTML%]<br>[%END DATA%]
+							[%NOHTML%][@ship_city@][%END NOHTML%] &nbsp; [%NOHTML%][@ship_zip@][%END NOHTML%]<br>
+							[%NOHTML%][@ship_phone@][%END NOHTML%]
+						</div>
+					</td>
+					<td valign="top" rowspan="2">
+						<strong>Instructions:</strong>
+						[%DATA id:'ship_comment' if:'ne' value:''%][%PARAM if_true%]
+						[%NOHTML%][@ship_comment@][%END NOHTML%]
+						[%END PARAM%][%PARAM if_false%]
+						n/a
+						[%END PARAM%][%END DATA%]
+					</td>
+				</tr>
+				<tr>
+					<td valign="top">
+						Items [@count@]/[@total@] &nbsp;
+						Wgt [@total_weight_kg@]kg
+					</td>
+					<td valign="top">
+						CONSIGNMENT [%NOHTML%][@cngmt_number@][%END NOHTML%]
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>

@@ -1,0 +1,22 @@
+<!--[SUBJECT:[$COMPANY_NAME$] Message For Dispute #[@dispute_id@]]-->
+<!--[FROM:[@email@]]-->
+<!--[TO:[@to_email@]]-->
+<br /><br />
+Dear [$COMPANY_NAME$],
+<!--##[%SHOW_DISPUTE id:'[@dispute_id@]' customer:'[@username@]'%]
+[%PARAM *header%]##-->
+<p>
+[$bill_first_name$] [$bill_last_name$] has sent you a message relating to dispute #[@dispute_id@] for order #[@order_id@] on [%FORMAT type:'date' now:'1' format:'#d #k #Y (#H:#I)'%][%END FORMAT%].<br />
+</p>
+<b>Status Of Dispute:</b> [@dispute_status@]</p>
+<p>
+<b>Message:</b>
+<br />
+[@message@]
+</p>
+<!--##[%END PARAM%]
+[%PARAM *body%]##-->
+[@qty@] x [@model@] <font size="1">(SKU: [@SKU@])</font><br />
+<br />
+<!--##[%END PARAM%]
+[%END SHOW_DISPUTE%]##-->

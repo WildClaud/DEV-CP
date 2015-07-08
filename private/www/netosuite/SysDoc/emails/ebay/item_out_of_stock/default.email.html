@@ -1,0 +1,18 @@
+<!--[SUBJECT:eBay Listing Out Of Stock Warning: [@ebay_title@]([@ebay_id@])]-->
+<!--[FROM:[$COMPANY_EMAIL$]]-->
+<!--[TO:[$BCC_EMAIL$]]-->
+<!--[BCC:[$BCC_EMAIL$]]-->
+Dear [$COMPANY_NAME$],
+<p>
+The stock for [@SKU@] of following eBay Listing # [@ebay_id@] is out of stock.
+</p>
+<p>
+[@ebay_title@]<br/>
+Start price:[%FORMAT type:'currency'%][@start_price@][%END FORMAT%]<br/>
+[%DATA id:'current_price' if:'gt' value:'0'%]Sale price:[%FORMAT type:'currency'%][@current_price@][%END FORMAT%]<br/>[%END DATA%]
+Quantity Listed:[@ebay_quantity@]<br/>
+<br/>
+Available Quantity:[@available_quantity@]<br/>
+Reserved Quantity:[@reserved_quantity@]<br/>
+</p>
+[%content_zone id:'email_signature'%][%end content_zone%]

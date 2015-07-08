@@ -1,0 +1,149 @@
+<!--##[%show_order id:'[@order_id@]'%][%PARAM *header%]##-->
+<div class="box_default">
+<div class="header">Shipping Tracking For Order #<!--##[%NOHTML%]##-->[@order_id@]<!--##[%END NOHTML%]##--></div>
+<div class="content">
+	<p>[@dispatch_notification@]</p>
+<table border="0" cellspacing="0" cellpadding="0" width="100%" align="center"><tr><td valign="top">
+  
+  <table width="100%" border="0" align="center" cellpadding="0" cellspacing="4">
+    <tr>
+      <td width="50%" valign="top" >
+	  <font style=" font-size:20px; font-weight:bold;">STATUS: <font style="color:#339900; font-size:20px; font-weight:bold;">[@order_status@]</font> </font>
+        <table width="100%" border="0" cellpadding="2" cellspacing="0">
+        <tr><td align="left"><font size="2" face="Arial, Helvetica, sans-serif">Invoice # <!--##[%NOHTML%]##-->[@order_id@]<!--##[%END NOHTML%]##--> 
+          <!--##[%DATA id:'customer_po' if:'ne' value:''%]##-->&nbsp;PO# <!--##[%NOHTML%]##-->[@customer_po@]<!--##[%END NOHTML%]##--><!--##[%END DATA%]##--></font></td></tr>
+        <tr><td align="left"><font size="2" face="Arial, Helvetica, sans-serif">Date Placed:
+          <!--##[%format type:"date" format:"#D/#M/#Y"%]##-->[@date_placed@]<!--##[%END format%]##--></font></td></tr>
+        <!--##[%DATA id:'if_invoiced' if:'=' value:'1'%]##-->
+        <tr><td align="left"><font size="2" face="Arial, Helvetica, sans-serif">Date Invoiced:
+          <!--##[%format type:"date" format:"#D/#M/#Y"%]##-->[@date_invoiced@]<!--##[%END format%]##--></font></td></tr>
+        <!--##[%END DATA%]##-->
+        <!--##[%DATA id:'order_status' if:'like' value:'Completed'%]##-->
+        <tr><td align="left"><font size="2" face="Arial, Helvetica, sans-serif">Date Completed:
+          <!--##[%format type:"date" format:"#D/#M/#Y"%]##-->[@date_updated@]<!--##[%END format%]##--></font></td></tr>
+        <!--##[%END DATA%]##-->
+        </table></td>
+      <td width="50%" valign="top"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="2">
+        <tr>
+          <td><b>SHIP TO:</b></td>
+          </tr>
+        <tr>
+          <td valign="top"><!--##[%NOHTML%]##-->
+            [@ship_first_name@] [@ship_last_name@]
+            <!--##[%END NOHTML%]##-->
+            <br />
+            <!--##[%DATA id:'ship_company' if:'ne' value:''%]##-->
+            <!--##[%NOHTML%]##-->
+            [@ship_company@]
+            <!--##[%END NOHTML%]##-->
+            <br />
+            <!--##[%END DATA%]##-->
+            <!--##[%NOHTML%]##-->
+            [@ship_street1@]
+            <!--##[%END NOHTML%]##-->
+            <br />
+            <!--##[%DATA id:'ship_street2' if:'ne' value:''%]##-->
+            <!--##[%NOHTML%]##-->
+            [@ship_street2@]
+            <!--##[%END NOHTML%]##-->
+            <br />
+            <!--##[%END DATA%]##-->
+            <!--##[%NOHTML%]##-->
+            [@ship_city@], [@ship_state_name@] [@ship_zip@]
+            <!--##[%END NOHTML%]##-->
+            <br />
+            <!--##[%NOHTML%]##-->
+            [@ship_country_name@]
+            <!--##[%END NOHTML%]##-->
+            <br />
+            Tel:
+            <!--##[%NOHTML%]##-->
+            [@ship_phone@]
+            <!--##[%END NOHTML%]##--></td>
+          </tr>
+      </table></td></tr>
+    </table>
+  <br >
+  
+  <table align="center" border="0" cellpadding="4" cellspacing="0" width="100%">
+    <tr> 
+      <td width="7%"  valign="top"><strong>Image</strong></td>
+      <td width="8%"  valign="top"><strong>Qty</strong></td>
+      <td width="47%" valign="top"><strong>Description</strong></td>
+      <td width="38%" valign="top" nowrap="nowrap"><strong>Shipping Details </strong></td>
+      </tr>
+    <!--##[%END PARAM%][%PARAM *body%]##-->
+    <tr>
+      <td valign="top"><img border="0" src="[%asset_url type:'product' id:'[@SKU@]' thumb:'thumbL'%][%END asset_url%]" alt="[@model@]" width="50px"  height="50px"></td>
+      <td valign="top">[@qty@]</td>
+      <td valign="top">[@model@]<i>[@extra@]</i>
+				<!--##[%DATA id:'aff_id' if:'eq' value:'[$AFF_RENTAL_ID$]' %]##-->&nbsp; <b>Rental</b><!--##[%END DATA%]##-->
+        <!--##[%DATA id:'aff_id' if:'eq' value:'[$AFF_EBAY_ID$]' %]##-->&nbsp; <b>EBay ID: [@aff_ref@]</b><!--##[%END DATA%]##-->
+        <!--##[%DATA id:'aff_id' if:'eq' value:'[$AFF_FREE_ID$]' %]##-->&nbsp; <b>Free Gift</b><!--##[%END DATA%]##-->
+        <!--##[%FORMAT type:'date' default:''%][%PARAM *format%]##--><br><b>Deliver On</b> #D/#M/#Y (#G:#I#a)<!--##[%END PARAM%][@date_delivery@][%END FORMAT%]##-->			  </td>
+      <td valign="top">[@ship_method@]<br />
+        <!--##[%DATA id:'ship_tracking' if:'ne' value:'' %]##-->
+        Tracking #[@ship_tracking@]<br />
+        <!--##[%END DATA%]##-->
+     	 <!--##[%DATA id:'ship_tracking' if:'eq' value:'' %]##-->
+&nbsp;     	 <!--##[%END DATA%]##-->
+        <!--##[%DATA id:'tracking_url' if:'ne' value:'' %]##--> 
+        <a href="[@tracking_url@]" target="_blank">Track Online</a>
+        <!--##[%END DATA%]##-->
+        <!--##[%DATA id:'tracking_url' if:'eq' value:'' %]##--> 
+&nbsp;        <!--##[%END DATA%]##--></td>
+      </tr> 
+    <!--##[%multi_item_pack id:'[@order_id@]' counter:'[@counter@]'%][%PARAM *header%]##-->
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td><table border="0" cellpadding="1" cellspacing="0" width="100%" style="font-size:10px;">
+        <!--##[%END PARAM%][%PARAM *body%]##-->
+        <tr><td width="1%" nowrap valign="top">[@quantity@] x</td><td>[@description@]</td></tr>
+        <!--##[%END PARAM%][%PARAM *footer%]##-->
+        </table></td><td>&nbsp;</td>
+      </tr>
+    <!--##[%END PARAM%][%END multi_item_pack%]##-->
+    <!--##[%END PARAM%][%PARAM *footer%]##--> 
+    </table>
+  <br >
+  <!--##[%backorder_items id:'[@order_id@]'%][%PARAM *header%]##-->
+<h2>Items On Backorder</h2>
+  <table align="center" border="0" cellpadding="2" cellspacing="0" width="100%">
+    <tr> 
+      <td width="32" style="border-top: 1px solid #333333; border-right: 1px solid #333333; border-left: 1px solid #333333;  border-bottom: 1px solid #333333;"><strong>QTY</strong></td>
+      <td width="70" style="border-top: 1px solid #333333; border-right: 1px solid #333333; border-bottom: 1px solid #333333;"><strong>CODE</strong></td>
+      <td style="border-top: 1px solid #333333; border-right: 1px solid #333333; border-bottom: 1px solid #333333;"><strong>NAME</strong></td>
+      <td width="91" nowrap style="border-top: 1px solid #333333; border-right: 1px solid #333333; border-bottom: 1px solid #333333;"><strong>UNIT PRICE</strong></td>
+      <td width="92" style="border-top: 1px solid #333333; border-right: 1px solid #333333; border-bottom: 1px solid #333333;"><strong>DISCOUNTS</strong></td>
+      <td width="92" style="border-top: 1px solid #333333; border-right: 1px solid #333333; border-bottom: 1px solid #333333;"><strong>SUBTOTAL</strong></td>
+      </tr>
+    <!--##[%END PARAM%][%PARAM *body%]##-->
+    <tr>
+      <td style="border-right: 1px solid #333333; border-left: 1px solid #333333;">[@qty@]</td>
+      <td style="border-right: 1px solid #333333;">[@SKU@]</td>
+      <td style="border-right: 1px solid #333333;">[@model@] <i>[@extra@]</i>
+        <!--##[%DATA id:'aff_id' if:'eq' value:'ebay' %]##-->&nbsp; <b>EBay ID: [@aff_ref@]</b><!--##[%END DATA%]##-->
+        <!--##[%DATA id:'aff_id' if:'eq' value:'free' %]##-->&nbsp; <b>Free Gift</b><!--##[%END DATA%]##-->
+        </td>
+      <td style="border-right: 1px solid #333333;"><!--##[%format type:'currency'%]##-->[@price@]<!--##[%END format%]##--></td>
+      <td style="border-right: 1px solid #333333;"><!--##[%format type:'currency'%]##-->[@discount@]<!--##[%END format%]##--></td>
+      <td style="border-right: 1px solid #333333;"><!--##[%format type:'currency'%]##-->[@subtotal@]<!--##[%END format%]##--></td>
+      </tr> 
+    <!--##[%END PARAM%][%PARAM *footer%]##-->
+    <tr>
+      <td style="border-bottom: 1px solid #333333; border-right: 1px solid #333333; border-left: 1px solid #333333;">&nbsp;</td>
+      <td style="border-bottom: 1px solid #333333; border-right: 1px solid #333333;">&nbsp;</td>
+      <td style="border-bottom: 1px solid #333333; border-right: 1px solid #333333;">&nbsp;</td>
+      <td style="border-bottom: 1px solid #333333; border-right: 1px solid #333333;">&nbsp;</td>
+      <td style="border-bottom: 1px solid #333333; border-right: 1px solid #333333;">&nbsp;</td>
+      <td style="border-bottom: 1px solid #333333; border-right: 1px solid #333333;">&nbsp;</td>
+      </tr> 
+    </table>
+  <br >
+  <!--##[%END PARAM%][%END backorder_items%]##-->
+  <!--##[%END PARAM%][%END order_refunds%]##-->
+  <!--##[%END PARAM%]##-->
+  <!--##[%END show_order%]##-->
+
+

@@ -1,0 +1,16 @@
+<table width="215" border="0" align="center" cellpadding="4" cellspacing="0"><tr>
+  <td colspan="2" style="font-size:15px;">
+<div style="text-transform:uppercase;">
+<b><!--##[%NOHTML%]##-->[@ship_first_name@] [@ship_last_name@]<!--##[%END NOHTML%]##--></b><br />
+
+<!--##[%DATA id:'ship_company' if:'ne' value:''%]##--><!--##[%NOHTML%]##-->[@ship_company@]<!--##[%END NOHTML%]##--><br><!--##[%END DATA%]##-->
+
+<!--##[%NOHTML%]##-->[@ship_street1@]<!--##[%END NOHTML%]##--><br/>
+<!--##[%DATA id:'ship_street2' if:'ne' value:''%]##--><!--##[%NOHTML%]##-->[@ship_street2@]<!--##[%END NOHTML%]##-->
+<br/><!--##[%END DATA%]##-->
+<!--##[%NOHTML%]##-->[@ship_city@]<!--##[%END NOHTML%]##--><br/>
+<!--##[%NOHTML%]##-->[@ship_state@] [@ship_zip@]<!--##[%END NOHTML%]##--><br />
+</div>
+<div style="font-size:12px;"><!--##[%NOHTML%]##-->[@article_notes@]<!--##[%END NOHTML%]##--></div>
+</td></tr>
+</table>

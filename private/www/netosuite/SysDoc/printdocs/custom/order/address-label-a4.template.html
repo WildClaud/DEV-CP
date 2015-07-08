@@ -1,0 +1,31 @@
+[%show_orderlist ids:'[@ids@]' sortby:'[@tmpl_sort_by@]' groupby:'[@tmpl_group_by@]' sortorder:'[@tmpl_sort_order@]'%][%PARAM *header%] 
+<div style="float:left; width:222px; height:118px; margin-top:22px; text-transform:uppercase; overflow:hidden;">
+<div style="padding-left:40px;">
+[@ship_first_name@] [@ship_last_name@]<br>
+[%IF [@ship_company@]%][@ship_company@]<br>[%/IF%]
+[%IF [@ship_street1@]%][@ship_street1@]<br>[%/IF%]
+[%IF [@ship_street2@]%][@ship_street2@]<br>[%/IF%]
+[@ship_city@] [@ship_zip@]<br>
+[@ship_state@] [@ship_country@]<br>
+Ref # [@order_ID@]
+</div>
+</div>
+[%END PARAM%]
+[%PARAM *section_header%] 
+[%END PARAM%][%PARAM *body%]
+[%END PARAM%]
+[%PARAM *section_footer%] 
+[%END PARAM%]
+[%PARAM *footer%] 
+[%END PARAM%]
+[%END show_orderlist%]
+
+<script type="text/javascript">
+ window.onload = function() { window.print(); }
+</script>
+
+
+<!-- 
+Label Stationary: This label template is designed for use with AVERY L7160 63.5mm x 38.1mm x 21 A4 stationary.
+Printer Margins: To ensure correct printing set your printer margins to 0.4" or 1.0160cm on all sides.
+-->

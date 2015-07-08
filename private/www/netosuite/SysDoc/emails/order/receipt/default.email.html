@@ -1,0 +1,18 @@
+
+<!--[SUBJECT:[$COMPANY_NAME$] Order Receipt #[@order_id@]]-->
+<!--[FROM:[$COMPANY_EMAIL$]]-->
+<!--[TO:[@email@]]-->
+<!--[BCC:[$BCC_EMAIL$]]-->
+Dear [@bill_first_name@],
+<p>
+Thank you for shopping with [$company_name$].
+</p>
+<p>
+[%data id:'username' if:'ne' value:''%]
+Your order will soon be picked, and carefully packed, ready to be dispatched to you. If you'd like to monitor the progress of your order online please go to <a href="[%URL page:'account'%][%END URL%]">your account</a> and select your order.
+[%END data %]
+
+</p>
+[%content_zone id:'email_receipt_header'%][%end content_zone%]
+[%print_order id:'[@order_id@]'%][%END print_order%]
+[%content_zone id:'email_receipt_footer'%][%end content_zone%]

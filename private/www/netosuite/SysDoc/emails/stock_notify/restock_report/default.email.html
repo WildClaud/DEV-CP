@@ -1,0 +1,39 @@
+<!--[SUBJECT:[@config:COMPANY_NAME@] Inventory Restock Report]-->
+<!--[FROM:[@config:COMPANY_EMAIL@]]-->
+<!--[TO:[@email@]]-->
+<!--[BCC:[@config:BCC_EMAIL@]]-->
+
+Hi [@config:COMPANY_NAME@],
+
+<p>The following products need to be ordered based on your inventory restock settings.</p>
+
+<p><a href="[? print cpanelfns::cp_url('tkn'=>'report_purchase_orders') ?]">Click here</a> to view this report online.</p>
+
+<table border="1" cellpadding="4" cellspacing="0">
+	<thead><tr>						
+		<th cp-column-name="SKU">SKU</th>
+		<th cp-column-name="Product">Product</th>
+		<th cp-column-name="Restock Alert Quantity">Restock Alert Quantity</th>
+		<th cp-column-name="Default Reorder Quantity">Default Reorder Quantity</th>
+		<th cp-column-name="Quantity Committed">Quantity Committed</th>
+		<th cp-column-name="Quantity on Hand">Quantity on Hand</th>
+		<th cp-column-name="Incoming Quantity">Incoming Quantity</th>
+	</tr></thead>
+	<tbody>
+[%THUMB_LIST type:'products_by_id' filter_inventory_id:'[@inventory_ids@]' sortby:'lowest_qty'%]
+        [%PARAM *body%]
+	<tr>		
+		<td><a href="$producturl" target="_blank">[@SKU@]</a></td>
+		<td>[@model@]</th>
+		<td>[@restock_quantity@]</td>
+		<td>[@reorder_quantity@]</td>
+		<td>[@committed_quantity@]</td>
+		<td>[@store_quantity@]</td>
+		<td>[@incoming_quantity@]</td>
+		
+	</tr>
+        [%END PARAM%]
+[%END THUMB_LIST%]
+	</tbody>
+</table>
+

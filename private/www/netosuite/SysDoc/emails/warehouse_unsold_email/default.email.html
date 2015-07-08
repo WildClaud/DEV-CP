@@ -1,0 +1,26 @@
+<!--[SUBJECT:[@send_from_company@] Order Batch #[@batch_id@]]-->
+<!--[FROM:[@send_from_email@]]-->
+<!--[TO:[@email@]]-->
+<!--[BCC:[$BCC_EMAIL$]]-->
+Dear [@warehouse_name@],
+<p>
+This is a notification email to let you know that the following products have not been sold for at least <strong>[@whemail_unsold_days@]</strong> days:
+</p>
+
+<p>
+[%thumb_list type:'products' limit:'1000'%]
+[%PARAM filter_sku%][@SKU@][%end PARAM%]
+[%PARAM *header%]
+<table width="100%" border="0" cellspacing="0" cellpadding="4">
+[%end PARAM%]
+[%PARAM *body%]
+    <td width="7%">[@SKU@]</td>
+    <td width="81%">[@MODEL@]</td>
+    <td width="12%">[@store_quantity@]</td>
+[%end PARAM%]
+[%PARAM *footer%]
+</table>
+[%end PARAM%]
+[%PARAM *ifempty%]no products found[%end PARAM%]
+[%end thumb_list%]
+</p>

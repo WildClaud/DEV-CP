@@ -1,0 +1,206 @@
+<table cellpadding="0" cellspacing="0" border="0" width="350px" align="center" style="table-layout:fixed;">
+	<tr style="height:1px">
+		<td style="width:30px;"></td>
+		<td style=""></td>
+		<td style="width:30px;"></td>
+	</tr>
+	<tr>
+		<td colspan="3">
+			<b>DIRECT FREIGHT EXPRESS</b>
+		</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td style="font-size:12px" colspan="2">
+			<table cellpadding="4px" cellspacing="0" border="0" width="100%" align="center" style="table-layout: fixed">
+				<tr>
+					<td style="width: 40px">
+						<div style="-webkit-transform: rotate(-90deg);"><span style="font-size: 40px">[@sortcode3@]</span></div>
+					</td>
+					<td>
+						<span style="font-size: 110px">[@sortcode1@]</span>
+						<br>
+						<span style="font-size: 40px">[@sortcode2@]</span>
+					</td>
+					<td style="width: 45mm" align="right">
+						<img src="[%BARCODE_URL fn:'article' barcodetype:'details' cngmt:'[@cngmt_id@]' art:'[@art_id@]'%][%END BARCODE_URL%]" style="width:35mm; height: 35mm">
+					</td>
+				</tr>
+			</table>
+			<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+				<tr>
+					<td valign="top" style="padding-bottom:2px; padding-top:2px; border-top: 1px solid #000;text-transform:uppercase; font-size: 16px">
+						<div>
+							<!--##[%NOHTML%]##-->[@ship_first_name@] [@ship_last_name@]<!--##[%END NOHTML%]##-->
+						</div>
+						<!--##[%DATA id:'ship_company' if:'ne' value:''%]##-->
+						<div>
+							<!--##[%NOHTML%]##-->[@ship_company@]<!--##[%END NOHTML%]##-->
+						</div>
+						<!--##[%END DATA%]##-->
+						<div>
+							<!--##[%NOHTML%]##-->[@ship_street1@]<!--##[%END NOHTML%]##-->
+						</div>
+						<!--##[%DATA id:'ship_street2' if:'ne' value:''%]##-->
+						<div>
+							<!--##[%NOHTML%]##-->[@ship_street2@]<!--##[%END NOHTML%]##-->
+						</div>
+						<!--##[%END DATA%]##-->
+						<div style="float:right; text-transform:uppercase;font-size:22px">
+							<b>
+								<!--##[%NOHTML%]##-->[@ship_state@][@ship_zip@]<!--##[%END NOHTML%]##-->
+							</b>
+						</div>
+						<div style="text-transform:uppercase;font-size:22px; white-space: nowrap">
+							<b>
+								<!--##[%NOHTML%]##-->[@ship_city@]<!--##[%END NOHTML%]##-->
+							</b>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td style="padding-bottom:8px;padding-top:2px; border-top: 1px solid #000;" colspan="2">
+			<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+				<tr>
+					<td width="65%" valign="top">
+						<b>
+							REF:
+							<!--##[%NOHTML%]##-->[@order_id@]<!--##[%END NOHTML%]##-->
+						</b>
+					</td>
+					<td valign="top" style="padding-left:4px;" nowrap>
+						<b>
+							ITEM:
+							<!--##[%NOHTML%]##-->[@count@] OF [@total@]<!--##[%END NOHTML%]##-->
+						</b>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td valign="top">
+			<div style="font-size:12px; padding-bottom:2px;text-transform:uppercase;" >
+				<b>Special Instructions</b>
+			</div>
+			<div style="font-size:10px; text-transform:uppercase;">
+				<!--##[%DATA id:'ship_comment' if:'ne' value:''%][%PARAM if_true%]##-->
+				<!--##[%NOHTML%][%FORMAT type:'text' maxlength:'255'%]##-->[@ship_comment@]<!--##[%END FORMAT%][%END NOHTML%]##-->
+				<!--##[%END PARAM%][%PARAM if_false%]##-->
+				n/a
+				<!--##[%END PARAM%][%END DATA%]##-->
+			</div>
+		</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td style="padding-bottom:2px;padding-top:2px; border-top: 1px solid #000;" width="70%">
+			<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+				<tr>
+					<td valign="top" rowspan="2">
+						<div style="font-size:12px; padding-bottom:2px;">
+							C/NOTE:
+							<!--##[%NOHTML%]##-->[@cngmt_number@]<!--##[%END NOHTML%]##-->
+						</div>
+						<table cellpadding="0" cellspacing="0" border="0" width="100%" >
+							<tr>
+								<td width="1%" valign="top">
+									TO:
+								</td>
+								<td>
+									<div style="text-transform:uppercase;">
+										<!--##[%NOHTML%]##-->[@ship_street1@]<!--##[%END NOHTML%]##-->
+									</div>
+									<!--##[%DATA id:'bill_street2' if:'ne' value:''%]##-->
+									<div style="text-transform:uppercase;">
+										<!--##[%NOHTML%]##-->[@ship_street2@]<!--##[%END NOHTML%]##-->
+									</div>
+									<!--##[%END DATA%]##-->
+									<div style="text-transform:uppercase;">
+										<!--##[%NOHTML%]##-->[@ship_city@], [@ship_state@] [@ship_zip@]<!--##[%END NOHTML%]##-->
+									</div>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td width="40%" valign="top">
+						<div style="font-size:12px; padding-bottom:2px;">
+							Date:
+							<!--##[%FORMAT type:'date' now:1 format:'#d/#M/#Y' default:'n/a'%]##-->[@label_created@]<!--##[%END FORMAT%]##-->
+						</div>
+						<div style="font-size:12px; padding-bottom:2px;">
+							Qty:
+							<!--##[%NOHTML%]##-->[@total@]<!--##[%END NOHTML%]##-->
+						</div>
+						<div style="font-size:12px; padding-bottom:2px;">
+							Kgs:
+							<!--##[%FORMAT type:'number' dp:'0' %]##-->[@total_weight_kg@]<!--##[%END FORMAT%]##-->
+						</div>
+						<div style="font-size:12px; padding-bottom:2px;">
+							DIM:
+							<!--##[%FORMAT type:'number' dp:'0' %]##-->[%data id:'length' calc:'*' cvalue:'100'/%]<!--##[%END FORMAT%]##-->
+							<!--##[%FORMAT type:'number' dp:'0' %]##-->[%data id:'width' calc:'*' cvalue:'100'/%]<!--##[%END FORMAT%]##-->
+							<!--##[%FORMAT type:'number' dp:'0' %]##-->[%data id:'height' calc:'*' cvalue:'100'/%]<!--##[%END FORMAT%]##-->
+						</div>
+						<div style="font-size:12px; padding-bottom:2px;">
+							M3:
+							<!--##[%FORMAT type:'number' dp:'3'%]##-->[@total_cubic@]<!--##[%END FORMAT%]##-->
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td style="padding-bottom:2px;" colspan="2">&nbsp;</td>
+				</tr>
+				<tr>
+					<td style="padding-bottom:12px;" colspan="2">
+						<div style="font-size:12px; padding-bottom:2px;">
+							<!--##[%DATA id:'bill_company' if:'ne' value:''%]##-->FROM: <!--##[%NOHTML%]##-->[@bill_company@]<!--##[%END NOHTML%][%END DATA%]##-->
+							<!--##[%DATA id:'bill_phone' if:'ne' value:''%]##-->&nbsp;PH: <!--##[%NOHTML%]##-->[@bill_phone@]<!--##[%END NOHTML%][%END DATA%]##-->
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td valign="top" style="padding-bottom:8px;padding-top:2px; border-top: 1px solid #000;" colspan="2">
+						<div style="font-size:12px; padding-bottom:2px;">Received In Good Order</div>
+					</td>
+				</tr>
+				<tr>
+					<td valign="top" style="padding-bottom:8px;" colspan="2">
+						<div style="font-size:12px; padding-bottom:2px;">Signed:___ ___ ___ ___ ___ ___ ___ ___ </div>
+					</td>
+				</tr>
+				<tr>
+					<td valign="top" style="padding-bottom:4px;" width="50%">
+						<div style="font-size:12px; padding-bottom:2px;">Print Name:__ __ __ __</div>
+					</td>
+					<td valign="top" style="padding-bottom:4px;">
+						<div style="font-size:12px; padding-bottom:2px;">Date:___ / ___ /___</div>
+					</td>
+				</tr>
+				<tr>
+					<td align="center" colspan="2">
+						<img width="100%" src="[%BARCODE_URL fn:'article' height:'60' cngmt:'[@cngmt_id@]' art:'[@art_id@]'%][@barcode@][%END BARCODE_URL%]" border="0">
+						<br>
+						<div style="font-size:10px;">
+							<!--##[%NOHTML%]##-->[@barcode@]<!--##[%END NOHTML%]##-->
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td align="center" colspan="2">
+						<div style="font-size:11px; padding-bottom:2px;">Order ID: [@order_id@]</div>
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td>&nbsp;</td>
+	</tr>
+</table>

@@ -1,0 +1,25 @@
+<!--##[%show_orderlist ids:'[@ids@]' sortby:'[@tmpl_sort_by@]' groupby:'[@tmpl_group_by@]' sortorder:'[@tmpl_sort_order@]'%][%PARAM *header%]##--> 
+<table style="table-layout:fixed; width:1110px;"><tbody><tr><td style="width:170px"></td><td style="width:380px"></td><td style="word-wrap:break-word;"></td><td style="width:50px"></td></tr>
+<tr><td></td></tr>
+	<tr><td class="LABELSMALLWEB STDCOLUMNWIDTH">NAME:</td><td colspan="2" class="LABELSMALLWEB">PACKAGING LIST <!--##[%IF [@group_name@] ne '' && [@group_name@] ne '0'%] - [@group_name@][%END IF%]##--> </td></tr>
+	<tr><td class="LABELSMALLWEB">ORDER</td><td class="LABELSMALLWEB">CUSTOMER NAME</td><td class="LABELSMALLWEB">SKU</td><td class="LABELSMALLWEB">QTY</td></tr>
+	<!--##[%END PARAM%]
+
+	[%PARAM *section_header%]##--> 
+	<!--##[%END PARAM%]
+	
+	[%PARAM *body%]##-->
+<tr><td class="LABELMEDIUMWEB" style="[%IF [@new_order@] eq '1' %]BORDER-TOP:1PX SOLID BLACK;[%END IF%]">[@order_id@]<span class="LABELSMALLGRAY"></span></td><td class="LABELMEDIUMWEB" style="[%IF [@new_order@] eq '1' %]BORDER-TOP:1PX SOLID BLACK;[%END IF%]">[@bill_first_name@] [@bill_last_name@]</td><td class="LABELMEDIUMWEB" style="[%IF [@new_order@] eq '1' %]BORDER-TOP:1PX SOLID BLACK;[%END IF%]">[@SKU@]</td><td class="LABELMEDIUMWEB LABELCENTER LABELREVERSE" style="[%IF [@new_order@] eq '1' %]BORDER-TOP:1PX SOLID BLACK;[%END IF%]">[@quantity@]</td></tr>
+	[%SET [@data:order_id@]%][@order_id@][%END SET%]
+	<!--##[%END PARAM%]
+	
+  [%PARAM *section_footer%]##--> 
+	<!--##[%END PARAM%]
+	
+	[%PARAM *footer%]##--> 
+	</tbody></table>
+		<!--##[%END PARAM%]
+
+<!--##[%END show_orderlist%]##-->
+
+

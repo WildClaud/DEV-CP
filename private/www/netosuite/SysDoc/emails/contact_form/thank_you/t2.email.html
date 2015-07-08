@@ -1,0 +1,17 @@
+<!--[SUBJECT:[@subject@]]-->
+<!--[FROM:no-reply@neto.com.au]-->
+<!--[TO:[@femail@]]-->
+<!--[CC:[@email@]]-->
+<!--[BCC:[%DATA id:'approved' if:'eq' value:'y'%]approved-comment@neto.com.au[%END DATA%]]-->
+<html>
+<body>
+Thank-you for your gift:<br />
+This is Template 2<br>
+I am [@mname@] ([@email@])<br>
+You are [@fname@] ([@femail@])<br>
+[%DATA id:'upload_url' if:'ne' value:''%]
+Img: <a href="[@upload_url@]">Image Uploaded</a><br>
+[%END DATA%]
+Message: [@msg@]<br>
+</body>
+</html>

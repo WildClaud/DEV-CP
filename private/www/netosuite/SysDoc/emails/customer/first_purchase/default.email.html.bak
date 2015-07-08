@@ -1,0 +1,6 @@
+<!--[SUBJECT:Thank You For Shopping With [$COMPANY_NAME$]]-->
+<!--[FROM:[$company_email$]]-->
+<!--[TO:[@email@]]-->
+<!--#Start Column Left# ##-->
+<!--##[%load_template file:"column_left/category.template.html"%][%END load_template%]##-->
+<!--# End Column Left# ##-->

@@ -1,0 +1,22 @@
+<!--##[%PROPOSAL_MSG proposal_id:'[@proposal_id@]' id:'[@pmsg_id@]'%]
+[%PARAM *header%]##-->
+[@pmsg_subject@]
+<hr />
+<!--##[%END PARAM%][%PARAM *body%]##-->
+[@pmsg_body@]
+
+<!--##[%PROPOSAL_FILELIST proposal_id:'[@proposal_id@]' id:'[@pmsg_id@]'%]
+[%PARAM *header%]##-->
+<hr />
+<p>
+Attachments:<br />
+<!--##[%END PARAM%][%PARAM *body%]##-->
+<a href="[$homeurl$][@file_url@]">[$homeurl$][@file_url@]</a><br />
+<!--##[%END PARAM%][%PARAM *footer%]##-->
+</p>
+<!--##[%END PARAM%]
+[%END PROPOSAL_FILELIST%]##-->
+
+<!--##[%END PARAM%][%PARAM *footer%]##-->
+<!--##[%END PARAM%]
+[%END PROPOSAL_MSG%]##-->

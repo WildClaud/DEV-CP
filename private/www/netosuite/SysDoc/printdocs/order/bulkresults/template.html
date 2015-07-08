@@ -1,0 +1,62 @@
+<style>
+BODY, TD {font-size:14px;}
+TD.hdr { font-size: 14px; border-bottom: 2px solid #000000;  border-top: 2px solid #000000; padding-bottom: 4px; padding-top: 4px; vertical-align:text-bottom; font-weight:bold;}
+TD.itm { font-size: 14px; padding: 2px 4px 2px 4px; vertical-align:text-top;}
+</style>
+
+<h1>Print Bulk Pack Report</h1>
+
+<table width="100%" cellpadding="2px" cellspacing="0" border="0">
+    <tr>
+    <td class="hdr">Order ID</td>
+    <td class="hdr">Customer Name</td>
+  	<td class="hdr">Delivery Address 1</td>
+  	<td class="hdr">Delivery Address 2</td>
+    <td class="hdr">Suburb</td>
+    <td class="hdr">State</td>
+    <td class="hdr">Postcode</td>
+    <td class="hdr">Method</td>
+    <td class="hdr">SKU</td>
+    <td class="hdr">Description</td>
+    <td class="hdr">Qty</td>
+    <td class="hdr">Amount</td>
+    <td class="hdr">Channel</td>
+    <td class="hdr">Tracking</td></tr>
+    
+
+<!--##[?
+	my $ids = $_DATA{oids};
+	
+	my $sql = "select L.SKU, L.quantity, L.description, L.unit_price, O.order_id, O.ship_first_name, O.ship_last_name, O.ship_street1, O.ship_street2, O.ship_city, O.ship_state, O.ship_zip, O.sales_channel, O.email, O.phone, L.tracking_id
+						FROM ORDERLINES L INNER JOIN ORDERS O ON (L.order_id=O.order_id) 
+						WHERE 1 $ids";
+	my $sth = run_sql_dyn($sql);
+	while (my $row = $sth->fetchrow_hashref) {
+		$row->{'customer_name'} = "$row->{ship_first_name} $row->{ship_last_name}";
+		$row->{'grand_total'} = $row->{quantity} * $row->{unit_price};
+		
+		my %trackings = get_hash("SELECT ship_method, ship_tracking FROM ORDERTRACKINGS WHERE tracking_id = ?", $row->{tracking_id});
+		
+		print qq~##-->
+
+		<tr>
+        <td class="itm"> $row->{order_id}</td>
+        <td class="itm"> $row->{customer_name}</td>
+  	<td class="itm">$row->{ship_street1}</td>
+  	<td class="itm">$row->{ship_street2}</td>
+		<td class="itm">$row->{ship_city}</td>
+		<td class="itm">$row->{ship_state}</td>
+		<td class="itm">$row->{ship_zip}</td>
+		<td class="itm">$trackings{ship_method}</td>
+		<td class="itm">$row->{SKU}</td>
+        <td class="itm">$row->{description}</td>
+		<td class="itm">$row->{quantity}</td>
+		<td class="itm">$row->{grand_total}</td>
+		<td class="itm">$row->{sales_channel}</td>
+		<td class="itm">$trackings{ship_tracking}</td></tr>
+<!--##~;
+	}
+
+?]##-->
+
+</table>

@@ -1,0 +1,33 @@
+<!--[SUBJECT:[$COMPANY_NAME$] Reward Notification]-->
+<!--[TO:[@recipient_email@]]-->
+<!--[FROM:[$COMPANY_EMAIL$]]-->
+<!--[BCC:[$BCC_EMAIL$]]-->
+
+Dear [@recipient_name@], 
+
+<p>
+Thank you for shopping at [$COMPANY_EMAIL$]. You have earned reward points from [@vprogram_title@]. 
+You will be able to use your reward at the checkout page on [$home_url$].
+</p>
+
+<p>
+Voucher Details:<br>
+<b>Voucher Code:</b> [@voucher_code@]<br>
+<b>Voucher Secret Key:</b>  [@voucher_secret@]<br>
+<b>Voucher Value:</b> [%DATA id:'show_points' if:'==' value:'1'%][%PARAM if_true%]
+	[%format type:'number' dp:'0' sp:','%][@reward_points@][%END format%]pts
+[%END PARAM%][%PARAM if_false%]
+[%format type:'currency'%][@reward_amount@][%END format%]
+[%END PARAM%][%END DATA%]<br>
+[%format type:'date' format:'Valid from #d #k #Y #g:#I #a' default:''%][@vprogram_use_start@][%END format%]
+</p>
+
+<p>
+<b>Instructions for using your voucher:</b><br>
+Enter the above voucher code and secret key at the last stage of checkout on [$home_url$]. The value of the voucher will then be applied to your order. Any outstanding balance can be paid with the payment methods available on [$home_url$]. If you do not spend the entire voucher value in single transaction, the remaining balance will be available on your account for future use.
+</p>
+
+<p>
+Enjoy!<br>
+[$home_url$]
+</p>

@@ -1,0 +1,115 @@
+<!--[SUBJECT:We'd love to know what you think about your recent [@send_from_company@] purchase on Order Nr[@order_id@]]-->
+<!--[FROM:[@send_from_email@]]-->
+<!--[TO:[@email@]]-->
+<!--[BCC:[@CONFIG:BCC_EMAIL@]]-->
+
+<table width="600" border="0" cellspacing="0" cellpadding="0" align="center" style="padding: 20px 0px;">
+  <tr>
+    <td width="600" bgcolor="#FFFFFF"><table width="600" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+          <td width="600" style="text-align:left"><table width="600" border="0" align="left" cellpadding="0" cellspacing="0">
+              <tr></tr>
+            </table></td>
+        </tr>
+        <tr></tr>
+      </table>
+      <table width="600" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+          <td width="600" valign="top" bgcolor="#323232"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr></tr>
+            </table></td>
+        </tr>
+      </table>
+      <table width="600" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+          <td valign="top" bgcolor="#FFFFFF"><img src="https://www.wildearth.com.au/assets/images/Followup-email-wildearth.jpg" alt="Wild Earth - Adventure is here." width="600" height="90" title="Wild Earth - Adventure is here." style="display:block;" border="0" /></td>
+        </tr>
+        <tr></tr>
+        <tr></tr>
+        <tr>
+          <td valign="top" bgcolor="#FFFFFF"><table width="600" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td align="left" valign="top"><img src="https://www.wildearth.com.au/assets/images/Followup-email-tell.jpg" alt="Tell us what you think for your chance to win a $50 Wild Earth voucher" width="600" height="291" style="display:block;" title="Tell us what you think for your chance to win a $50 Wild Earth voucher" border="0" /></td>
+              </tr>
+              <tr>
+                <td align="left" valign="top"><img src="https://www.wildearth.com.au/assets/images/Followup-email-feedback.jpg" alt="At Wild Earth we really value your feedback" width="600" height="71" style="display:block;" title="At Wild Earth we really value your feedback" border="0" /></td>
+              </tr>
+              <tr>
+                <td align="left" valign="top"><table width="600" border="0" cellspacing="0" cellpadding="0">
+                    <tbody>
+                      <tr>
+                        <td width="2" bgcolor="#323232"><img src="https://www.wildearth.com.au/assets/images/Followup-email-spacer.png" alt="" width="2" height="2" style="display:block;" title="" border="0" /></td>
+                        <td width="27">&nbsp;</td>
+                        <td width="542"><table width="542" border="0" cellspacing="0" cellpadding="0">
+                            <tbody>
+                              <tr>
+                                <td align="left" valign="top" ><span style="font-size: 14px; font-family: arial; line-height: 20px; color:#323232;">Dear [@ship_first_name@],<br />
+                                  <p>Thank you for shopping with us recently.</p>
+                                  <p>Should you have any feedback or questions regarding your new gear, please don't hesitate to
+                                    contact us on Ph: 07 5593 4180 or reply to this email and we'll be happy to assist you.</p>
+                                  <p>We are committed to great products &amp; great customer service, so it is always good to hear 
+                                    what we are doing well, and where we can make improvements.</p>
+                                  <p>You obviously spent some time deciding on the gear you bought, so please help others to choose 
+                                    the best products by taking a few moments to rate and review your new gear.</p>
+                                  <p>Did you know we give away a $50 Wild Earth Adventure Voucher every month?</p>
+                                  <p><strong>Everyone who submits a product review goes in the draw.</strong></p>
+                                  </span></td>
+                              </tr>
+                              <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                              </tr>
+                              <tr>
+                                <td align="left" valign="top">[%show_order id:'[@order_id@]' customer:'[@username@]' hidechild:'1'%]
+                                  [%PARAM *header%]
+                                  <table align="left" border="0" cellpadding="0" cellspacing="0" width="542" style="font-size:14px">
+                                    [%END PARAM%]
+                                    [%PARAM *body%]
+                                    <tr>
+                                      <td width="8%" valign="top"><img border="0" src="[$homeurl$]/[%asset_url type:'product' id:'[@SKU@]' thumb:'thumbL'%][%END asset_url%]" alt="[@model@]" width="100px"  height="100px"></td>
+                                      <td valign="top" width="82%" nowrap="nowrap"><b>[@model@]</b><br />
+                                        SKU: [@SKU@]<br />
+                                        <a href="[$homeurl$]/_myacct/write_review?item=[@SKU@]" target="blank"><b>Review This Product &gt;&gt;</b></a>
+                                        </td>
+                                    </tr>
+                                    [%END PARAM%][%PARAM *footer%]
+                                  </table>
+                                  [%END PARAM%]
+                                  [%END show_order%]</td>
+                              </tr>
+                              <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                              </tr>
+                              <tr>
+                                <td align="left" valign="top"><span style="font-size: 14px; font-family: arial; line-height: 20px; color:#323232;">Thanks again for shopping with us. We look forward to seeing you back at Wild Earth sometime soon.
+                                  <p>Have a Great Day!</p>
+                                  </span></td>
+                              </tr>
+                            </tbody>
+                          </table></td>
+                        <td width="27">&nbsp;</td>
+                        <td width="2" bgcolor="#323232"><img src="https://www.wildearth.com.au/assets/images/Followup-email-spacer.png" alt="" width="2" height="2" style="display:block;" title="" border="0" /></td>
+                      </tr>
+                    </tbody>
+                  </table></td>
+              </tr>
+            </table></td>
+        </tr>
+        <tr></tr>
+      </table>
+      <table width="600" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+          <td width="600" bgcolor="#313131" style="padding: 10px 0px;" align="center"><table width="400" border="0" align="center" cellpadding="0" cellspacing="0">
+              <tr>
+                <td width="400" bgcolor="#313131" style="text-align:center"><span style="font-size: 10px; font-family: arial; line-height: 14px; color:#FFFFFF;"> If you received this email from a friend and you would like to receive the Wild Earth email regularly, you can <a href="http://www.wildearth.com.au/view/newsletter" target="_blank" style="text-decoration: underline;color:#f15a24">join newsletter here</a>.<br>
+                  We take privacy issues seriously. Review the Wild Earth <a href="http://www.wildearth.com.au/view/privacy" target="_blank" style="text-decoration: underline;color:#f15a24;">privacy policy</a>.<br>
+                  <br>
+                  <strong>Copyright &copy; 2015 Wild Earth</strong></span></td>
+              </tr>
+            </table></td>
+        </tr>
+      </table></td>
+  </tr>
+</table>
+
+<br /><br />
+

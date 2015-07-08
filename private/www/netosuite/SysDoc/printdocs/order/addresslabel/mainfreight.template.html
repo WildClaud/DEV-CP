@@ -1,0 +1,75 @@
+<table width="300px" border="0" cellpadding="4" cellspacing="0">
+  <tbody>
+  	<!-- Start Header -->
+    <tr>
+    	<td align="center">
+    		<span style="font-size:18px; margin-right:10px; font-weight:bold;">[@count@]</span> OF <span style="font-size:18px; margin-left:10px; font-weight:bold; margin-right:20px;">[@total@]</span>
+    		<img src="/assets/cpanel/mainfreightlogo_360.png" weight="30" height="30" alt=""/></td>
+    </tr>
+    <tr>
+    	 <td align="center">
+   		 	<hr />
+     	 </td>
+     </tr>
+    <tr>
+    	<td style="padding-bottom:2px;" colspan="2" align="center">
+    		<div style="font-size:16px; font-weight:bold;">MAINFREIGHT DISTRIBUTION</div>
+    		<br />
+    	</td>
+    </tr>
+    <!-- End Header -->
+   
+    <!-- Start Address -->
+    <tr>
+    	 <td style="padding-bottom:2px;" colspan="2" align="left">
+<div style="font-size:14px;  padding-bottom:6px;">
+	[%NOHTML%][@ship_street1@][%END NOHTML%]<br />
+</div>
+		<br />
+<div style="font-size:18px; font-weight:bold; padding-bottom:6px;">
+	[%IF [@ship_street2@] ne ''%][%NOHTML%][@ship_street2@][%END NOHTML%]<br />[%/IF%]
+	[%NOHTML%][@ship_city@][%END NOHTML%]<br />
+	<div>
+		<span style="float:left; font-size:18px; font-weight:bold; ">[%NOHTML%][@ship_state@][%END NOHTML%]</span>
+		<span style="float:right; font-size:18px; font-weight:bold; ">[%NOHTML%][@ship_zip@][%END NOHTML%]</span>
+	</div>
+</div>
+			 </td>
+    </tr>
+    <!-- End Address -->  
+     <tr>
+    	 <td style=" padding-bottom:2px;" colspan="2" align="center">
+   		 	<hr />
+     	 </td>
+     </tr>
+     <!-- Start Sender & Receiver Info -->
+    <tr>
+    	<td style=" padding-bottom:2px;" colspan="2" align="left">
+<div style="font-size:14px; padding-bottom:6px;">
+	SndRef:	[%NOHTML%][@ship_first_name@] [@ship_last_name@][%END NOHTML%]<br />
+	RcvRef:	[%NOHTML%][@bill_first_name@] [@bill_last_name@][%END NOHTML%]<br />
+	RcvPh:	[%NOHTML%][@ship_phone@][%END NOHTML%]<br />
+</div>
+    	</td>
+    </tr>
+    <!-- End Sender & Receiver Info -->  
+    
+    <tr>
+    	<td style=" padding-bottom:2px;" colspan="2" align="left">
+<div style="font-size:18px; font-weight:bold; padding-bottom:6px;">
+	Carrier: Mainfreight<br />
+<div style="padding-bottom:4px;">
+	<span style="float:left; font-size:18px; font-weight:bold; ">C/N:  [%NOHTML%][@barcode@][%END NOHTML%]</span>
+	<span style="float:right; font-size:18px; font-weight:bold; "><!--##[%FORMAT type:'date' now:1 format:'#d/#M/#y' default:'n/a'%]##-->[@label_created@]<!--##[%END FORMAT%]##--></span>
+</div>
+
+</div>
+		</tr>
+    	</td>
+    <tr>
+			<td colspan="2" align="center" style="padding-top:2px;">
+<div style="padding-bottom:2px;"><img width="280" height="45" src="[%BARCODE_URL fn:'article' height:'50' scale:'1' cngmt:'[@cngmt_id@]' art:'[@art_id@]'%][@barcode@][%END BARCODE_URL%]" border="0"/></div>
+			</td>
+    </tr>
+  </tbody>
+</table>

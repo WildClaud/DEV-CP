@@ -1,0 +1,22 @@
+<div style="width:98%;"><a href="[@document_image@].pdf" target="_blank"><img style="max-width:100%; max-height:100%;" src="[@document_image@]"></a></div>
+
+[%DATA id:'article_items' if:'ne' value:''%]
+<div style="page-break-before: always;"> </div>
+<table width="345" border="0" align="center" cellpadding="10" cellspacing="0" style="font-size:16px; border-bottom:1px solid #000;"><tr>
+  <td>
+<b>PICK SLIP</b><br />
+Sales Channel: [%show_order id:'[@order_id@]'%][%PARAM *header%] [@sales_channel@][%END param%][%END show_order%]<br>
+Order # [@order_id@]<br />
+Consignment # [%NOHTML%][@cngmt_number@][%END NOHTML%]
+<br /><br />
+<font style="font-size:16px;">[%FORMAT type:'text' nohtml:'1' addbr:'1'%][@article_items@][%END FORMAT%]</font>
+</td></tr></table>
+<font style="font-size:9px;">END OF PICK SLIP</font><br>
+Picked:<br>
+<br>
+Packed:<br>
+<br>
+Checked:<br>
+<br>
+
+[%END DATA%]

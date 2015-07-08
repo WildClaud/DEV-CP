@@ -1,0 +1,10 @@
+<center>
+<font style="font-size:8px;">
+<!--##[%NOHTML%]##--><!--##[%DATA id:'upc' if:'eq' value:''%]
+[%PARAM if_true%]##-->[@SKU@]<!--##[%END PARAM%]
+[%PARAM if_false%]##-->[@upc@]<!--##[%END PARAM%]
+[%END DATA%]##-->
+<!--##[%END NOHTML%]##-->
+</font><br />
+<img src="[%BARCODE_URL fn:'' height:'[@label_height@]' sku:'[@SKU@]' upc:'[@upc@]' scale:'[@scale@]'%][%END BARCODE_URL%]" border="0"/>
+</center>

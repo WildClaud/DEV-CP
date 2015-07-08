@@ -1,0 +1,151 @@
+<table cellpadding="0" cellspacing="0" border="0" width="350px" align="center">
+	<tr><td style="padding-bottom:2px;">
+<table cellpadding="2px" cellspacing="0" border="0" width="100%" align="center">
+	<tr><td rowspan="2" valign="top" width="60%">
+<b><font style="font-size:24px;"><!--##[%NOHTML%]##-->[@ship_zip@]<!--##[%END NOHTML%]##--></font></b><br />
+<b><font style="font-size:15px;"><!--##[%NOHTML%]##-->[@ship_city@]<!--##[%END NOHTML%]##--></font></b>	
+	</td><td valign="top" width="40%">
+<!--##[%DATA id:'shserv_group' if:'eq' value:'PRI'%][%PARAM if_true%]##-->
+<table cellpadding="4px" cellspacing="0" border="0" width="100%" align="center">
+	<tr><td nowrap height="30px" align="right" style="background-color:#000; color:#FFF;">
+	<b><font style="font-size:13px;">TNT - <!--##[%NOHTML%]##-->[@shserv_name@]<!--##[%END NOHTML%]##-->
+	</font></b>
+	</td></tr>
+</table>
+<!--##[%END PARAM%][%PARAM if_false%]##-->
+<table cellpadding="4px" cellspacing="0" border="0" width="100%" align="center">
+	<tr><td height="30px" align="right" style="background-color:#FFF; color:#000;" nowrap>
+	<b><font style="font-size:14px;">TNT - <!--##[%NOHTML%]##-->[@shserv_name@]<!--##[%END NOHTML%]##-->
+	</font></b>
+	</td></tr>
+</table>
+<!--##[%END PARAM%][%END DATA%]##-->
+
+
+	</td></tr>
+	<tr><td valign="top" align="right" nowrap>
+<b><font style="font-size:13px;"><!--##[%NOHTML%]##-->[@cngmt_number@]<!--##[%END NOHTML%]##--></font></b><br />	
+<font style="font-size:9px;">Itm: <b><!--##[%NOHTML%]##-->[@article_number@]<!--##[%END NOHTML%]##--></b></font>
+	</td></tr>
+</table>	
+	</td></tr>
+	<tr><td style="padding-bottom:2px; padding-top:2px; border-top: 1px solid #000;">
+<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+	<tr><td>
+<b><font style="font-size:14px;">
+<!--##[%DATA id:'ship_gateway1' if:'eq' value:'[@ship_gateway2@]'%][%PARAM if_true%]##-->
+<!--##[%NOHTML%]##-->[@ship_gateway1@]<!--##[%END NOHTML%]##--><br />
+<!--##[%END PARAM%][%PARAM if_false%]##-->
+<!--##[%NOHTML%]##-->via [@ship_gateway1@] to [@ship_gateway2@]<!--##[%END NOHTML%]##--><br />
+<!--##[%END PARAM%][%END DATA%]##-->
+</font></b>
+	</td>
+		<td align="right">
+<b><font style="font-size:14px;"><!--##[%NOHTML%]##-->[@ship_sort_code@]<!--##[%END NOHTML%]##--></font></b>
+		</td></tr>
+</table>	
+	</td></tr>
+	<tr><td style="padding-bottom:2px; padding-top:2px; border-top: 1px solid #000;">
+<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center"><tr>
+	<td width="25%" nowrap><font style="font-size:10px;"><!--##[%FORMAT type:'date' now:1 format:'#D-#M-#Y'%][%END FORMAT%]##--></font></td>
+	<td width="25%" nowrap><font style="font-size:10px;"><!--##[%NOHTML%]##-->[@count@] OF [@total@]<!--##[%END NOHTML%]##--></font></td>
+	<td width="25%" nowrap><font style="font-size:10px;">Item Wt. <!--##[%FORMAT type:'number' dp:'3'%]##-->[@weight@]<!--##[%END FORMAT%]##-->kg</font></td>
+	<td width="25%" align="right" nowrap><font style="font-size:10px;">Ex <!--##[%NOHTML%]##-->[@ship_port@]<!--##[%END NOHTML%]##--></font></td>
+</tr></table>	
+	</td></tr>
+	<tr><td style="padding-bottom:2px; padding-top:2px; border-top: 1px solid #000;">
+<font style="font-size:10px;">
+<!--##[%DATA id:'danger' if:'eq' value:'y'%][%PARAM if_true%]##-->
+Contains Dangerous Goods<br />
+<!--##[%END PARAM%][%PARAM if_false%]##-->
+Does Not Contain Dangerous Goods<br />
+<!--##[%END PARAM%][%END DATA%]##-->
+</font>
+	</td></tr>
+	<tr><td style="padding-bottom:2px; padding-top:2px; border-top: 1px solid #000; border-bottom: 1px solid #000;">
+<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+	<tr><td valign="top" width="5%" nowrap><font style="font-size:10px;">To:</font></td>
+	<td width="95%">
+<b><font style="font-size:14px; text-transform:uppercase;">
+<!--##[%NOHTML%]##-->[@ship_first_name@] [@ship_last_name@]<!--##[%END NOHTML%]##--><br />
+<!--##[%DATA id:'ship_company' if:'ne' value:''%]##--><!--##[%NOHTML%]##-->[@ship_company@]<!--##[%END NOHTML%]##--><br><!--##[%END DATA%]##-->
+<!--##[%NOHTML%]##-->[@ship_street1@]<!--##[%END NOHTML%]##--><br>
+<!--##[%DATA id:'ship_street2' if:'ne' value:''%]##--><!--##[%NOHTML%]##-->[@ship_street2@]<!--##[%END NOHTML%]##--><br><!--##[%END DATA%]##-->
+<!--##[%NOHTML%]##-->[@ship_city@] [@ship_state@]<!--##[%END NOHTML%]##--><br />
+</font></b>
+		</td></tr>
+</table>	
+		</td></tr>
+	<tr><td style="padding-bottom:2px; padding-top:2px;">
+<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+	<tr><td valign="top" width="5%" nowrap><font style="font-size:9px;">From:</font></td>
+	<td width="95%">
+<font style="font-size:9px; text-transform:uppercase;">
+<!--##[%DATA id:'bill_company' if:'ne' value:''%]##--><!--##[%NOHTML%]##-->[@bill_company@], <!--##[%END NOHTML%]##--><!--##[%END DATA%]##-->
+<!--##[%DATA id:'bill_street1' if:'ne' value:''%]##--><!--##[%NOHTML%]##-->[@bill_street1@], <!--##[%END NOHTML%]##--><!--##[%END DATA%]##-->
+<!--##[%DATA id:'bill_street2' if:'ne' value:''%]##--><!--##[%NOHTML%]##-->[@bill_street2@], <!--##[%END NOHTML%]##--><!--##[%END DATA%]##-->
+<!--##[%NOHTML%]##-->[@bill_city@], [@bill_state@]<!--##[%END NOHTML%]##-->
+</font></td></tr>
+</table>	
+		</td></tr>
+	<tr><td style="padding-bottom:2px;">
+<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+	<tr><td valign="top" width="30%" nowrap>
+Senders Ref:<br />
+<!--##[%NOHTML%]##-->[@order_id@]<!--##[%END NOHTML%]##-->
+	</td>
+	<td valign="top" align="right" width="5%" style="border-left: 1px solid #000;">&nbsp;Ref:&nbsp;</td>
+	<td valign="top" width="65%">
+<!--##[%NOHTML%]##-->[@customer_po@]<!--##[%END NOHTML%]##-->
+	</td></tr>
+</table>
+		</td></tr>
+	<tr><td style="padding-bottom:8px; padding-left:24px; padding-right:24px;">
+<font style="font-size:11px; padding-bottom:2px;">Special Instructions: </font>
+<font style="font-size:11px; text-transform:uppercase;">
+<!--##[%DATA id:'ship_comment' if:'ne' value:''%][%PARAM if_true%]##-->
+<!--##[%NOHTML%]##--><!--##[%FORMAT type:'text' maxlength:'255'%]##-->[@ship_comment@]<!--##[%END FORMAT%]##--><!--##[%END NOHTML%]##-->
+<!--##[%END PARAM%][%PARAM if_false%]##-->
+n/a
+<!--##[%END PARAM%][%END DATA%]##-->
+</font><br />
+<table cellpadding="2px" cellspacing="0" border="0" width="100%" align="center">
+	<tr><td valign="top" width="50%" style="border:1px solid #000;" nowrap>
+<font style="font-size:10px;">
+CN: <!--##[%NOHTML%]##-->[@cngmt_number@]<!--##[%END NOHTML%]##--><br />
+Itm: <!--##[%NOHTML%]##-->[@article_number@]<!--##[%END NOHTML%]##--><br />
+<!--##[%NOHTML%]##-->[@count@] OF [@total@]<!--##[%END NOHTML%]##--><br />
+TO:<br />
+<font style="text-transform:uppercase;">
+<!--##[%DATA id:'ship_company' if:'ne' value:''%]##--><!--##[%NOHTML%]##-->[@ship_company@]<!--##[%END NOHTML%]##--><br><!--##[%END DATA%]##-->
+<!--##[%NOHTML%]##-->[@ship_street1@]<!--##[%END NOHTML%]##--><br>
+<!--##[%DATA id:'ship_street2' if:'ne' value:''%]##--><!--##[%NOHTML%]##-->[@ship_street2@]<!--##[%END NOHTML%]##--><br><!--##[%END DATA%]##-->
+<!--##[%NOHTML%]##-->[@ship_city@]<!--##[%END NOHTML%]##--><br />
+<!--##[%NOHTML%]##-->[@ship_state@] [@ship_zip@]<!--##[%END NOHTML%]##--><br />
+</font>
+</font>
+</td>
+	<td valign="top" width="50%" style="border-top:1px solid #000; border-right:1px solid #000; border-bottom:1px solid #000;">
+<font style="font-size:10px;">
+<font style="text-transform:uppercase;"><!--##[%NOHTML%]##-->[@shserv_name@]<!--##[%END NOHTML%]##--></font><br />
+Con Note Wt: <!--##[%FORMAT type:'number' dp:'3'%]##-->[@total_weight@]<!--##[%END FORMAT%]##-->kg<br />
+<br />
+FROM:<br />
+<font style="font-size:10px; text-transform:uppercase;">
+<!--##[%DATA id:'bill_company' if:'ne' value:''%]##--><!--##[%NOHTML%]##-->[@bill_company@]<!--##[%END NOHTML%]##--><br><!--##[%END DATA%]##-->
+<!--##[%NOHTML%]##-->[@bill_street1@]<!--##[%END NOHTML%]##--><br>
+<!--##[%DATA id:'bill_street2' if:'ne' value:''%]##--><!--##[%NOHTML%]##-->[@bill_street2@]<!--##[%END NOHTML%]##--><br><!--##[%END DATA%]##-->
+<!--##[%NOHTML%]##-->[@bill_city@]<!--##[%END NOHTML%]##--><br />
+<!--##[%NOHTML%]##-->[@bill_state@] [@bill_zip@]<!--##[%END NOHTML%]##--><br />
+</font>
+</font>
+	</td></tr>
+</table>
+</td></tr>
+	<tr><td style="padding-bottom:2px;" align="center">
+<img width="283px" src="[%BARCODE_URL fn:'article' height:'80' cngmt:'[@cngmt_id@]' art:'[@art_id@]'%][@barcode@][%END BARCODE_URL%]" border="0"/><br>
+</td></tr>
+<tr>
+	<td align="center"><font style="font-size:8px;">Printed With Neto E-commerce Software www.neto.com.au</font></td>
+</tr>
+</table>	

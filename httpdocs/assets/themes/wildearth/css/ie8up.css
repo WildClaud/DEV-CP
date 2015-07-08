@@ -1,0 +1,17 @@
+.new-header .offers {
+	padding: 0;
+	width: 31%;
+}
+.new-header .offers .free-shipping, 
+.new-header .offers .newsletter-signup {
+	float: left;
+	width: 46%;
+}
+.new-header .offers .free-shipping .fa, 
+.new-header .offers .newsletter-signup .fa {
+  margin: 2px 2px 0 0;
+}
+.new-header .social-tagline {
+  width: 14%;
+  float: left;
+}

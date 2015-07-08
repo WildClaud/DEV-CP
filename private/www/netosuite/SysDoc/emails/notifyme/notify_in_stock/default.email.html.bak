@@ -1,0 +1,11 @@
+<!--[SUBJECT:[$COMPANY_NAME$] Back In Stock Notification]-->
+<!--[FROM:]-->
+<!--[TO:[@email@]]-->
+<!--[BCC:]-->
+Dear [@full_name@],
+<p>
+Item [@SKU@] [@model@] is back in stock.
+
+You are receiving this email because you requested to be advised when the above item returned to stock.
+</p>
+[%content_zone id:'email_signature'%][%end content_zone%]

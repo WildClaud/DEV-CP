@@ -1,0 +1,43 @@
+<!--[SUBJECT:[$COMPANY_NAME$] Stock Warning Notification]-->
+<!--[FROM:[$company_email$]]-->
+<!--[TO:[@email@]]-->
+<!--[BCC:]-->
+Dear [$COMPANY_NAME$],
+<p>
+The follow SKU is out of stock / lower than a special stock level at [$home_url$].
+<br>
+
+<table border="1" cellpadding="4" cellspacing="0">
+	<thead><tr>						
+		<th cp-column-name="SKU">SKU</th>
+		<th cp-column-name="Product">Product</th>
+		<th cp-column-name="Restock Warning Level">Restock Warning Level</th>
+		<th cp-column-name="Quantity Committed">Quantity Committed</th>
+		<th cp-column-name="Quantity on Hand">Quantity on Hand</th>
+		<th cp-column-name="Incoming Quantity">Incoming Quantity</th>
+	</tr></thead>
+	<tbody>
+[%THUMB_LIST type:'products_by_id' filter_inventory_id:'[@inventory_ids@]' sortby:'lowest_qty'%]
+        [%PARAM *body%]
+	<tr>		
+		<td><a href="$producturl" target="_blank">[@SKU@]</a></td>
+		<td>[@model@]</th>
+		<td>[@restock_warning_level@]</td>
+		<td>[@committed_quantity@]</td>
+		<td>[@store_quantity@]</td>
+		<td>[@incoming_quantity@]</td>
+		
+	</tr>
+        [%END PARAM%]
+[%END THUMB_LIST%]
+	</tbody>
+</table>
+
+</p>
+<p>
+You are receiving this email because you requested to be advised when the above item returned to stock.
+</p>
+<p>
+Regards<br>
+[$COMPANY_NAME$]
+</p>

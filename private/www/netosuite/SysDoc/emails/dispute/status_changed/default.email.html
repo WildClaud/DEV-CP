@@ -1,0 +1,37 @@
+<!--[BCC:]-->
+<!--[SUBJECT:[$COMPANY_NAME$] Dispute #[@dispute_id@] Status Changed]-->
+<!--[FROM:[$company_email$]]-->
+<!--[TO:[@email@]]-->
+------------------------------------------------------------------------------------------------
+<br />
+<a href="[%URL page:'account' type:'warranty' id:'[@dispute_id@]'%][%END URL%]">Click Here To Reply To Message And Read Message History </a>
+<br />
+------------------------------------------------------------------------------------------------
+[%SHOW_DISPUTE id:'[@dispute_id@]' customer:'[@username@]'%]
+[%PARAM *header%]
+<br /><br />
+Dear [@bill_first_name@],
+<p>
+[$company_name$] changed status of dispute #[@dispute_id@] for order #[@order_id@] to '[@dispute_status@]' on [%FORMAT type:'date' now:'1' format:'#d #k #Y (#H:#I)'%][%END FORMAT%].<br />
+</p>
+[%END PARAM%]
+[%PARAM *body%]
+[@qty@] x [@model@] <font size="1">(SKU: [@SKU@])</font><br />
+<br />
+[%END PARAM%]
+[%END SHOW_DISPUTE%]
+<p>
+Ensuring you of our best service at all times.
+</p>
+<p>
+The Wild Earth Customer Service Team
+</p>
+------------------------------------------------------------------------------------------------
+<br />
+<a href="[%URL page:'account' type:'warranty' id:'[@dispute_id@]'%][%END URL%]">Click Here To Reply To Message And Read Message History </a>
+<br />
+------------------------------------------------------------------------------------------------
+<br />
+<p><font color="#666666" size="1"> This 
+  message was sent from [$homeurl$]. If you have received this message in error please contact [$company_name$]<br />
+Copyright  &copy;  [$company_name$]. All Rights Reserved. </font></p>

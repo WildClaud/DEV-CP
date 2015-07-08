@@ -1,0 +1,69 @@
+<div class="row">
+    <!--##[%IF ![@has_child@] || [@has_variation@]%]##-->
+        <div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="wrapper-pricing col-xs-12">
+<meta itemprop="priceCurrency" content="AUD" />
+<div class="hidden">
+	<!--##[%IF [@extra@] or [@has_child@] %]##-->
+		<meta itemprop="availability" content="http://schema.org/InStock"/>Available online
+	<!--##[%ELSEIF [@store_quantity@] > 0 AND [@preorder@] %]##-->
+		<meta itemprop="availability" content="http://schema.org/PreOrder"/>Preorder Available
+	<!--##[%ELSEIF [@store_quantity@] > 0 AND ![@preorder@] %]##-->
+		<meta itemprop="availability" content="http://schema.org/InStock"/>Available online
+	<!--##[%ELSEIF [@store_quantity@] < 1 AND [@config:ALLOW_NOSTOCK_CHECKOUT@] %]##-->
+		<meta itemprop="availability" content="http://schema.org/OutOfStock"/>Out of stock
+	<!--##[%ELSE%]##-->
+		<meta itemprop="availability" content="http://schema.org/OutOfStock"/>Out of stock
+	<!--##[%END IF%]##-->
+</div>
+            <!--##[%IF ![@inpromo@]%]##-->
+
+
+                <span class="price-wrapper">
+                    <span itemprop="price"><!--##[%format type:'currency'%]##-->[@store_price@]<!--##[%END format%]##--></span>
+                </span>
+                <p class="price-extras">
+                    <!--##[%IF [@save@] > 0%]##-->
+                        <span class="price-rrp">
+                            RRP <!--##[%format type:'currency'%]##-->[@retail@]<!--##[%END format%]##-->
+                        </span>
+                    <!--##[%END IF%]##-->
+                    <!--##[%IF [@save@] > 0 AND ![@has_child@] %]##-->
+                        <span class="price-save">
+                            <!--##[%format type:'percent'%]##-->[@save@]<!--##[%END format%]##--> OFF
+                        </span>
+                    <!--##[%END IF%]##-->
+                    &nbsp;
+                </p>
+
+
+
+
+            <!--##[%ELSE%]##-->
+                <p class="price-extras">
+                    <span class="productwasprice">
+                        WAS <!--##[%format type:'currency'%]##-->[@retail@]<!--##[%END format%]##-->
+                    </span>
+
+                    <!--##[%IF [@save@] > 0 AND ![@has_child@] %]##-->
+                        <span class="price-save">
+                            <!--##[%format type:'percent'%]##-->[@save@]<!--##[%END format%]##--> OFF
+                        </span>
+                    <!--##[%END IF%]##-->
+                    &nbsp;
+                </p>
+
+                <span class="price-wrapper price-sale">
+                    Sale:
+                    <span itemprop="price"><!--##[%format type:'currency'%]##-->[@promo_price@]<!--##[%END format%]##--></span>
+                </span>
+
+            <!--##[%END IF%]##-->
+
+            <!--##[%IF [@availability_description@]%]##-->
+                <p class="availability_description text-muted">
+                    [@availability_description@]
+                </p>
+            <!--##[%END IF%]##-->
+        </div>
+    <!--##[%END IF%]##-->
+</div>

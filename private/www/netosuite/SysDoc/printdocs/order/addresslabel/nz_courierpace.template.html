@@ -1,0 +1,112 @@
+<table width="100%" border="0" cellpadding="4" cellspacing="0">
+  <tbody>
+    <tr>
+      <td width="2%" align="left" valign="middle"><img src="/assets/cpanel/courier_pace_logo.jpg" height="250" alt=""/></td>
+      <td width="58%" align="left" valign="top">
+      
+<!-- Start Barcode -->
+      <table cellpadding="0px" cellspacing="0" border="0" width="100%" align="center">
+				<tr height="150">
+					<td valign="top" width="60%" align="center" style="padding:10px;">
+					</td>
+					<td valign="center" width="40%" align="left" style="padding-left:4px;">
+<div style="padding-bottom:4px;"><font style="font-size:16px;  font-weight:bold;">[@shserv_code@]</font></div>
+<div style="padding-bottom:4px;"><font style="font-size:12px;">Customer Ref:</font></div>
+<div style="padding-bottom:4px;"><font style="font-size:12px;">[@order_id@]</font></div>
+<div style="padding-bottom:2px;"><font style="font-size:12px;">Printed:[%FORMAT type:'date' now:1 format:'#D/#M/#Y#H:#M'%][%END FORMAT%]</font></div>
+					</td>
+			  </tr>
+				<tr>
+					<td colspan="2" align="center" valign="bottom" style="padding-top:2px;">
+<div style="padding-bottom:4px;"><font style="font-size:14px; font-weight:bold; padding">[@barcode@]</font></div>
+<div style="padding-bottom:2px;"><img src="[%BARCODE_URL fn:'article' height:'50' scale:'1' cngmt:'[@cngmt_id@]' art:'[@art_id@]'%][@barcode@][%END BARCODE_URL%]" border="0"/></div>
+<div style="padding-bottom:2px;"><font style="font-size:14px; font-weight:bold;">[@barcode@]</font></div>
+					</td>
+			  </tr>
+			  <tr>
+			    <td colspan="2" align="center" style="padding-top:2px;">
+<div style="padding-bottom:2px;"><img src="[%BARCODE_URL fn:'article' height:'50' scale:'1' cngmt:'[@cngmt_id@]' art:'[@art_id@]'%][@barcode@][%END BARCODE_URL%]" border="0"/></div>
+<div style="padding-bottom:2px;"><font style="font-size:14px; font-weight:bold;">[@barcode@]</font></div>
+			    </td>
+			  </tr>
+				<tr>
+					<td colspan="2" align="center" style="padding-top:2px;">
+						<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+							<tr>
+<td width="50%" valign="top">Name<br><br><br></td>
+<td width="50%" style="border-left: 1px solid #000000; padding-left:2px;" valign="top">Sign<br><br><br></td>
+						  </tr>
+						</table>
+					</td>
+			  </tr>
+			</table>
+<!-- End Barcode -->
+
+      </td>
+      <td width="40%" align="left" valign="top">
+
+<!-- Start Header -->
+				<table cellpadding="4px" cellspacing="0" border="0" width="100%">
+					<tr>
+<td width="33%" style="padding-right:8px;" align="left"><font style="font-size:16px;  font-weight:bold; color:#ffffff; background-color:#000000;">[@barcode@]</font></td>
+<td width="33%" style="padding-right:8px;" align="center"><font style="font-size:16px; font-weight:bold; color:#ffffff; background-color:#000000;">[%FORMAT type:'number' dp:'0' round:'up'%][@weight@][%END FORMAT%]kg</font></td>
+<td width="33%" style="padding-right:8px;" align="right"><font style="font-size:16px;  font-weight:bold; color:#ffffff; background-color:#000000;">[@count@] OF [@total@]</font></td>
+					</tr>
+				</table>
+<!-- End Header -->
+      
+<!-- Start Address -->
+				<table cellpadding="0px" cellspacing="0" border="0" width="100%">
+					<tr>
+					  <td style=" padding-bottom:2px;">
+<div style="overflow:hidden; width:340px; font-size:12px; font-weight:bold; padding-bottom:8px;">
+	[%IF [@ship_comment@] ne ''%]
+	[%NOHTML%][%FORMAT type:'text' maxlength:'255'%][@ship_comment@][%END FORMAT%][%END NOHTML%]
+	[%ELSE%]
+	n/a
+	[%/IF%]
+</div>
+<div style="font-size:14px; font-weight:bold; padding-bottom:6px;">
+<span style="">
+<div style="padding-bottom: 10px;">
+	[%NOHTML%]Ph: [@ship_phone@][%END NOHTML%]
+</div>
+</span>
+	[%NOHTML%][@ship_first_name@] [@ship_last_name@][%END NOHTML%]<br />
+	[%IF [@ship_company@] ne ''%][%NOHTML%][@ship_company@][%END NOHTML%]<br>[%/IF%]
+	[%NOHTML%][@ship_street1@][%END NOHTML%]<br>
+	[%IF [@ship_street2@] ne ''%][%NOHTML%][@ship_street2@][%END NOHTML%]<br>[%/IF%]
+	[%NOHTML%][@ship_city@], [@ship_state@][%END NOHTML%]
+</div>
+<div style="font-size:20px; font-weight:bold;">
+	[%NOHTML%][@article_label_addr1@][%END NOHTML%]<br>
+	[%NOHTML%][@article_label_addr2@][%END NOHTML%]
+</div>
+					  </td>
+					</tr>
+					<tr>
+					  <td valign="bottom">
+							<font style="font-size:11px; font-weight:bold;">
+<div style="height:50px;"></div>
+<div>From: [%NOHTML%][@bill_company@][%END NOHTML%]</div>
+<div style="float:right; padding-left: 4px;">[%NOHTML%][@bill_city@] [@bill_state@][%END NOHTML%]</div>
+<div>[%NOHTML%][@bill_street1@][%END NOHTML%]
+[%IF [@bill_street2@] ne ''%][%NOHTML%], [@bill_street2@][%END NOHTML%][%/IF%]
+</div>
+<span style="float:right; padding-left: 4px;">[%NOHTML%]Phone: [@bill_phone@][%END NOHTML%]</span>
+<div>Contact: [%NOHTML%][@bill_contact@][%END NOHTML%]</div>
+							</font>
+				
+							<p>
+[%DATA id:'bin_loc' if:'ne' value:''%]Bin#: [%NOHTML%][@bin_loc@][%END NOHTML%][%END DATA%] Order ID: [@ORDER_ID@]
+							</p>
+					  </td>
+					</tr>
+				</table>
+<!-- End Address -->      
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+/tab

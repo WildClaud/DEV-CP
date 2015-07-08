@@ -1,0 +1,312 @@
+	</div><!-- /.row -->
+</div><!-- /#main-content -->
+
+<div class="footer-layer-one">
+	<div class="container">
+		<div class="row">
+
+			<div class="col-xs-12 col-md-5">
+				<h4>Customer Service: <a href="tel:[@config:company_phone@]">[@config:company_phone@]</a></h4>
+				<p>
+					Need help? Call us Monday - Friday, 9am to 5pm. Saturdays 9:30am to 2pm.
+				</p>
+			</div>
+
+			<div class="col-xs-7 col-md-4">
+				<div class="pull-left">
+					<h4>We Support</h4>
+					<p>
+						We're proud supporters of:
+					</p>
+				</div>
+				<div class="pull-left">
+					<a href="/view/kokoda-challenge/1261">
+					<img src="/assets/themes/wildearth/img/kokoda_challenge.png" alt="" />
+					</a>
+					<br>
+					<a href="/view/5th-element-expeditions/2439">
+					<img src="/assets/themes/wildearth/img/5thelement.png" alt="" />
+					</a>
+				</div>
+			</div>
+
+			<div class="col-xs-5 col-md-3">
+				<h4>Gift Cards</h4>
+				<p>
+					Not sure what to get? Grab a Gift Card and give them the gift of Adventure!
+				</p>
+				<p>
+					<a href="/shop/gift-cards/2340">
+						<i class="fa fa-caret-right"></i> Click here to buy now
+					</a>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="footer-layer-two">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<p class="h4 pull-left">
+					Subscribe to our newsletter. Join Now to receive 5% off your order
+				</p>
+				<a href="http://eepurl.com/uWu_1" target="_blank" class="btn btn-default-inverted btn-lg pull-right">Click here to subscribe</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="footer-layer-three">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				[%content_zone id:'footer_seo_content'%][%end content_zone%]
+			</div>
+		</div><!-- /.row -->
+
+		<div class="row">
+			<div class="col-xs-12">
+				<hr />
+			</div>
+		</div>
+
+		<div class="row row-padded">
+			<div class="col-xs-12 col-md-6">
+				[%categorymenu sortby:'sortorder' show_empty:'1'%]
+					[%param *header%]
+						<div class="row">
+							<div class="col-xs-12">
+								<h5 class="menu-heading">Shop by Category</h5>
+							</div>
+						</div>
+						<div class="row">
+					[%end param%]
+					[%param *level_1%]
+						<div class="col-xs-12 col-sm-4">
+							<a href="[@url@]">[@name@]</a>
+						</div>
+					[%end param%]
+					[%param *footer%]
+						</div> <!-- /.row -->
+					[%end param%]
+				[%end categorymenu%]
+			</div>
+			<div class="col-xs-12 col-md-6">
+				[%menu id:'footer-about'%]
+					[%param *header%]
+						<div class="row">
+							<div class="col-xs-12">
+								<h5 class="menu-heading">About</h5>
+							</div>
+						</div>
+						<div class="row">
+					[%end param%]
+					[%param *level_1%]
+						<div class="col-xs-12 col-sm-4">
+							<a href="[@url@]">[@name@]</a>
+						</div>
+					[%end param%]
+					[%param *footer%]
+						</div> <!-- /.row -->
+					[%end param%]
+				[%end menu%]
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 col-md-6">
+				[%menu id:'footer-service'%]
+					[%param *header%]
+						<div class="row">
+							<div class="col-xs-12">
+								<h5 class="menu-heading">Customer Service</h5>
+							</div>
+						</div>
+						<div class="row">
+					[%end param%]
+					[%param *level_1%]
+						<div class="col-xs-12 col-sm-4">
+							<a href="[@url@]">[@name@]</a>
+						</div>
+					[%end param%]
+					[%param *footer%]
+						</div> <!-- /.row -->
+					[%end param%]
+				[%end menu%]
+			</div>
+			<div class="col-xs-12 col-md-6">
+				[%menu id:'footer-brands'%]
+					[%param *header%]
+						<div class="row">
+							<div class="col-xs-12">
+								<h5 class="menu-heading">Our Popular Brands</h5>
+							</div>
+						</div>
+						<div class="row">
+					[%end param%]
+					[%param *level_1%]
+						<div class="col-xs-12 col-sm-4">
+							<a href="[@url@]">[@name@]</a>
+						</div>
+					[%end param%]
+					[%param *footer%]
+						</div> <!-- /.row -->
+					[%end param%]
+				[%end menu%]
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<hr />
+			</div>
+		</div>
+		<div class="row">
+
+			<div class="col-sm-5">
+				<p>
+					Copyright &copy; 2014 [@config:company_name@] [%if [@config:company_abn@]%]<strong>ABN:</strong> [@config:company_abn@][%/ if%]
+				</p>
+			</div>
+
+			<div class="col-xs-7 hidden-xs">
+				[%payment_methods%]
+					[%param header%]
+						<ul class="list-inline text-right">
+                        <li>
+								<div class="payment-icon-container payment-icon-securepay">
+									<img class="spicon" src="/assets/themes/wildearth/img/splogosquare.jpg">
+								</div>
+							</li>
+                      
+                        
+					[%end param%]
+					[%param *body%]
+						[%data id:'name' if:'like' value:'American Express'%]
+							<li>
+								<div class="payment-icon-container">
+									<div class="payment-icon payment-icon-americanexpress"></div>
+								</div>
+							</li>
+						[%end data%]
+						[%data id:'name' if:'like' value:'Visa'%]
+							<li>
+								<div class="payment-icon-container">
+									<div class="payment-icon payment-icon-visa"></div>
+								</div>
+							</li>
+						[%end data%]
+						[%data id:'name' if:'like' value:'Master Card'%]
+							<li>
+								<div class="payment-icon-container">
+									<div class="payment-icon payment-icon-mastercard"></div>
+								</div>
+							</li>
+						[%end data%]
+						[%data id:'name' if:'like' value:'Discover'%]
+							<li>
+								<div class="payment-icon-container">
+									<div class="payment-icon payment-icon-discover"></div>
+								</div>
+							</li>
+						[%end data%]
+						[%data id:'name' if:'like' value:'Diners'%]
+							<li>
+								<div class="payment-icon-container">
+									<div class="payment-icon payment-icon-diners"></div>
+								</div>
+							</li>
+						[%end data%]
+						[%data id:'name' if:'like' value:'Cheque'%]
+							<li>
+								<div class="payment-icon-container">
+									<div class="payment-icon payment-icon-cheque"></div>
+								</div>
+							</li>
+						[%end data%]
+						[%data id:'name' if:'like' value:'Money Order'%]
+							<li>
+								<div class="payment-icon-container">
+									<div class="payment-icon payment-icon-moneyorder"></div>
+								</div>
+							</li>
+						[%end data%]
+						[%data id:'name' if:'like' value:'Direct Deposit'%]
+							<li>
+								<div class="payment-icon-container">
+									<div class="payment-icon payment-icon-directdeposit"></div>
+								</div>
+							</li>
+						[%end data%]
+						[%data id:'name' if:'like' value:'bpay'%]
+							<li>
+								<div class="payment-icon-container">
+									<div class="payment-icon payment-icon-bpay"></div>
+								</div>
+							</li>
+						[%end data%]
+						[%data id:'name' if:'like' value:'paypal'%]
+							<li>
+								<div class="payment-icon-container">
+									<div class="payment-icon payment-icon-paypal"></div>
+								</div>
+							</li>
+						[%end data%]
+					[%end param%]
+					[%param *footer%]
+						</ul>
+					[%end param%]
+				[%end payment_methods%]
+			</div>
+
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+setTimeout(function(){var a=document.createElement("script");
+var b=document.getElementsByTagName("script")[0];
+a.src=document.location.protocol+"//script.crazyegg.com/pages/scripts/0014/1655.js?"+Math.floor(new Date().getTime()/3600000);
+a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+</script>
+<!-- Required Neto Scripts - DO NOT REMOVE -->
+<script type="text/javascript" src="[$imageurl$]/js/util.js"></script>
+<script type="text/javascript" src="[%ntheme_asset%]js/jquery.min.js[%END ntheme_asset%]"></script>
+<script type="text/javascript" src="[%ntheme_asset%]plugins/fancybox/jquery.fancybox.pack.js[%END ntheme_asset%]"></script>
+<script type="text/javascript" src="[%NETO_JS id:'main'%][%END NETO_JS%]"></script>
+<script type="text/javascript" src="[%ntheme_asset%]js/bootstrap.min.js[%END ntheme_asset%]"></script>
+<script type="text/javascript" src="[%ntheme_asset%]js/custom.js[%END ntheme_asset%]"></script>
+<!-- Plugin Scripts -->
+<script type="text/javascript" src="[%ntheme_asset%]plugins/jquery_ui/js/jquery-ui-1.8.18.custom.min.js[%END ntheme_asset%]"></script>
+<!-- <script type="text/javascript" src="[%ntheme_asset%]plugins/jcarousel/js/jquery.jcarousel.min.js[%END ntheme_asset%]"></script> -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-5282cbb6476f74a0" async></script>
+[%SITE_VALUE id:'footer_javascript' type:'load'%][%END SITE_VALUE%]
+<!-- Analytics - DO NOT REMOVE -->
+[%load_template file:"trackingcode/VisitorTracking.html"%][%END load_template%]
+<!-- IF ?npurpose=facebook Show scripts for facebook -->
+[%if [@form:npurpose@] eq 'facebook'%]
+	<style type="text/css">
+		body,html {
+			overflow: hidden;
+		}
+	</style>
+	<script type="text/javascript" src="https://connect.facebook.net/en_US/all.js"></script>
+	<script>
+		FB.init({
+			appId : '[@config:facebook_app_id@]',
+			status : true,
+			cookie : true,
+			xfbml : true
+		});
+	</script>
+	<script type="text/javascript">
+		jQuery(window).load(function(){
+			FB.Canvas.setAutoGrow();
+		});
+		$(function(){
+			$.addFacebookNPurpose();
+		})
+	</script>
+[%/ if%]
+[%load_template file:"includes/npopup.template.html"%][%END load_template%]
+</body>
+</html>

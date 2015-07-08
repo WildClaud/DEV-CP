@@ -1,0 +1,20 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr><td width="50%">
+<!--##[%DATA id:'user_logo' if:'ne' value:''%][%PARAM if_true%]##-->
+<img src="[@user_logo@]" border="0">
+<!--##[%END PARAM%][%PARAM if_false%]##-->
+<b><font style="font-size:16px;"><!--##[%NOHTML%]##-->[@company@]<!--##[%END NOHTML%]##--></font></b>
+<!--##[%END PARAM%][%END DATA%]##-->
+</td><td width="50%" align="right" class="small"> 
+<img src="[%BARCODE_URL fn:'' height:'10'%][@order_id@][%END BARCODE_URL%]" border="0"/><br>
+<font style="font-size:9px;"><strong></strong>Call <!--##[%NOHTML%]##-->[@phone@]<!--##[%END NOHTML%]##--><br><!--##[%NOHTML%]##-->[@website@]<!--##[%END NOHTML%]##--></font><br>
+</td></tr>
+</table>
+<hr size="1" color="#000000">
+<b><font style="font-size:11px;"><!--##[%NOHTML%]##-->[@description@]<!--##[%END NOHTML%]##--></b></font>
+<font style="font-size:9px;"><!--##[%NOHTML%]##-->[@extra@]<!--##[%END NOHTML%]##--></font>
+<br>
+<hr size="1" color="#000000">
+<div align="center"><font style="font-size:9px;"><b>
+<img src="[%BARCODE_URL fn:'' height:'[@label_height@]' sku:'[@SKU@]'%][%END BARCODE_URL%]" border="0"/>
+</b></font></div>

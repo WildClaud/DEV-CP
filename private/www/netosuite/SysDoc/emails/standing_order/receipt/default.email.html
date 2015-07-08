@@ -1,0 +1,20 @@
+<!--[SUBJECT:[$COMPANY_NAME$] Order Notification #[@order_id@]]-->
+<!--[FROM:[$COMPANY_EMAIL$]]-->
+<!--[TO:[@email@]]-->
+<!--[BCC:[$BCC_EMAIL$]]-->
+
+Dear [@bill_first_name@], <br />
+<p>
+As per your agreement with us, a new order has been generated for you from <a href="[%URL page:'account' type:'standing_orders' id:'[@storder_id@]'%][%END URL%]">Standing Order # [@storder_id@]</a>. Below you will find details pertaining to this order. If you have opted to pay for this order with a real time payment method such as a credit card then your credit card will be charged accordingly. Otherwise please see our payment instructions below for instructions on making payment.
+</p>
+<!--##[%print_order id:'[@order_id@]'%][%END print_order%]##-->
+<p>
+You can view or edit the standing order you have with us by going to: <a href="[%URL page:'account' type:'standing_orders' id:'[@storder_id@]'%][%END URL%]">[%URL page:'account' type:'standing_orders' id:'[@storder_id@]'%][%END URL%]</a>
+</p>
+<p>
+Please contact us or reply to this email if you have any questions relating to this order.
+</p>
+<p>
+Regards, <br />
+[$company_name$]<br />
+[$homeurl$]
