@@ -1,0 +1,14 @@
+<div class="col-xs-6 col-md-4 col-lg-4 blog-thumb" itemtype="http://schema.org/Article">
+	<div class="thumbnail">
+		<div class="caption">
+			<h4><a href="[@URL@]" itemprop="url">[%format type:'text' maxlength:'50' rmhtml:'1'%][@content_name@][%/format%]</a></h4>
+			<p class="text-muted">
+				[%IF [@date_posted@] != 0000-00-00 00:00:00%]
+					[%FORMAT type:'date'%][@date_posted@][%END FORMAT%]
+				[%END IF%]
+			</p>
+			<p class="short-desc clearfix">[%format type:'text' maxlength:'50' rmhtml:'1'%][@content_short_description@] [%/format%]<a href="[@URL@]">...Read More</a></p>
+		</div>
+	</div>
+</div>
+

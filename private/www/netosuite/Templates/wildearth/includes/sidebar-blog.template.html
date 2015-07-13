@@ -1,0 +1,28 @@
+<div class="col-xs-12 col-sm-3" id="sidebar-blog">
+
+	<p class="visible-xs">
+		<a class="accordion-toggle btn btn-primary btn-block" data-toggle="collapse" href="#filters">Blog Categories</a>
+	</p>
+
+	<h2 class="hidden-xs">Categories</h2>
+	[%content_menu content_type:'blog' sortby:'sortorder' show_empty:'1' start_category:'982'%]
+		[%PARAM header%]
+			<div class="panel panel-collapse collapse" id="filters">
+				<ul class="list-group">
+					<li>
+						<a href="/blog/in-the-wild/blogs" class="list-group-item dropdown-toggle"><h4 class="list-group-item-heading">Blog Home</h4></a>
+					</li>
+		[%/PARAM%]
+		[%PARAM *level_1%]
+					<li>
+						<a href="[@url@]" class="list-group-item dropdown-toggle"><h4 class="list-group-item-heading">[@name@]</h4></a>
+					</li>
+		[%/PARAM%]
+		[%PARAM footer%]
+				</ul>
+			</div>
+		[%/PARAM%]
+	[%/content_menu%]
+
+</div>
+<div class="col-xs-12 col-sm-9">
