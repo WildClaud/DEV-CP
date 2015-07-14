@@ -227,14 +227,14 @@
 				<a class="notifymodalactivate btn btn-danger btn-lg btn-block" data-fancybox-width="400" href="#notifymodal"><i class="fa fa-envelope"></i> Notify Me When Back In Stock</a>
 				</div>
 				[%else%]
-				<div class="col-xs-12 col-sm-6">
+				<div class="col-xs-12 col-sm-8 col-md-6">
 				<button type="button" title="Add to Cart" class="addtocart btn btn-success btn-block btn-lg" rel="[@rndm@][@SKU@]"><i class="icon-shopping-cart icon-white"></i> Add to Cart</button>
 
 				</div>
 				[%/if%]
 
 				[%data id:'preorder' if:'=' value:'1' %]
-				<div class="col-xs-12 col-sm-6">
+				<div class="col-xs-12 col-sm-8 col-md-6">
 				<button type="button" title="Add to Cart" class="addtocart btn btn-warning" rel="[@rndm@][@SKU@]"><i class="icon-time icon-white"></i> Pre-Order Now</button>
 				</div>
 				[%end data%]
@@ -316,7 +316,7 @@
                         <option value="US" [%if [@ship_country@] eq 'US'%]selected[%/if%]>United States</option>
                     </select>
 				</div>
-				<div style="padding:0px;" class="col-xs-12 col-md-3">
+				<div class="col-xs-12 col-md-3 post-code">
 					<input type="text" name="input" id="zip" value="[%SESSION id:'ship_zip'/%]" size="5" class="form-control" placeholder="Post Code">
 				</div>
 				<div class="col-xs-12 col-md-4">
