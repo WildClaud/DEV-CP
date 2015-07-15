@@ -7,12 +7,12 @@
 
 <div class="page-header">
 <h1>Resolution Centre</h1>
-<h2>Step 2 - What type of dispute is this?</h2>
+<h2>Step 2 - What type of Resolution Request is this?</h2>
 </div>
 
-<!--##[%DATA id:'error' if:'ne' value:''%]##-->
+[%DATA id:'error' if:'ne' value:''%]
 <div class="alert alert-danger"><a class="close" data-dismiss="alert">×</a>[@error@]</div>
-<!--##[%END DATA%]##-->
+[%END DATA%]
 
 
 <script language="javascript" type="text/javascript">
@@ -34,11 +34,11 @@ function selOrder(obj) {
 <form name="disputeForm" action="[%URL page:'account' type:'warranty' fn:'create' %][%END URL%]" method="post">
 	<input type="hidden" name="step" value="order">
 	<input type="hidden" name="type" value="[%NOHTML%][@type@][%END NOHTML%]">
-<!--##[%dispute_reasons type:'[@type@]'%]##-->
-<!--##[%PARAM header%]##-->  
+[%dispute_reasons type:'[@type@]'%]
+[%PARAM header%]  
 <div class="row">
-<!--##[%END PARAM%]##-->
-<!--##[%PARAM *body%]##-->
+[%END PARAM%]
+[%PARAM *body%]
 <div class="col-xs-12 col-md-6">
 <div class="well">
 <div class="radio">
@@ -49,34 +49,34 @@ function selOrder(obj) {
 </div>
 </div>
 </div>
-<!--##[%END PARAM%]##-->
-<!--##[%PARAM *footer%]##-->
+[%END PARAM%]
+[%PARAM *footer%]
 </div>
-<!--##[%END PARAM%]##-->
-<!--##[%END dispute_reasons%]##-->
+[%END PARAM%]
+[%END dispute_reasons%]
 <hr>
 <h3>Select an Order ID</h3>
 <div class="row btn-stack">
 
 <div class="col-xs-12 col-md-4">
 <input type="text" name="order" class="hidden" value="[@order@]" size="15"/>
-<!--##[%thumb_list type:'dispute_orders' limit:30%]##-->
-<!--##[%PARAM header%]##-->
+[%thumb_list type:'dispute_orders' limit:30%]
+[%PARAM header%]
 <select class="form-control" onchange="selOrder(this)">
 <option value="">Select Recent Order</option>
-<!--##[%END PARAM%]##-->
-<!--##[%PARAM *body%]##-->
-<option value="[@order_id@]">[@order_id@]<!--##[%DATA id:'customer_po' if:'ne' value:''%]##--> (PO# [@customer_po@])<!--##[%END DATA%]##--></option>
-<!--##[%END PARAM%]##-->
-<!--##[%PARAM *footer%]##-->
+[%END PARAM%]
+[%PARAM *body%]
+<option value="[@order_id@]">[@order_id@][%DATA id:'customer_po' if:'ne' value:''%] (PO# [@customer_po@])[%END DATA%]</option>
+[%END PARAM%]
+[%PARAM *footer%]
 </select>
-<!--##[%END PARAM%]##-->
-<!--##[%PARAM ifempty%]##-->
+[%END PARAM%]
+[%PARAM ifempty%]
 
 <div class="alert alert-danger"><a class="close" data-dismiss="alert">×</a> No orders have been placed on this account. </div>
 
-<!--##[%END PARAM%]##-->
-<!--##[%END thumb_list%]##-->       
+[%END PARAM%]
+[%END thumb_list%]       
 </div>
 <div class="col-xs-12 col-md-5">
 <a class="btn btn-block btn-default" href="[%URL page:account %][%END URL%]" target="_blank">Click here to view a list of your past order ID's</a>

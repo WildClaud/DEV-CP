@@ -7,12 +7,12 @@
 
 
 <div class="page-header">
-<h1>Resolution Centre - Warranty, Payment &amp; Return Disputes</h1>
+<h1>Resolution Centre - Warranty, Payment &amp; Return Requests</h1>
 </div>
 
-<!--##[%DATA id:'error' if:'ne' value:''%]##-->
+[%DATA id:'error' if:'ne' value:''%]
 <div class="alert alert-danger"><a class="close" data-dismiss="alert">×</a>[@error@]</div>
-<!--##[%END DATA%]##-->
+[%END DATA%]
 
 <script language="javascript" type="text/javascript">
 function cancalAction() {
@@ -20,12 +20,12 @@ function cancalAction() {
 }
 </script>
 
-<p>Your <a href="[%URL page:'account' type:'warranty' id:'[@dispute_id@]'%][%END URL%]">dispute #[@dispute_id@]</a> has been sent to [$company_name$]. You can track the progress of your dispute at any time from within your account.</p>
+<p>Your <a href="[%URL page:'account' type:'warranty' id:'[@dispute_id@]'%][%END URL%]">resolution request #[@dispute_id@]</a> has been sent to [$company_name$]. You can track the progress of your resolution request at any time from within your account.</p>
 
 
 <div class="row btn-stack">	
 <div class="col-xs-12 col-md-3">
-<button type="button" value="Go Back To Start" class="btn btn-default btn-block" onClick="cancalAction()"> Create Another Dispute <i class="fa fa-refresh icon-white"></i></button>
+<button type="button" value="Go Back To Start" class="btn btn-default btn-block" onClick="cancalAction()"> Create Another Resolution Request <i class="fa fa-refresh icon-white"></i></button>
 </div>
 
 <div class="col-xs-12 col-md-3 col-md-offset-6">

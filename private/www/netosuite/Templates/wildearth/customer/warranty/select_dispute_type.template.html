@@ -7,12 +7,12 @@
 
 <div class="page-header">
 <h1>Resolution Centre</h1>
-<h2>Step 1 - Choose the type of dispute you would like to raise</h2>
+<h2>Step 1 - Choose the type of Resolution Request you would like to raise</h2>
 </div>
 
-<!--##[%DATA id:'error' if:'ne' value:''%]##-->
+[%DATA id:'error' if:'ne' value:''%]
 <div class="alert alert-danger"><a class="close" data-dismiss="alert">×</a>[@error@]</div>
-<!--##[%END DATA%]##-->
+[%END DATA%]
 
 
 
@@ -24,10 +24,10 @@ function cancalAction() {
 <form name="disputeForm" action="[%URL page:'account' type:'warranty' fn:'create' %][%END URL%]" method="post">
 <div class="row">
 	<input type="hidden" name="step" value="reason">
-<!--##[%dispute_types%]##-->
-<!--##[%PARAM header%]##-->  
-<!--##[%END PARAM%]##-->
-<!--##[%PARAM *body%]##-->
+[%dispute_types%]
+[%PARAM header%]  
+[%END PARAM%]
+[%PARAM *body%]
 <div class="col-xs-12 col-md-6">
 <div class="well">
 <div class="radio">
@@ -37,12 +37,12 @@ function cancalAction() {
 </div>
 </div>
 </div>
-<!--##[%END PARAM%]##-->
-<!--##[%PARAM *footer%]##-->
+[%END PARAM%]
+[%PARAM *footer%]
 </div>
 
-<!--##[%END PARAM%]##-->
-<!--##[%END dispute_types%]##-->  
+[%END PARAM%]
+[%END dispute_types%]  
 
 <div class="row">	
 <div class="col-xs-12">
