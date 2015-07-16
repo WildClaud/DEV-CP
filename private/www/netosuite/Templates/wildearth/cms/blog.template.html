@@ -21,16 +21,6 @@
 [%if [@content_id@] != 982 and [@content_id@] != 2469 and [@content_id@] != 2472 and [@content_id@] != 2470 and [@content_id@] != 2468 and [@content_id@] != 2467 and [@content_id@] != 2466%]
   <div class="panel panel-default">
     <div class="panel-body">
-      <div class="wrapper-share-button">
-        <a class="addthis_button btn btn-default btn-xs" href="http://www.addthis.com/bookmark.php?v=300&amp;pubid=xa-5282cbb6476f74a0" target="_blank">
-          <strong>Share: </strong>
-          <i class="fa fa-facebook-square text-facebook"></i> 
-          <i class="fa fa-twitter-square text-twitter"></i> 
-          <i class="fa fa-google-plus-square text-google-plus"></i> 
-          <i class="fa fa-pinterest-square text-pinterest"></i> 
-          <i class="fa fa-tumblr-square text-tumblr"></i>
-        </a>
-      </div>
       <h1>[@content_name@]</h1>
        
           <h4>[@content_short_description1@]</h4>
@@ -41,6 +31,16 @@
           
           <img src="[%ASSET_URL type:'content' thumb:'alt_1' id:'[@content_id@]' default:'[$imageurl$]/pixel.gif'%][%END ASSET_URL%]" class="img-responsive"/>
                   
+          <div class="wrapper-share-button" style="margin-top:10px;">
+            <a class="addthis_button btn btn-default btn-xs" href="http://www.addthis.com/bookmark.php?v=300&amp;pubid=xa-5282cbb6476f74a0" target="_blank">
+              <strong>Share: </strong>
+              <i class="fa fa-facebook-square text-facebook"></i> 
+              <i class="fa fa-twitter-square text-twitter"></i> 
+              <i class="fa fa-google-plus-square text-google-plus"></i> 
+              <i class="fa fa-pinterest-square text-pinterest"></i> 
+              <i class="fa fa-tumblr-square text-tumblr"></i>
+            </a>
+          </div>
           <p>
           [%parse%]
         		[@content_description1@]
