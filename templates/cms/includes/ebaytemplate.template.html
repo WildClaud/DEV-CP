@@ -1,0 +1,462 @@
+<!-- START JAVASCRIPT AND CSS INCLUDES - DO NOT REMOVE -->
+<script language="javascript" type="text/javascript">
+  document.Echo=document["standard"+"Write"]==null?document["write"]:document["standard"+"Write"];
+    var include=function(path){path=""+path+"?[@config:NETO_CSS_VERSION@]";document.Echo('<' + 'script src="' + path + '"' +' type="text\/javascript"><' + '\/script>');};
+  var includecss=function(path){path=""+path+"?[@config:NETO_CSS_VERSION@]";document.Echo('<' + 'link hr'+'ef="' + path + '"' +' rel="stylesheet" type="text\/css"><' + '\/link>');};
+</script>
+<script language="javascript" type="text/javascript">includecss("[%cdn_asset html:'0' type:'css' library:'bootstrap' version:'3.3.2'%]dist/css/bootstrap.min.css[%/cdn_asset%]");</script>
+<script language="javascript" type="text/javascript">includecss("[@EBAY_THEMEURL@]/css/style.css");</script>
+<script language="javascript" type="text/javascript">include("[%cdn_asset html:'0' type:'js' library:'jquery' version:'1.11.3'%]jquery.min.js[%/cdn_asset%]");</script>
+<script language="javascript" type="text/javascript">include("[%cdn_asset html:'0' type:'js' library:'bootstrap' version:'3.2.0'%]bootstrap.min.js[%/cdn_asset%]");</script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" media="all" rel="stylesheet" type="text/css">
+<style type="text/css">
+  #pic {
+    margin: auto;
+    display: block;
+  }
+  
+  
+</style>
+<div class="wrapper-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-7 col-md-4 wrap-logo">
+                <img src="[%asset_url type:'logo' thumb:'ebay'/%]" alt="Logo">
+            </div>
+            <div class="col-xs-12 col-sm-5 col-md-4 searchwrap">
+                <form name="productsearch" method="get" action="[@ebstore_url@]">
+                    <div class="input-group">
+                        <input id="searchId" class="form-control" name="_nkw" type="text" placeholder="What are you looking for? eg. Hiking Tents">
+                        <span class="input-group-btn">
+                            <button type="submit" value="Search" class="btn btn-info"><i class="fa fa-search"></i></button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+            <div class="col-xs-12 col-sm-7 col-md-4 wrap-phone">
+                <p><i class="fa fa-phone"></i> [@config:company_phone@]</p>
+            </div>
+
+        </div>  
+    </div>
+</div><!-- wrapper-header -->
+
+<div class="wrapper-nav">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+            [%menu id:'ebay_header'%]
+                [%param header%]
+                <nav class="navbar navbar-default" role="navigation">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div class="collapse navbar-collapse" id="main-navbar">
+                        <ul class="nav navbar-nav">
+                        [%/param%]
+                            [%param *level_1%]
+                            <li><a href="[@url@]">[@name@]</a></li>
+                            [%/param%]
+                        [%param footer%]
+                        </ul>
+                    </div>
+                </nav>
+                [%/param%]
+            [%/menu%]
+            </div>
+        </div>       
+    </div>
+</div><!-- wrapper-nav -->
+
+<div class="hidden-xs wrapper-header-usp">
+    <div class="container">
+        [%advert type:'text' category:'0' limit:'4' ad_group:'header_usp'%]
+        [%param *header%]
+        <div class="row">
+            [%/param%]
+            [%param *body%]
+            <div class="col-sm-3 text-center">
+                [%if [@linktext@]%][%format type:'text' nohtml:'0' rmhtml:'1'%][@linktext@][%END FORMAT%][%/if%]
+                [%if [@headline@]%] [@headline@][%/if%]
+            </div>
+            [%/param%]
+            [%param footer%]
+        </div>
+        [%/param%]
+        [%/advert%]
+    </div>
+</div>
+
+<div class="container maincontent">
+
+    <div class="row">
+        <div class="col-sm-5 col-md-4 col-lg-3 hidden-xs">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Categories</h3>
+                </div>
+                <div class="panel-body">
+                    [%ebay_category_menu id:"[@ebay_store_id@]" ebstore_url:"[@ebstore_url@]" sortby:"name"%]
+                        [%param header%]
+                        <ul class="list-group list-group-categ">
+                        [%end param%]
+                        [%PARAM *level_1%]
+                        <li><a href="[@url@]" class="list-group-item dropdown-toggle list-categ [%DATA id:'next_level' if:'ne' value:''%]list-categ-arrow[%/DATA%]">[@name@]</a>
+                            [%DATA id:'next_level' if:'ne' value:''%]
+                            <ul>
+                                [@next_level@]
+                            </ul>
+                            [%/DATA%]
+                        </li>
+                        [%/PARAM%]
+                         [%PARAM *level_2%]
+                        <li><a href="[@url@]" class="list-group-item dropdown-toggle list-categ [%DATA id:'next_level' if:'ne' value:''%]list-categ-arrow[%/DATA%]">[@name@]</a>
+                            [%DATA id:'next_level' if:'ne' value:''%]
+                            <ul>
+                                [@next_level@]
+                            </ul>
+                            [%/DATA%]
+                        </li>
+                        [%/PARAM%]
+                        [%param footer%]
+                        </ul>
+                        [%end param%]
+                    [%end ebay_category_menu%]
+                </div>
+            </div>
+
+            [%content_menu content_type:'brand' limit:'12' sortby:'sortorder' show_empty:'1'%]
+                [%param header%]
+                    <div class="panel panel-default hidden-xs">
+                        <div class="panel-heading"><h3 class="panel-title">Brands</h3></div>
+                        <ul class="list-group">
+                        [%/param%]
+                        [%param *level_1%]
+                            <li><a href="[@url@]" class="list-group-item dropdown-toggle">[@name@]</a></li>
+                        [%/param%]
+                        [%param footer%]
+                        </ul>
+                    </div>
+                [%/param%]
+            [%/content_menu%]
+            
+            <div class="newsletter product-btn">
+                <h3 class="newsTitle"><span class="fa fa-user"></span>Subscribe <br> to the Seller</h3>
+                <a href="http://my.ebay.com.au/ws/eBayISAPI.dll?AcceptSavedSeller&sellerid=wildearth-australia&ssPageName=STRK:MEFS:ADDSTR&rt=nc" class="signup-button btn" title="Subscribe to the Seller">Subscribe Now
+                </a>
+            </div>
+
+        </div><!-- col-xs-3 -->
+
+        <div class="col-xs-12 col-sm-7 col-md-8 col-lg-9">
+            
+            <div class="row">
+                <div class="col-xs-2">
+                    <div class="row row-alt-img">
+                        <!-- image one -->
+                        [%if [@image@]%]
+                        <div class="col-xs-12 wrap-alt-img">
+                            <a onclick="mainphoto.src='[@image_full@]';" onfocus="mainphoto.src='[@image_full@]';"><img src="[@image@]" width="180" hspace="10" vspace="8" border="0" align="left"></a>
+                        </div>
+                        [%/if%]
+                        [%if [@thumb_1@]%]
+                        <!-- image two -->
+                        <div class="col-xs-12 wrap-alt-img">
+                            <a onclick="mainphoto.src='[@thumb_full_1@]';" onfocus="mainphoto.src='[@thumb_full_1@]';"><img src="[@thumb_1@]" width="180" hspace="10" vspace="8" border="0" align="left"></a>
+                        </div>
+                        [%/if%]
+                        [%if [@thumb_2@]%]
+                        <!-- image three -->
+                        <div class="col-xs-12 wrap-alt-img">
+                            <a onclick="mainphoto.src='[@thumb_full_2@]';" onfocus="mainphoto.src='[@thumb_full_2@]';"><img src="[@thumb_2@]" width="180" hspace="10" vspace="8" border="0" align="left"></a>
+                        </div>
+                        [%/if%]
+                        [%if [@thumb_3@]%]
+                        <!-- image four -->
+                        <div class="col-xs-12 wrap-alt-img">
+                            <a onclick="mainphoto.src='[@thumb_full_3@]';" onfocus="mainphoto.src='[@thumb_full_3@]';"><img src="[@thumb_3@]" width="180" hspace="10" vspace="8" border="0" align="left"></a>
+                        </div>
+                        [%/if%]
+                        [%if [@thumb_4@]%]
+                        <!-- image five -->
+                        <div class="col-xs-12 wrap-alt-img">
+                            <a onclick="mainphoto.src='[@thumb_full_4@]';" onfocus="mainphoto.src='[@thumb_full_4@]';"><img src="[@thumb_4@]" width="180" hspace="10" vspace="8" border="0" align="left"></a>
+                        </div>
+                        [%/if%]
+                        [%if [@thumb_5@]%]
+                        <!-- image six -->
+                        <div class="col-xs-12 wrap-alt-img">
+                            <a onclick="mainphoto.src='[@thumb_full_5@]';" onfocus="mainphoto.src='[@thumb_full_5@]';"><img src="[@thumb_5@]" width="180" hspace="10" vspace="8" border="0" align="left"></a>
+                        </div>
+                        [%/if%]
+                    </div>
+                </div>
+                <div class="col-xs-10">
+                    <div id="main-image">
+                        <img src="[@image_full@]" hspace="0" vspace="0" border="0" align="left" name="mainphoto">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row producthead">
+                <div class="col-xs-12">
+                    <h1>[@MODEL@]</h1>
+                </div>
+                <div class="col-xs-12">
+                    <p class="prodprice">[%FORMAT type:'currency'%][@store_price@][%/FORMAT%]</p>
+                </div>
+                <div class="col-xs-12">
+                    <hr>
+                </div>
+            </div>
+
+
+            <div class="row product-btn">
+                <div class="col-sm-12 col-md-4">
+                    <a href="http://my.ebay.com.au/ws/eBayISAPI.dll?AcceptSavedSeller&linkname=includenewsletter&sellerid='wildearth-australia'" title="Add to Favourite Sellers" class="btn btn-default" target="_parent"><span class="fa fa-user-plus"></span> Add to Favourite Sellers</a>
+                </div>
+
+
+                <div class="col-sm-12 col-md-4">
+                    <a href="#" title="Tell a Friend" class="btn btn-default" target="_parent"><span class="fa fa-envelope"></span> Tell a Friend</a>
+                </div>
+                <div class="col-sm-12 col-md-4">
+                    <a href="#" title="Add to Watchlist" class="btn btn-default" target="_parent"><span class="fa fa-eye"></span> Add to Watchlist</a>
+                </div>
+                <script type="text/javascript">
+                    // document.write ("<div class=\"col-sm-12 col-md-4\">");
+                    // document.write ("<a href=\"mailto:?subject=Checkout%20this%20[%url_encode%][@model@][%/url_encode%]&body=http://www.ebay.com.au/itm/"+ebayItemID +"\" title=\"Tell a Friend\" class=\"btn btn-default\" target=\"_parent\"><span class=\"fa fa-envelope\"></span>");
+                    // document.write (" Tell a Friend");
+                    // document.write ("</a>");
+                    // document.write ("</div>");
+
+                    // document.write ("<div class=\"col-sm-4\">");
+                    // document.write ("<a href=\"http://www.ebay.com.au/myb/WatchListAdd?_trksid=p2047675.l1359&SubmitAction.AddToListVI=x&item="+ebayItemID +"\" title=\"Add to Watchlist\" class=\"btn btn-default\" target=\"_parent\"><span class=\"fa fa-eye\"></span>");
+                    // document.write (" Add to Watchlist");
+                    // document.write ("</a>");
+                    // document.write ("</div>");
+                </script>
+            </div><!-- row -->
+
+
+                    
+
+            <div class="row">
+                
+                <div class="col-xs-12">
+                    <section class="panel-content" id="n_product">
+                        <div class="tabbable">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#desc" aria-controls="desc" role="tab" data-toggle="tab">Description</a></li>
+                                <li role="presentation"><a href="#specs" aria-controls="specs" role="tab" data-toggle="tab">Features</a></li>
+                            </ul><!-- tablist -->
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active" id="desc">
+                                    [%if [@ebay_description@]%]
+                                    <div class="productdetails">[@ebay_description@]</div>
+                                    [%/if%]
+                                    [%if ![@ebay_description@]%]
+                                    [%if [@description@]%]
+                                    <div class="productdetails">[@description@]</div>
+                                    [%/if%]
+                                    [%/if%]
+                                </div><!-- desc -->
+                                <div role="tabpanel" class="tab-pane" id="specs">
+                                    <div class="specifications">
+                                        [%if [@features@]%]
+                                        [@features@]
+                                        <div class="clear"></div><br/>
+                                        [%/if%]
+                                    </div><!-- specifications -->
+                                </div><!-- #specs -->
+                            </div><!-- tab-content -->
+                        </div><!-- .tabbable -->
+                    </section><!-- panel-content -->
+                </div><!-- col-xs-12" -->
+
+            </div><!-- row -->
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="productvideo">
+                        [%IF [@misc1@]%]
+                            <span>
+                                <object width="853" height="480" type="text/html" allowscriptaccess="always" allowfullscreen="true" data="https://www.youtube.com/embed/[@misc1@]?rel=0"></object>
+                            </span>
+                        [%END IF%]
+                    </div>
+                </div><!-- col-xs-12" -->
+            </div><!-- row -->
+
+        </div><!-- col-xs-9 -->
+
+    </div><!-- row -->
+</div><!-- container -->
+
+
+<div class="wrapper-upsell">
+    <div class="container">
+        <div class="row">
+            [%ebay_upsell limit:'4' ebay_store_id:'[@ebay_store_id@]' show_all:'1' sku:'[@sku@]'%]
+            <div class="container-upsell">
+                [%param *header%]
+                <div class="titlebox clearfix">
+                    <div class="col-xs-12"><h3>We also Recommend</h3></div>
+                </div>
+                <ul class="thumbnails">
+                    [%/param%]
+                    [%param *body%]
+                    <li class="wrapper-thumbnail col-xs-12 col-sm-6 col-md-3">
+                        <div class="thumbnail">
+                            <div class="image-box">
+                                <a href="[@ebay_upsell_url@]" title="[@ebay_title@]"> <img src="[@upsell_thumb@]" alt="[@ebay_title@]" border="0"/> </a>
+                            </div>
+                            <div class="caption">
+                                <h5 class="title"><a href="[@ebay_upsell_url@]">[%format type:'text' maxlength:'40' rmhtml:'1'%][@ebay_upsell_title@][%/format%]</a></h5>
+                                <p class="price">$[@upsell_current_price@]</p>
+                                <a href="[@ebay_upsell_url@]" class="viewproduct">View Product</a>
+                            </div>
+                        </div>
+                    </li>
+                    [%/param%]
+                    [%param footer%]
+                </ul>
+                [%/param%]
+            </div>
+            [%/ebay_upsell%]
+
+        </div><!-- row -->
+    </div>
+</div>   
+
+
+<div class="wrapper-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <p class="cpy">Copyright &copy; 2016 [@config:company_name@]<br><a href="https://www.neto.com.au" title="E-commerce Shopping Cart" rel="nofollow" target="_blank">E-commerce Software</a> By Neto</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 hidden-xs">
+                [%payment_methods%]
+                    [%param header%]
+                        <ul class="list-inline text-center">
+                    [%end param%]
+                    [%param *body%]
+                        [%data id:'name' if:'like' value:'American Express'%]
+                            <li>
+                                <div class="payment-icon-container">
+                                    <div class="payment-icon payment-icon-americanexpress"></div>
+                                </div>
+                            </li>
+                        [%end data%]
+                        [%data id:'name' if:'like' value:'Visa'%]
+                            <li>
+                                <div class="payment-icon-container">
+                                    <div class="payment-icon payment-icon-visa"></div>
+                                </div>
+                            </li>
+                        [%end data%]
+                        [%data id:'name' if:'like' value:'Master Card'%]
+                            <li>
+                                <div class="payment-icon-container">
+                                    <div class="payment-icon payment-icon-mastercard"></div>
+                                </div>
+                            </li>
+                        [%end data%]
+                        [%data id:'name' if:'like' value:'Discover'%]
+                            <li>
+                                <div class="payment-icon-container">
+                                    <div class="payment-icon payment-icon-discover"></div>
+                                </div>
+                            </li>
+                        [%end data%]
+                        [%data id:'name' if:'like' value:'Diners'%]
+                            <li>
+                                <div class="payment-icon-container">
+                                    <div class="payment-icon payment-icon-diners"></div>
+                                </div>
+                            </li>
+                        [%end data%]
+                        [%data id:'name' if:'like' value:'Cheque'%]
+                            <li>
+                                <div class="payment-icon-container">
+                                    <div class="payment-icon payment-icon-cheque"></div>
+                                </div>
+                            </li>
+                        [%end data%]
+                        [%data id:'name' if:'like' value:'Money Order'%]
+                            <li>
+                                <div class="payment-icon-container">
+                                    <div class="payment-icon payment-icon-moneyorder"></div>
+                                </div>
+                            </li>
+                        [%end data%]
+                        [%data id:'name' if:'like' value:'Direct Deposit'%]
+                            <li>
+                                <div class="payment-icon-container">
+                                    <div class="payment-icon payment-icon-directdeposit"></div>
+                                </div>
+                            </li>
+                        [%end data%]
+                        [%data id:'name' if:'like' value:'bpay'%]
+                            <li>
+                                <div class="payment-icon-container">
+                                    <div class="payment-icon payment-icon-bpay"></div>
+                                </div>
+                            </li>
+                        [%end data%]
+                        [%data id:'name' if:'like' value:'paypal'%]
+                            <li>
+                                <div class="payment-icon-container">
+                                    <div class="payment-icon payment-icon-paypal"></div>
+                                </div>
+                            </li>
+                        [%end data%]
+                    [%end param%]
+                    [%param *footer%]
+                        </ul>
+                    [%end param%]
+                [%end payment_methods%]
+            </div>
+        </div>
+        <div class="row">
+            <ul class="hidden-xs wrapper-social text-center">
+                <!-- <li>
+                    <a href="[@config:facebook_account_id@]" target="_blank"><span class="fa fa-facebook"></span> facebook.com/wildearth</a>
+                </li>
+                <li>
+                    <a href="[@config:twitter_account_id@]" target="_blank"><span class="fa fa-twitter"></span> wildearth</a>
+                </li>
+                <li>
+                    <a href="[@config:youtube_account_id@]" target="_blank"><span class="fa fa-youtube"></span> wildearth</a>
+                </li>
+                <li>
+                    <a href="[@config:pinterest_account_id@]" target="_blank"><span class="fa fa-pinterest"></span> wildearth</a>
+                </li> -->
+                <li>
+                    <span class="fa fa-facebook"></span> facebook.com/wildearth
+                </li>
+                <li>
+                    <span class="fa fa-twitter"></span> wildearth
+                </li>
+                <li>
+                    <span class="fa fa-youtube"></span> wildearth
+                </li>
+                <li>
+                    <span class="fa fa-pinterest"></span> wildearth
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+

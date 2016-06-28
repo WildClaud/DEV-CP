@@ -1,0 +1,125 @@
+
+ 
+[%load_template file:"column_left/template.html"%][%END load_template%]
+ 
+
+[%breadcrumb%]
+[%param *header%]
+<ul id="breadcrumb brandcrumb">
+<li><a href="[$home_url$]">Home</a></li>
+[%end param%] [%param *body%] 
+<li><a href="[@url@]">[@name@]</a></li>
+[%END param%] 
+[%param *body_current%]
+<li>[@name@]</li>
+[%END param%] 
+[%param *footer%]
+</ul>
+[%end param%]
+[%end breadcrumb%]
+
+<h1>Shop By Brand</h1>
+
+Click on the brand name below to see all products for that brand.
+
+<br />
+
+[@page_content@]
+
+<br />
+
+<div class="a_to_z">
+[%FORM id:'lead' if:'eq' value:''%]
+[%PARAM *if_true%]
+View All&nbsp;
+[%END PARAM%]
+[%PARAM *if_false%]
+<a href="[%URL type:'page' id:'brands'%][%END URL%]">View All</a>&nbsp;
+[%END PARAM%]
+[%END FORM%]
+<div clas="test2"></div>
+[%a2z limit:'1' debug:'1'%]
+[%PARAM *header%]
+    <div class="test"></div>
+[%/param%]
+[%PARAM *body%]
+
+[%FORM id:'lead' if:'eq' value:'[@upper@]'%]
+[%PARAM *if_true%]
+[@upper@]&nbsp;
+[%END PARAM%]
+[%PARAM *if_false%]
+<a href="[%URL type:'page' id:'brands' qs:'lead=[@upper@]'%][%END URL%]">[@upper@] </a> <span class="hidden">ID [@id@], Lower [@lower@], Upper [@upper@]</span>&nbsp;
+[%END PARAM%]
+[%END FORM%]
+[%END PARAM%]
+[%END a2z%]
+</div>
+<br clear="all" />
+
+[%THUMB_LIST type:'brands' template:'' limit:'100' show_all:'1'%]
+[%PARAM filter_1%][%FORM id:'lead'%][%END FORM%][%END PARAM%]
+[%PARAM *header%]
+<div class="paging_container">
+<span class="paging">
+<span class="text">Page:</span>
+[%paging limit:'3'%]
+[%PARAM *previous_page%]<span class="pre"><a href="[@URL@]&lead=[%url_encode%][%FORM id:'lead'%][%END FORM%][%END url_encode%]">&lt; Previous</a></span>[%END PARAM%]
+[%PARAM *goback_pages%]<span><a href="[@URL@]&lead=[%url_encode%][%FORM id:'lead'%][%END FORM%][%END url_encode%]">[@PAGE@]</a></span>[%END PARAM%]
+[%PARAM *current_page%]<span class="current">[@PAGE@]</span>[%END PARAM%]
+[%PARAM *gonext_pages%]<span><a href="[@URL@]&lead=[%url_encode%][%FORM id:'lead'%][%END FORM%][%END url_encode%]">[@PAGE@]</a></span>[%END PARAM%]
+[%PARAM *next_page%]<span class="next"><a href="[@URL@]&lead=[%url_encode%][%FORM id:'lead'%][%END FORM%][%END url_encode%]">&gt; Next</a></span>[%END PARAM%]
+[%END paging%]
+</span>
+</div>
+<div class="category_thumb"><ul>
+[%END PARAM%]
+[%PARAM *footer%]
+</ul></div>
+<br clear="all" />
+<div class="paging_container">
+<span class="paging">
+<span class="text">Page:</span>
+[%paging limit:'3'%]
+[%PARAM *previous_page%]<span class="pre"><a href="[@URL@]&lead=[%url_encode%][%FORM id:'lead'%][%END FORM%][%END url_encode%]">&lt; Previous</a></span>[%END PARAM%]
+[%PARAM *goback_pages%]<span><a href="[@URL@]&lead=[%url_encode%][%FORM id:'lead'%][%END FORM%][%END url_encode%]">[@PAGE@]</a></span>[%END PARAM%]
+[%PARAM *current_page%]<span class="current">[@PAGE@]</span>[%END PARAM%]
+[%PARAM *gonext_pages%]<span><a href="[@URL@]&lead=[%url_encode%][%FORM id:'lead'%][%END FORM%][%END url_encode%]">[@PAGE@]</a></span>[%END PARAM%]
+[%PARAM *next_page%]<span class="next"><a href="[@URL@]&lead=[%url_encode%][%FORM id:'lead'%][%END FORM%][%END url_encode%]">&gt; Next</a></span>[%END PARAM%]
+[%END paging%]
+</span>
+</div>
+<br clear="all" />
+
+<div class="a_to_z">
+[%FORM id:'lead' if:'eq' value:''%]
+[%PARAM *if_true%]
+View All &nbsp;
+[%END PARAM%]
+[%PARAM *if_false%]
+<a href="[%URL type:'page' id:'brands'%][%END URL%]">View All</a>&nbsp;
+[%END PARAM%]
+[%END FORM%]
+[%a2z%]
+[%PARAM *body%]
+[%FORM id:'lead' if:'eq' value:'[@upper@]'%]
+[%PARAM *if_true%]
+<span class="current">[@upper@]</span>&nbsp;
+[%END PARAM%]
+[%PARAM *if_false%]
+<a href="[%URL type:'page' id:'brands' qs:'lead=[@upper@]'%][%END URL%]">[@upper@]</a>&nbsp;
+[%END PARAM%]
+[%END FORM%]
+[%END PARAM%]
+[%END a2z%]
+[%END PARAM%]
+[%PARAM *ifempty%]
+<div> No brands found....
+[%END PARAM%]
+[%END THUMB_LIST%]
+</div>
+
+
+ 
+[%load_template file:"column_right/template.html"%][%END load_template%]
+ 

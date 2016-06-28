@@ -1,0 +1,174 @@
+</div>
+</div>
+[%site_value id:'footer_javascript'%]
+	<script type="text/javascript" language="javascript">
+		if (window.innerWidth < 769) {
+			$.load_ajax_template('_home-banner');
+		}
+		else {
+			$.load_ajax_template('_category-banners');
+		}
+	</script>
+[%/site_value%]
+<div class="home-wrapper new-homepage">
+	<div class="home-container">
+		<div class="container">
+			<div class="row">
+
+				<div class="col-xs-12">
+					[%load_ajax_template id:'_home-banner' type:'content' template:'home-banner' preload:'0' tmpl_preview:'y'/%]
+					[%ADVERT type:'banner' template:'carousel' limit:'10' ad_group:'homescroll'%]
+						[%PARAM *header%]
+							<div id="myCarouselBanner" class="carousel slide hidden-xs">
+								<!-- Indicators -->
+								<ol class="carousel-indicators hidden">
+									[%SITE_VALUE id:'counter' type:'load'%][%END SITE_VALUE%]
+								</ol>
+								<!-- Wrapper for slides -->
+								<!-- Wrapper for slides -->
+								<div class="carousel-inner">
+						[%END PARAM%]
+						[%PARAM *footer%]
+								</div>
+								<!-- Controls -->
+								<a class="left carousel-control" href="#myCarouselBanner" data-slide="prev">
+									<span class="fa fa-chevron-left"></span>
+								</a>
+								<a class="right carousel-control" href="#myCarouselBanner" data-slide="next">
+									<span class="fa fa-chevron-right"></span>
+								</a>
+							</div>
+						[%END PARAM%]
+						[%PARAM *ifempty%]
+							<a class="neto-placeholder neto-placeholder-rotator btn-loads" data-loading-text="<i class='fa fa-spinner fa-spin' style='font-size: 14px'></i>" href="[$home_url$]/_cpanel?item=adw&page=view&id=New&plan_id=4">
+								Click to add a banner<br/>
+							</a>
+						[%END PARAM%]
+					[%END ADVERT%]
+					[%ADVERT type:'banner' limit:'3' ad_group:'home-small' sortby:'sortorder_asc'%]
+						[%PARAM *header%]
+							<div class="row wrapper-ad-units test">
+						[%END PARAM%]
+						[%PARAM *body%]
+							<div class="col-sm-4 [%if [@count@] eq '0' %]col-sm-push-8[%else%]col-sm-pull-4[%/if%]">
+							<div class="thumbnail">
+							<a href="[@url@]"><img src="[%asset_url type:'adw' id:'[@ad_id@]' default:'[$imageurl$]/pixel.gif'%][%END asset_url%]" class="img-responsive"  alt="[@headline@]"></a>
+							</div>
+							</div>
+						[%END PARAM%]
+						[%PARAM *footer%]
+
+							</div>
+						[%END PARAM%]
+						[%PARAM *ifempty%]
+
+						[%END PARAM%]
+					[%END ADVERT%]
+
+
+					<!-- SHOP BRAND SECTION -->
+					<div class="panel panel-default panel-brands-selection">
+						<div class="panel-body">
+							<div class="col-xs-4 hidden-xs">
+								<div class="brand-table-wrapper">
+									[%content_zone id:'home-brands-left'%][%end content_zone%]
+								</div>
+							</div>
+
+							<div class="col-xs-12 col-sm-4 text-center">
+								<div class="brand-selection-wrapper">
+									<h3><a href="/view/brands/brands">Shop Brands</a></h3>
+									[%THUMB_LIST type:'brands' content_type:'' template:'option' limit:'255' sortby:'name'%]
+									[%PARAM *header%]
+									<select class="form-control" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+									<option value="">Select a brand...</option>
+									[%END PARAM%][%PARAM *FOOTER%]
+									</select>
+									[%END PARAM%][%END THUMB_LIST%]
+								</div>
+							</div>
+
+							<div class="col-xs-4 hidden-xs">
+								<div class="brand-table-wrapper">
+									[%content_zone id:'home-brands-right'%][%end content_zone%]
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row home-featured-category">
+						[%load_ajax_template id:'_category-banners' type:'content' template:'category-banners' preload:'0' tmpl_preview:'y'/%]
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- SPOTLIGHT -->
+<div class="spotlight-container">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="spotlight-header text-center">
+					<h2>Spotlight</h2>
+					<p>Check out the latest from Wild Earth and our customers</p>
+				</div>
+
+				[%thumb_list type:'content' content_type:'blog' template:'blog-spotlight' filter_category:'982' limit:'4' sortby:'date_posted-desc'%]
+				[%param *header%]
+				<div class="home-spotlight-wrapper">
+				[%/param%]
+				[%param *footer%]
+				</div>
+				[%/param%]
+				[%/thumb_list%]
+
+			</div> <!-- /.col-xs-12 -->
+		</div> <!-- /.row -->
+
+		<div class="row spotlight-social-links hidden-xs">
+			<div class="col-sm-3 col-md-offset-1 text-right">
+				<a href="[@config:facebook_account_id@]" target="_blank" class="spotlight-social-link">
+					<i class="fa fa-facebook"></i>
+				</a>
+				<a href="[@config:youtube_account_id@]" target="_blank" class="spotlight-social-link">
+					<i class="fa fa-youtube"></i>
+				</a>
+			</div>
+			<div class="col-sm-5 col-md-4">
+				<a href="/blog" class="btn btn-default-inverted btn-lg btn-block">View More Community Posts</a>
+			</div>
+			<div class="col-sm-3">
+				<a href="[@config:twitter_account_id@]" target="_blank" class="spotlight-social-link">
+					<i class="fa fa-twitter"></i>
+				</a>
+				<a href="[@config:pinterest_account_id@]" target="_blank" class="spotlight-social-link">
+					<i class="fa fa-pinterest"></i>
+				</a>
+			</div>
+		</div>
+
+<div class="row spotlight-social-links hidden-md hidden-lg hidden-sm">
+			<div class="col-xs-12 text-center">
+				<a href="[@config:facebook_account_id@]" target="_blank" class="spotlight-social-link">
+					<i class="fa fa-facebook"></i>
+				</a>
+				<a href="[@config:youtube_account_id@]" target="_blank" class="spotlight-social-link">
+					<i class="fa fa-youtube"></i>
+				</a>
+
+				<a href="[@config:twitter_account_id@]" target="_blank" class="spotlight-social-link">
+					<i class="fa fa-twitter"></i>
+				</a>
+				<a href="[@config:pinterest_account_id@]" target="_blank" class="spotlight-social-link">
+					<i class="fa fa-pinterest"></i>
+				</a>
+			</div>
+<div class="col-xs-12">
+				<a href="/view/tech-library/14" class="btn btn-default-inverted btn-lg btn-block">View More Community Posts</a>
+			</div>
+		</div>
+
+	</div>
+</div>

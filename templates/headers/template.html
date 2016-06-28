@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="[%url_info name:'meta_keywords'%][%end url_info%]"/>
+<meta name="description" content="[%url_info name:'meta_description'%][%end url_info%]"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta property="og:image" content="[%if [@config:current_page_type@] eq 'product'%][%asset_url type:'product' id:'[@SKU@]' thumb:'full'%][%end asset_url%][%ELSEIF [@config:current_page_type@] eq 'content'%][%ASSET_url type:'content' id:'[@content_id@]' default:'/assets/website_logo.png'%][%end ASSET_url%][%ELSE%]/assets/website_logo.png[%end if%]"/>
+<meta property="og:title" content="[%url_info name:'page_title'%][%end url_info%]"/>
+<meta property="og:site_name" content="[@config:website_name@] "/>
+
+<meta name="google-site-verification" content="[@config:GOOGLE_VERIFICATION_CODE@]"/>
+<meta name="msvalidate.01" content="F569BA504D11B9E87D89D7056AC4EEB2" />
+<title>[%url_info name:'page_title'%][%end url_info%]</title>
+<link rel="canonical" href="[@config:canonical_url@]"/>
+<link rel="shortcut icon" href="[@config:homeurl@]/assets/favicon_logo.png"/>
+<link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,700italic,900,400italic' rel='stylesheet' type='text/css'>
+<link class="theme-selector" rel="stylesheet" type="text/css" href="[%ntheme_asset%]css/app.css[%end ntheme_asset%]" media="all"/>
+<link class="theme-selector" rel="stylesheet" type="text/css" href="[%ntheme_asset%]css/user-override.css?16444[%end ntheme_asset%]038" media="all"/>
+[%if [@form:npurpose@] eq 'facebook'%]
+<link rel="stylesheet" type="text/css" href="[%ntheme_asset%]css/facebook.css[%end ntheme_asset%]" media="all"/>
+[%/ if%]
+<link rel="stylesheet" type="text/css" href="[%ntheme_asset%]plugins/fancybox/jquery.fancybox.css[%end ntheme_asset%]"/>
+<!--[if lte IE 8]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+<![endif]-->
+
+<!--[if gt IE 7]>
+	<link class="theme-selector" rel="stylesheet" type="text/css" href="[%ntheme_asset%]css/ie8up.css[%end ntheme_asset%]" media="all"/>
+<![endif]-->
+
+
+[%tracking_code type:'Declaration'%][%end tracking_code%]
+
+
+
+</head>
+
+<body id="n_[@config:current_page_type@]">
+
+
+
+<div class="new-header">
+			<div class="container">
+
+				<div class="top-nav">
+					<ul class="nav navbar-nav">
+						[%cache type:'menu' id:'header-content-menu'%]
+							[%menu id:'web_header'%]
+
+								[%param *level_1%]
+								<li class="[%data id:'next_level' if:'ne' value:''%]dropdown dropdown-hover[%end data%]"> <a href="[@url@]" [%data id:'next_level' if:'ne' value:''%]class="dropdown-toggle" [%end data%]> [@name@]
+									[%data id:'next_level' if:'ne' value:''%]
+									<span class="caret"></span>
+									[%end data%]
+									</a>
+									[%data id:'next_level' if:'ne' value:''%]
+									<ul class="dropdown-menu">
+										[@next_level@]
+									</ul>
+									[%end data%]
+								</li>
+								[%end param%]
+
+								[%param *level_2%]
+								<li class="[%data id:'next_level' if:'ne' value:''%]dropdown dropdown-hover[%end data%]"> <a href="[@url@]">[@name@]</a>
+									[%data id:'next_level' if:'ne' value:''%]
+										<ul class="dropdown-menu dropdown-menu-horizontal">
+											[@next_level@]
+										</ul>
+									[%end data%]
+								</li>
+								[%end param%]
+
+								[%param *level_3%]
+								<li class="[%data id:'next_level' if:'ne' value:''%]dropdown dropdown-hover[%end data%]"> <a href="[@url@]">[@name@]</a>
+									[%data id:'next_level' if:'ne' value:''%]
+										<ul class="dropdown-menu dropdown-menu-horizontal">
+											[@next_level@]
+										</ul>
+									[%end data%]
+								</li>
+								[%end param%]
+
+							[%end menu%]
+						[%/ cache%]
+
+
+						[%user id:'username' if:'ne' value:''%]
+							[%param if_true%]
+								<li><a href="/_myacct"> My Account</a></li>
+								<li><a href="[%url page:'account' type:'logout'%][%end url%]"> Log Out</a></li>
+							[%end param%]
+							[%param if_false%]
+								<li> <a href="/_myacct"> Log In </a> </li>
+							[%end param%]
+						[%end user%]
+
+						<li id="header-cart">
+							<a href="[%url page:'checkout' type:'cart'%][%end url%]" id="cartcontentsheader">
+								<span class="visible-lg visible-inline-lg">My Cart <i class="fa fa-shopping-cart"></i></span>
+								<span class="badge badge-cartitems">
+									<span rel="a2c_item_count">
+										[%format type:'number' dp:'0'%][%CART id:'total_items'%][%end CART%][%end format%]
+									</span>
+								</span>
+							</a>
+						</li>
+
+
+					</ul>
+				</div>
+
+				<div class="header-group-one">
+					<div class="logo">
+						<a href="[@config:homeurl@]" title="[@config:company_name@]">
+							<img src="[@config:imageurl@]/wild-earth-logo.png" alt="[@config:company_name@]"/>
+						</a>
+					</div>
+
+					<div class="phone-search">
+
+						<div class="phone">
+							<a href="tel:[@config:company_phone@]"><i class="fa fa-phone"></i> [@config:company_phone@]</a>
+						</div>
+
+						<div class="header-search">
+							<form class="form" name="productsearch" method="get" action="/">
+								<input type="hidden" name="rf" value="kw"/>
+								<input class="form-control ajax_search" value="[%nohtml%][%filter ID:'keywords'%][%end filter%][%end nohtml%]" id="name_search" autocomplete="off" name="kw" type="text" placeholder="What are you looking for? eg. Hiking Tents"/>
+								<i class="fa fa-search"></i>
+							</form>
+						</div>
+					</div>
+				</div>
+
+				<div class="header-group-two">
+					<div class="social-tagline">
+
+						<div class="phone">
+							<a href="tel:[@config:company_phone@]"><i class="fa fa-phone"></i> [@config:company_phone@]</a>
+						</div>
+
+						<div class="social-stack">
+
+							<a target="_blank" href="https://www.facebook.com/WildEarthAustralia">
+								<span class="fa-stack fa-lg">
+									<i class="fa fa-square fa-stack-2x"></i>
+									<i class="fa fa-facebook fa-stack-1x"></i>
+								</span>
+							</a>
+
+
+							<a target="_blank" href="https://www.youtube.com/user/wildearthaustralia">
+								<span class="fa-stack fa-lg">
+									<i class="fa fa-square fa-stack-2x"></i>
+									<i class="fa fa-youtube fa-stack-1x"></i>
+								</span>
+							</a>
+
+							<a target="_blank" href="https://twitter.com/WildEarthAust">
+								<span class="fa-stack fa-lg">
+									<i class="fa fa-square fa-stack-2x"></i>
+									<i class="fa fa-twitter fa-stack-1x"></i>
+								</span>
+							</a>
+
+							<a target="_blank" href="https://www.pinterest.com/wildearthaust/">
+								<span class="fa-stack fa-lg">
+									<i class="fa fa-square fa-stack-2x"></i>
+									<i class="fa fa-pinterest fa-stack-1x"></i>
+								</span>
+							</a>
+
+							<a target="_blank" href="http://wildearthaustralia.tumblr.com/">
+								<span class="fa-stack fa-lg">
+									<i class="fa fa-square fa-stack-2x"></i>
+									<i class="fa fa-tumblr fa-stack-1x"></i>
+								</span>
+							</a>
+
+						</div>
+
+						<div class="tagline">
+							<p class="orange">Your favorite brands.</p>
+							<p class="orange">Our expert knowledge.</p>
+							<p class="white">Adventure is here.</p>
+						</div>
+					</div>
+
+					<div class="offers">
+
+						<div class="free-shipping">
+							<i class="fa fa-truck"></i>
+							<h5><a href="/view/shipping/18">Free Shipping</a></h5>
+							<p class="subtext"><a href="/view/shipping/18">Over $99. Aust Wide. Excludes Bulky.</a></p>
+						</div>
+
+						<div class="newsletter-signup">
+							<i class="fa fa-envelope"></i>
+							<h5><a href="http://eepurl.com/uWu_1" target="_blank">Newsletter</a></h5>
+							<p class="subtext"><a href="http://eepurl.com/uWu_1" target="_blank">Sign up for a members discount</a></p>
+						</div>
+					</div>
+				</div>
+
+			</div>
+	</div>
+
+
+<div class="navbar navbar-custom">
+	<div class="navbar-header">
+		<ul class="navigation-list list-inline visible-xs">
+			<li> <a href="#" class="" data-toggle="collapse" data-target=".navbar-responsive-collapse"> <span class="icon"> <i class="fa fa-reorder"></i> </span><br>
+				Menu </a> </li>
+			<li><a href="/products"><span class="icon"><i class="fa fa-gift"></i></span><br>
+				Products</a></li>
+			<li><a href="[%url page:'checkout' type:'cart'%][%end url%]"><span class="icon"><i class="fa fa-shopping-cart"></i></span><br>
+				Cart (<span rel="a2c_item_count">[%format type:'number' dp:'0'%][%CART id:'total_items'%][%end CART%][%end format%]</span>)</a></li>
+			<li><a href="/_myacct/"><span class="icon"><i class="fa fa-user"></i></span><br>
+				Account</a></li>
+		</ul>
+	</div>
+	<div class="navbar-collapse collapse navbar-responsive-collapse mobile-menu-wrapper">
+		<!-- _______________ SHOP WILDEARTH TAB _______________ -->
+		<div class="tab-pane fade in active" id="shop-wildearth">
+			<ul class="nav navbar-nav hidden-xs">
+				[%CATEGORYMENU sortby:'sortorder, name'%]
+								[%param *level_1%]
+				<li class="[%data id:'next_level' if:'ne' value:''%]dropdown dropdown-hover[%end data%] hidden-xs"> <a href="[@url@]" [%data id:'next_level' if:'ne' value:''%]class="dropdown-toggle"[%end data%]>[@name@]</a>
+					[%data id:'next_level' if:'ne' value:''%]
+					<ul class="dropdown-menu">
+						[@next_level@]
+					</ul>
+					[%end data%]
+				</li>
+				[%end param%]
+								[%param *level_2%]
+				<li class="[%data id:'next_level' if:'ne' value:''%]dropdown dropdown-hover[%end data%] hidden-xs"> <a href="[@url@]" class="nuhover dropdown-toggle">[@name@] [%data id:'next_level' if:'ne' value:''%]
+					<span class="fa fa-caret-right"></span>
+					[%end data%]</a>
+					[%data id:'next_level' if:'ne' value:''%]
+					<ul class="dropdown-menu dropdown-menu-horizontal">
+						[@next_level@]
+					</ul>
+					[%end data%]
+				</li>
+
+				[%end param%]
+								[%param *level_3%]
+				<li class="[%data id:'next_level' if:'ne' value:''%]dropdown dropdown-hover[%end data%] hidden-xs"> <a href="[@url@]">[@name@]</a>
+					[%data id:'next_level' if:'ne' value:''%]
+					<ul class="dropdown-menu dropdown-menu-horizontal">
+						[@next_level@]
+					</ul>
+					[%end data%]
+				</li>
+				[%end param%]
+							[%end CATEGORYMENU%]
+				<li class="hidden-xs"><a href="[%url type:'page' id:'2418'%][%/url%]">New In</a></li>
+				<li class="hidden-xs"><a href="[%url type:'page' id:'2417'%][%/url%]">Sale</a></li>
+
+				<!-- links were different to above so removing in favor of 20/7/15 for code below<li class="hidden-sm hidden-md hidden-lg mobile-menu"><a style="font-size:26px !important; padding:10px;" class="btn btn-block btn-default btn-lg" href="/shop/all-products/2434?rf=&sortby=new_arrivals&templatebody=new">New In</a></li>
+				<li class="hidden-sm hidden-md hidden-lg mobile-menu"><a style="font-size:26px !important; padding:10px;"  class="btn btn-block btn-default btn-lg" href="[%url type:'page' id:'2417'%][%/url%]">Sale</a></li>-->
+
+				<li class="hidden-sm hidden-md hidden-lg mobile-menu"><a style="font-size:26px !important; padding:10px;" class="btn btn-block btn-default btn-lg" href="[%url type:'page' id:'2418'%][%/url%]">New In</a></li>
+				<li class="hidden-sm hidden-md hidden-lg mobile-menu"><a style="font-size:26px !important; padding:10px;"  class="btn btn-block btn-default btn-lg" href="[%url type:'page' id:'2417'%][%/url%]">Sale</a></li>
+
+			</ul>
+			<ul class="nav navbar-nav visible-xs" id="mob-menu">
+				[%cache type:'menu' id:'header-category-menu-mobile'%]
+					[%CATEGORYMENU sortby:'sortorder, name' show_empty:'1'%]
+						[%param *level_1%]
+							 <li id="[@css_class@]" class="mobilelink mob-1"> <a [%IF [@next_level@] %]data-toggle="collapse" data-parent="#mob-menu" href="#mob-menu-[@id@]" class="collapsed mob-drop"[%ELSE%]href="[@url@]"[%/IF%]>[@name@] [%if [@next_level@]%]<i class="fa fa-caret-down"></i>[%/if%]</a>
+							[%if [@next_level@]%]
+								<ul id="mob-menu-[@id@]" class="navbar-nav panel-collapse collapse collapse-menu">
+									[@next_level@]
+								</ul>
+							[%/if%]
+							</li>
+							[%/param%]
+						[%param *level_2%]
+							<li id="[@css_class@]" class="mobilelink mob-2"> <a [%IF [@next_level@] %]data-toggle="collapse" data-parent="#mob-menu" href="#mob-menu-[@id@]-2" class="collapsed mob-drop"[%ELSE%]href="[@url@]"[%/IF%]>[@name@] [%if [@next_level@]%]<i class="fa fa-caret-down"></i>[%/if%]</a>
+						   [%if [@next_level@]%]
+							   <ul id="mob-menu-[@id@]-2" class="navbar-nav panel-collapse collapse collapse-menu">
+								   [@next_level@]
+							   </ul>
+						   [%/if%]
+						   </li>
+							[%/param%]
+						[%param *level_3%]
+							<li class="mob-3 mobilelink [%if [@next_level@]%]dropdown dropdown-hover[%/if%]"> <a href="[@url@]">[@name@]</a>
+								[%if [@next_level@]%]
+									<ul class="dropdown-menu dropdown-menu-horizontal">
+										[@next_level@]
+									</ul>
+								[%/if%]
+							</li>
+						[%/param%]
+					[%/CATEGORYMENU%]
+					<li class="mobilelink mob-1">
+						<a href="/view/new-in/2418" alt="New In">New In</a>
+					</li>
+					<li class="mobilelink mob-1">
+						<a href="/view/sale/2417" alt="Sale">Sale</a>
+					</li>
+				[%/ cache%]
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="header-banner-bg col-xs-12 hidden-xs">
+	<div class="row">
+		<div class="col-xs-12">
+			[%ADVERT type:'banner' template:'banner' limit:'1' ad_group:'header_banner' category:''%]
+
+			[%END ADVERT%]
+		</div>
+	</div>
+</div>
+<div id="main-content" class="container" role="main">
+	<div class="row">

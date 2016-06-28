@@ -1,0 +1,68 @@
+<!-- header.template.html -->
+<div class="row">
+	<div  class="wrapper-product-title col-sm-12">
+		<h1 itemprop="name" class="h3">[@name@]</h1>
+		[%IF [@subtitle@]%]
+			<p class="subtitle">[@subtitle@]</p>
+		[%/IF%]
+		<div class="status-tray status-tray-pp clearfix row">
+			<div class="col-xs-4">
+					[%if [@reviews@] > '0'%]
+						[%SET [@data:ratings-count@] = 1 /%]
+						[%WHILE [@data:ratings-count@] <= [@data:rating@]%]
+							[%SET [@data:ratings-count@] = [@data:ratings-count@]+1 /%]
+							<i class="fa fa-star"></i>
+						[%/ WHILE%]
+						[%WHILE [@data:ratings-count@] <= 5%]
+							[%SET [@data:ratings-count@] = [@data:ratings-count@]+1 /%]
+							<i class="fa fa-star-o"></i>
+						[%/ WHILE%]
+					[%else%]
+						<em class="rating no-rating text-muted">
+							Not yet rated
+						</em>
+					[%/if%]
+			</div>
+			<div class="status-icons status-icons-pp col-xs-3">
+				[%IF [@extra@] or [@has_child@] %]
+					<i class="fa fa-question-circle tipsy" data-toggle="tooltip" data-placement="top" title="Click product for more stock info"></i>
+				[%ELSEIF [@store_quantity@] > 0 AND [@preorder@] %]
+					<i class="fa fa-exclamation-circle tipsy" data-toggle="tooltip" data-placement="top" title="Pre-order now!"></i>
+				[%ELSEIF [@store_quantity@] > 0 AND ![@preorder@] %]
+					<i class="fa fa-check-circle tipsy" data-toggle="tooltip" data-placement="top" title="In stock"></i>
+				[%ELSEIF [@store_quantity@] < 1 AND [@config:ALLOW_NOSTOCK_CHECKOUT@] %]
+					<i class="fa fa-exclamation-circle tipsy" data-toggle="tooltip" data-placement="top" title="Backorder available"></i>
+				[%ELSE%]
+					<i class="fa fa-times-circle tipsy" data-toggle="tooltip" data-placement="top" title="Out of stock"></i>
+				[%/IF%]
+				&nbsp;
+				[%IN_WISHLIST id:'[@SKU@]' %]
+				[%PARAM if_true%]
+					<a class="wishlist_toggle" rel="[@SKU@]">
+						<span class="remove" rel="wishlist_text[@SKU@]">
+							<i class="fa fa-thumb-tack tipsy remove" data-toggle="tooltip" data-placement="top" title="Remove from saved"></i>
+						</span>
+					</a>
+				[%/PARAM%]
+				[%PARAM if_false%]
+					<a class="wishlist_toggle" rel="[@SKU@]">
+						<span class="add" rel="wishlist_text[@SKU@]">
+							<i class="fa fa-thumb-tack tipsy" data-toggle="tooltip" data-placement="top" title="Save for later"></i>
+						</span>
+					</a>
+				[%/PARAM%]
+				[%/IN_WISHLIST%]
+				&nbsp;
+				[%IF [@misc1@]%]
+					<a href="#videoblock" title="Product Video"><i class="fa fa-youtube-play tipsy" data-toggle="tooltip" data-placement="top" title="Watch video"></i></a>
+				[%/IF%]
+			</div>
+			<span class="hidden"><meta itemprop="itemCondition" itemtype="http://schema.org/OfferItemCondition" content="http://schema.org/NewCondition"/>New</span>
+			<div class="col-xs-5">
+				<p class="small text-muted text-right">
+					SKU: [@SKU@]
+				</p>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,91 @@
+<div class="row description_tab">
+	[%SITE_VALUE id:'footer_javascript'%]
+    	<script type="text/javascript" language="javascript">
+			$(document).ready(function(){
+				$("#descriptionList").click(function() {
+					$('html, body').animate({
+						scrollTop: $("#descriptionScroll").offset().top
+					}, 1000);
+				});
+				
+				$("#specificationsList").click(function() {
+					$('html, body').animate({
+						scrollTop: $("#specificationScroll").offset().top
+					}, 1000);
+				});
+				
+				$("#featuresList").click(function() {
+					$('html, body').animate({
+						scrollTop: $("#featuresScroll").offset().top
+					}, 1000);
+				});
+				
+				$("#warrantyList").click(function() {
+					$('html, body').animate({
+						scrollTop: $("#warrantyScroll").offset().top
+					}, 1000);
+				});
+					
+			});
+		</script>
+    [%END SITE_VALUE%]
+	<div class="col-xs-12">
+        <div class="tabbable">
+            <ul class="nav nav-pills">
+                <li class="active">
+                    <a id="descriptionList">Description</a>
+                </li>
+                
+                [%IF [@specifications@]%]
+                <li>
+                    <a id="specificationsList">Specifications</a>
+                </li>
+                [%END IF%]
+                
+                [%IF [@features@]%]
+                <li>
+                    <a id="featuresList">Features</a>
+                </li>
+                [%END IF%]
+                
+                [%IF [@warranty@]%]
+                <li>
+                    <a id="warrantyList">Warranty</a>
+                </li>
+                [%END IF%]
+            </ul>
+            
+            <div class="tab-content">
+            	<div class="row">
+                    <div class="col-xs-12" id="descriptionScroll">
+                        <h4 class="caps">Product Description</h4>
+                        <div class="productdetails">[@description@]</div>
+                    </div>
+                </div>
+                <div class="row">
+                    [%IF [@specifications@]%]
+                    <div class="col-xs-12 description-specs" id="specificationScroll">
+                        <h3>Specifications</h3>
+                        <div> [@specifications@] </div>
+                    </div>
+                    [%END IF%]
+                    
+                    [%IF [@features@]%]
+                    <div class="col-xs-12 description-features" id="featuresScroll">
+                        <h3>Features</h3>
+                        <div> [@features@] </div>
+                    </div>
+                    [%END IF%]
+                
+                    [%IF [@warranty@]%]
+                    <div class="col-xs-12" id="warrantyScroll">
+                        <h3>Warranty</h3>
+                        <div> [@warranty@] </div>
+                    </div>
+                    [%END IF%]
+                </div>
+            </div>
+            
+        </div>
+	</div>
+</div>

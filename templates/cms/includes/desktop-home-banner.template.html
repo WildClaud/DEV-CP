@@ -1,0 +1,28 @@
+[%ADVERT type:'banner' template:'carousel' limit:'10' ad_group:'homescroll'%]
+	[%PARAM *header%]
+		<div id="myCarouselBanner" class="carousel slide">
+			<!-- Indicators -->
+			<ol class="carousel-indicators hidden">
+			
+			</ol>
+			<!-- Wrapper for slides -->
+			<!-- Wrapper for slides -->
+			<div class="carousel-inner">
+	[%END PARAM%]
+	[%PARAM *footer%]
+			</div>
+			<!-- Controls -->
+			<a class="left carousel-control hidden" href="#myCarouselBanner" data-slide="prev">
+				<span class="fa fa-chevron-left"></span>
+			</a>
+			<a class="right carousel-control hidden" href="#myCarouselBanner" data-slide="next">
+				<span class="fa fa-chevron-right"></span>
+			</a>
+		</div>
+	[%END PARAM%]
+	[%PARAM *ifempty%]
+		<a class="neto-placeholder neto-placeholder-rotator btn-loads" data-loading-text="<i class='fa fa-spinner fa-spin' style='font-size: 14px'></i>" href="[$home_url$]/_cpanel?item=adw&page=view&id=New&plan_id=4">
+			Click to add a banner<br/>
+		</a>
+	[%END PARAM%]
+[%END ADVERT%]

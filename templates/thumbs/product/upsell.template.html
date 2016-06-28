@@ -1,0 +1,23 @@
+
+
+<label class="col-sm-12 clickable-cursor" for="chk[@rndm@]_[@count@]">
+
+		
+		
+<div class="row">
+<div class="col-xs-4">
+<img border="0" src="[@thumb@]" class="[@sortorder2@] img-responsive" alt="[@model@]" rel="itmimg[@SKU@]" />
+</div>
+<div class="col-xs-8">
+<div class="title"><a target="_blank" href="[@url@]"><!--##[%format type:'text' maxlength:'50' rmhtml:'1'%]##-->[@model@]<!--##[%END FORMAT%]##--> <i class="fa fa-external-link"></i></a></div>
+<div class="price">
+<b>+</b> <!--##[%format type:'currency'%]##-->[@price@]<!--##[%END format%]##-->
+</div>
+<p class="addthis"><input id="chk[@rndm@]_[@count@]" type="checkbox" name="box[@rndm@]" onClick="$.amend_total('[@rndm@]_[@count@]')" /> Add This</p>
+
+</div>
+</div>
+
+</label>
+		<input type="hidden" name="price[@rndm@]_[@count@]" id="price[@rndm@]_[@count@]" value="<!--##[%format type:'currency' pf:''%]##-->[@price@]<!--##[%END format%]##-->">
+		<input type="hidden" name="sku[@rndm@]_[@count@]" id="sku[@rndm@]_[@count@]" value="[@SKU@]">
