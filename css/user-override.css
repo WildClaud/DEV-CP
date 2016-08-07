@@ -858,6 +858,47 @@ i.fa.fa-star {
 			height: auto;
 		}
 
+
+	/* Redshift Blog Styling */
+	.megamenu {
+		background-color: #EC6F34;
+		border: 0 none;
+	}
+		.megamenu .nav,
+		.megamenu .collapse,
+		.megamenu .dropup,
+		.megamenu .dropdown {
+			position: static;
+		}
+		.megamenu .container {
+			position: relative;
+		}
+		.megamenu .dropdown:hover .dropdown-menu {
+			display: block;
+		}
+		.megamenu .dropdown-menu {
+			left: auto;
+		}
+		.megamenu .dropdown.megamenu-fw .dropdown-menu {
+			left: 0;
+			right: 0;
+		}
+		.megamenu .megamenu-content {
+			padding: 5px 30px 20px;
+		}
+		.megamenu .megamenu-content ul li a {
+			font-size: 12px;
+			font-weight: normal;
+		}
+		.megamenu .megamenu-content ul li.parent-item {
+			margin-top: 15px;
+		}
+		.megamenu .megamenu-content ul li.parent-item a {
+			font-size: 14px;
+			font-weight: bold;
+		}
+
+
 	/* Media Queries */
 		@media (max-width: 1199px) {
 			.new-header .logo img {

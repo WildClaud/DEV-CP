@@ -1,45 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<meta name="keywords" content="[%url_info name:'meta_keywords'%][%end url_info%]"/>
-<meta name="description" content="[%url_info name:'meta_description'%][%end url_info%]"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta property="og:image" content="[%if [@config:current_page_type@] eq 'product'%][%asset_url type:'product' id:'[@SKU@]' thumb:'full'%][%end asset_url%][%ELSEIF [@config:current_page_type@] eq 'content'%][%ASSET_url type:'content' id:'[@content_id@]' default:'/assets/website_logo.png'%][%end ASSET_url%][%ELSE%]/assets/website_logo.png[%end if%]"/>
-<meta property="og:title" content="[%url_info name:'page_title'%][%end url_info%]"/>
-<meta property="og:site_name" content="[@config:website_name@] "/>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta name="keywords" content="[%url_info name:'meta_keywords'%][%end url_info%]"/>
+	<meta name="description" content="[%url_info name:'meta_description'%][%end url_info%]"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta property="og:image" content="[%if [@config:current_page_type@] eq 'product'%][%asset_url type:'product' id:'[@SKU@]' thumb:'full'%][%end asset_url%][%ELSEIF [@config:current_page_type@] eq 'content'%][%ASSET_url type:'content' id:'[@content_id@]' default:'/assets/website_logo.png'%][%end ASSET_url%][%ELSE%]/assets/website_logo.png[%end if%]"/>
+	<meta property="og:title" content="[%url_info name:'page_title'%][%end url_info%]"/>
+	<meta property="og:site_name" content="[@config:website_name@] "/>
+	<meta name="google-site-verification" content="[@config:GOOGLE_VERIFICATION_CODE@]"/>
+	<meta name="msvalidate.01" content="F569BA504D11B9E87D89D7056AC4EEB2" />
 
-<meta name="google-site-verification" content="[@config:GOOGLE_VERIFICATION_CODE@]"/>
-<meta name="msvalidate.01" content="F569BA504D11B9E87D89D7056AC4EEB2" />
-<title>[%url_info name:'page_title'%][%end url_info%]</title>
-<link rel="canonical" href="[@config:canonical_url@]"/>
-<link rel="shortcut icon" href="[@config:homeurl@]/assets/favicon_logo.png"/>
-<link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,700italic,900,400italic' rel='stylesheet' type='text/css'>
-<link class="theme-selector" rel="stylesheet" type="text/css" href="[%ntheme_asset%]css/app.css[%end ntheme_asset%]" media="all"/>
-<link class="theme-selector" rel="stylesheet" type="text/css" href="[%ntheme_asset%]css/user-override.css?16444[%end ntheme_asset%]038" media="all"/>
-[%if [@form:npurpose@] eq 'facebook'%]
-<link rel="stylesheet" type="text/css" href="[%ntheme_asset%]css/facebook.css[%end ntheme_asset%]" media="all"/>
-[%/ if%]
-<link rel="stylesheet" type="text/css" href="[%ntheme_asset%]plugins/fancybox/jquery.fancybox.css[%end ntheme_asset%]"/>
-<!--[if lte IE 8]>
-	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-	<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-<![endif]-->
+	<title>[%url_info name:'page_title'%][%end url_info%]</title>
 
-<!--[if gt IE 7]>
-	<link class="theme-selector" rel="stylesheet" type="text/css" href="[%ntheme_asset%]css/ie8up.css[%end ntheme_asset%]" media="all"/>
-<![endif]-->
+	<link rel="canonical" href="[@config:canonical_url@]"/>
+	<link rel="shortcut icon" href="[@config:homeurl@]/assets/favicon_logo.png"/>
+	<link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,700italic,900,400italic' rel='stylesheet' type='text/css'>
+	<link class="theme-selector" rel="stylesheet" type="text/css" href="[%ntheme_asset%]css/app.css[%end ntheme_asset%]" media="all"/>
+	<link class="theme-selector" rel="stylesheet" type="text/css" href="[%ntheme_asset%]css/user-override.css?16451[%end ntheme_asset%]" media="all"/>
+	[%if [@form:npurpose@] eq 'facebook'%]
+		<link rel="stylesheet" type="text/css" href="[%ntheme_asset%]css/facebook.css[%end ntheme_asset%]" media="all"/>
+	[%/if%]
+	<link rel="stylesheet" type="text/css" href="[%ntheme_asset%]plugins/fancybox/jquery.fancybox.css[%end ntheme_asset%]"/>
+	<!--[if lte IE 8]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+	<![endif]-->
 
-
-[%tracking_code type:'Declaration'%][%end tracking_code%]
-
-
-
+	<!--[if gt IE 7]>
+		<link class="theme-selector" rel="stylesheet" type="text/css" href="[%ntheme_asset%]css/ie8up.css[%end ntheme_asset%]" media="all"/>
+	<![endif]-->
+	[%tracking_code type:'Declaration'%][%end tracking_code%]
 </head>
 
 <body id="n_[@config:current_page_type@]">
-
-
 
 <div class="new-header">
 			<div class="container">
@@ -224,50 +219,362 @@
 	</div>
 	<div class="navbar-collapse collapse navbar-responsive-collapse mobile-menu-wrapper">
 		<!-- _______________ SHOP WILDEARTH TAB _______________ -->
-		<div class="tab-pane fade in active" id="shop-wildearth">
-			<ul class="nav navbar-nav hidden-xs">
-				[%CATEGORYMENU sortby:'sortorder, name'%]
-								[%param *level_1%]
-				<li class="[%data id:'next_level' if:'ne' value:''%]dropdown dropdown-hover[%end data%] hidden-xs"> <a href="[@url@]" [%data id:'next_level' if:'ne' value:''%]class="dropdown-toggle"[%end data%]>[@name@]</a>
-					[%data id:'next_level' if:'ne' value:''%]
-					<ul class="dropdown-menu">
-						[@next_level@]
+		<div id="shop-wildearth">
+			<nav class="navbar megamenu navbar-default " role="navigation">
+				<div class="container">
+					<ul class="nav navbar-nav hidden-xs">
+						<li class="dropdown megamenu-fw">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Camp & Hike</a>
+							<ul class="dropdown-menu">
+								<li>
+									<div class="megamenu-content">
+										<div class="row"> 
+											[%menu id:'navCamp'%]
+												[%param *header%]
+													<div class="megamenu-content">
+														<div class="row"> 
+												[%/param%]
+											    [%param *level_1%]
+												    		<div class="col-sm-3 col-md-2">
+											        [%if [@next_level@]%]
+											        			<ul class="list-unstyled">
+											        				[@next_level@]
+											        			</ul>
+											        [%/if%]
+											        		</div>
+											    [%/param%]
+											    [%param *level_2%]
+											        				<li class="parent-item"><a href="[@url@]">[@name@]</a></li>
+											        [%if [@next_level@]%][@next_level@][%/if%]
+											    [%/param%]
+											    [%param *level_3%]
+											    					<li><a href="[@url@]">[@name@]</a></li>
+											    [%/param%]
+											    [%param *footer%]
+											    				<div class="hidden-sm col-md-4">
+											    					[%advert type:'product' ad_group:'Nav Feature | Camp' template:'featured' limit:'1' category:'0'/%]
+											    				</div>
+											    		</div>
+											    	</div>
+											    [%/param%]
+											[%/menu%]
+										</div>
+									</div>
+								</li>
+							</ul>
+						</li>
+						<li class="dropdown megamenu-fw">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Climb</a>
+							<ul class="dropdown-menu">
+								<li>
+									<div class="megamenu-content">
+										<div class="row"> 
+											[%menu id:'navClimb'%]
+												[%param *header%]
+													<div class="megamenu-content">
+														<div class="row"> 
+												[%/param%]
+											    [%param *level_1%]
+												    		<div class="col-sm-3">
+											        [%if [@next_level@]%]
+											        			<ul class="list-unstyled">
+											        				[@next_level@]
+											        			</ul>
+											        [%/if%]
+											        		</div>
+											    [%/param%]
+											    [%param *level_2%]
+											        				<li class="parent-item"><a href="[@url@]">[@name@]</a></li>
+											        [%if [@next_level@]%][@next_level@][%/if%]
+											    [%/param%]
+											    [%param *level_3%]
+											    					<li><a href="[@url@]">[@name@]</a></li>
+											    [%/param%]
+											    [%param *footer%]
+											    		</div>
+											    	</div>
+											    [%/param%]
+											[%/menu%]
+										</div>
+									</div>
+								</li>
+							</ul>
+						</li>
+						<li class="dropdown megamenu-fw">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Travel</a>
+							<ul class="dropdown-menu">
+								<li>
+									<div class="megamenu-content">
+										<div class="row"> 
+											[%menu id:'navTravel'%]
+												[%param *header%]
+													<div class="megamenu-content">
+														<div class="row"> 
+												[%/param%]
+											    [%param *level_1%]
+												    		<div class="col-sm-3">
+											        [%if [@next_level@]%]
+											        			<ul class="list-unstyled">
+											        				[@next_level@]
+											        			</ul>
+											        [%/if%]
+											        		</div>
+											    [%/param%]
+											    [%param *level_2%]
+											        				<li class="parent-item"><a href="[@url@]">[@name@]</a></li>
+											        [%if [@next_level@]%][@next_level@][%/if%]
+											    [%/param%]
+											    [%param *level_3%]
+											    					<li><a href="[@url@]">[@name@]</a></li>
+											    [%/param%]
+											    [%param *footer%]
+											    		</div>
+											    	</div>
+											    [%/param%]
+											[%/menu%]
+										</div>
+									</div>
+								</li>
+							</ul>
+						</li>
+						<li class="dropdown megamenu-fw">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Run</a>
+							<ul class="dropdown-menu">
+								<li>
+									<div class="megamenu-content">
+										<div class="row"> 
+											[%menu id:'navRun'%]
+												[%param *header%]
+													<div class="megamenu-content">
+														<div class="row"> 
+												[%/param%]
+											    [%param *level_1%]
+												    		<div class="col-sm-3">
+											        [%if [@next_level@]%]
+											        			<ul class="list-unstyled">
+											        				[@next_level@]
+											        			</ul>
+											        [%/if%]
+											        		</div>
+											    [%/param%]
+											    [%param *level_2%]
+											        				<li class="parent-item"><a href="[@url@]">[@name@]</a></li>
+											        [%if [@next_level@]%][@next_level@][%/if%]
+											    [%/param%]
+											    [%param *level_3%]
+											    					<li><a href="[@url@]">[@name@]</a></li>
+											    [%/param%]
+											    [%param *footer%]
+											    		</div>
+											    	</div>
+											    [%/param%]
+											[%/menu%]
+										</div>
+									</div>
+								</li>
+							</ul>
+						</li>
+						<li class="dropdown megamenu-fw">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Paddle</a>
+							<ul class="dropdown-menu">
+								<li>
+									<div class="megamenu-content">
+										<div class="row"> 
+											[%menu id:'navPaddle'%]
+												[%param *header%]
+													<div class="megamenu-content">
+														<div class="row"> 
+												[%/param%]
+											    [%param *level_1%]
+												    		<div class="col-sm-3">
+											        [%if [@next_level@]%]
+											        			<ul class="list-unstyled">
+											        				[@next_level@]
+											        			</ul>
+											        [%/if%]
+											        		</div>
+											    [%/param%]
+											    [%param *level_2%]
+											        				<li class="parent-item"><a href="[@url@]">[@name@]</a></li>
+											        [%if [@next_level@]%][@next_level@][%/if%]
+											    [%/param%]
+											    [%param *level_3%]
+											    					<li><a href="[@url@]">[@name@]</a></li>
+											    [%/param%]
+											    [%param *footer%]
+											    		</div>
+											    	</div>
+											    [%/param%]
+											[%/menu%]
+										</div>
+									</div>
+								</li>
+							</ul>
+						</li>
+						<li class="dropdown megamenu-fw">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Tactical</a>
+							<ul class="dropdown-menu">
+								<li>
+									<div class="megamenu-content">
+										<div class="row"> 
+											[%menu id:'navTactical'%]
+												[%param *header%]
+													<div class="megamenu-content">
+														<div class="row"> 
+												[%/param%]
+											    [%param *level_1%]
+												    		<div class="col-sm-3">
+											        [%if [@next_level@]%]
+											        			<ul class="list-unstyled">
+											        				[@next_level@]
+											        			</ul>
+											        [%/if%]
+											        		</div>
+											    [%/param%]
+											    [%param *level_2%]
+											        				<li class="parent-item"><a href="[@url@]">[@name@]</a></li>
+											        [%if [@next_level@]%][@next_level@][%/if%]
+											    [%/param%]
+											    [%param *level_3%]
+											    					<li><a href="[@url@]">[@name@]</a></li>
+											    [%/param%]
+											    [%param *footer%]
+											    		</div>
+											    	</div>
+											    [%/param%]
+											[%/menu%]
+										</div>
+									</div>
+								</li>
+							</ul>
+						</li>
+						<li class="dropdown megamenu-fw">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Women</a>
+							<ul class="dropdown-menu">
+								<li>
+									<div class="megamenu-content">
+										<div class="row"> 
+											[%menu id:'navWomen'%]
+												[%param *header%]
+													<div class="megamenu-content">
+														<div class="row"> 
+												[%/param%]
+											    [%param *level_1%]
+												    		<div class="col-sm-3">
+											        [%if [@next_level@]%]
+											        			<ul class="list-unstyled">
+											        				[@next_level@]
+											        			</ul>
+											        [%/if%]
+											        		</div>
+											    [%/param%]
+											    [%param *level_2%]
+											        				<li class="parent-item"><a href="[@url@]">[@name@]</a></li>
+											        [%if [@next_level@]%][@next_level@][%/if%]
+											    [%/param%]
+											    [%param *level_3%]
+											    					<li><a href="[@url@]">[@name@]</a></li>
+											    [%/param%]
+											    [%param *footer%]
+											    		</div>
+											    	</div>
+											    [%/param%]
+											[%/menu%]
+										</div>
+									</div>
+								</li>
+							</ul>
+						</li>
+						<li class="dropdown megamenu-fw">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Men</a>
+							<ul class="dropdown-menu">
+								<li>
+									<div class="megamenu-content">
+										<div class="row"> 
+											[%menu id:'navMen'%]
+												[%param *header%]
+													<div class="megamenu-content">
+														<div class="row"> 
+												[%/param%]
+											    [%param *level_1%]
+												    		<div class="col-sm-3">
+											        [%if [@next_level@]%]
+											        			<ul class="list-unstyled">
+											        				[@next_level@]
+											        			</ul>
+											        [%/if%]
+											        		</div>
+											    [%/param%]
+											    [%param *level_2%]
+											        				<li class="parent-item"><a href="[@url@]">[@name@]</a></li>
+											        [%if [@next_level@]%][@next_level@][%/if%]
+											    [%/param%]
+											    [%param *level_3%]
+											    					<li><a href="[@url@]">[@name@]</a></li>
+											    [%/param%]
+											    [%param *footer%]
+											    		</div>
+											    	</div>
+											    [%/param%]
+											[%/menu%]
+										</div>
+									</div>
+								</li>
+							</ul>
+						</li>
+						<li class="dropdown megamenu-fw">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Tech</a>
+							<ul class="dropdown-menu">
+								<li>
+									<div class="megamenu-content">
+										<div class="row"> 
+											[%menu id:'navTech'%]
+												[%param *header%]
+													<div class="megamenu-content">
+														<div class="row"> 
+												[%/param%]
+											    [%param *level_1%]
+												    		<div class="col-sm-3">
+											        [%if [@next_level@]%]
+											        			<ul class="list-unstyled">
+											        				[@next_level@]
+											        			</ul>
+											        [%/if%]
+											        		</div>
+											    [%/param%]
+											    [%param *level_2%]
+											        				<li class="parent-item"><a href="[@url@]">[@name@]</a></li>
+											        [%if [@next_level@]%][@next_level@][%/if%]
+											    [%/param%]
+											    [%param *level_3%]
+											    					<li><a href="[@url@]">[@name@]</a></li>
+											    [%/param%]
+											    [%param *footer%]
+											    		</div>
+											    	</div>
+											    [%/param%]
+											[%/menu%]
+										</div>
+									</div>
+								</li>
+							</ul>
+						</li>
+						
+						<li class="hidden-xs"><a href="[%url type:'page' id:'2418'%][%/url%]">New In</a></li>
+						<li class="hidden-xs"><a href="[%url type:'page' id:'2417'%][%/url%]">Sale</a></li>
+
+						
+
+
+						<!-- links were different to above so removing in favor of 20/7/15 for code below<li class="hidden-sm hidden-md hidden-lg mobile-menu"><a style="font-size:26px !important; padding:10px;" class="btn btn-block btn-default btn-lg" href="/shop/all-products/2434?rf=&sortby=new_arrivals&templatebody=new">New In</a></li>
+						<li class="hidden-sm hidden-md hidden-lg mobile-menu"><a style="font-size:26px !important; padding:10px;"  class="btn btn-block btn-default btn-lg" href="[%url type:'page' id:'2417'%][%/url%]">Sale</a></li>-->
+
+						<li class="hidden-sm hidden-md hidden-lg mobile-menu"><a style="font-size:26px !important; padding:10px;" class="btn btn-block btn-default btn-lg" href="[%url type:'page' id:'2418'%][%/url%]">New In</a></li>
+						<li class="hidden-sm hidden-md hidden-lg mobile-menu"><a style="font-size:26px !important; padding:10px;"  class="btn btn-block btn-default btn-lg" href="[%url type:'page' id:'2417'%][%/url%]">Sale</a></li>
 					</ul>
-					[%end data%]
-				</li>
-				[%end param%]
-								[%param *level_2%]
-				<li class="[%data id:'next_level' if:'ne' value:''%]dropdown dropdown-hover[%end data%] hidden-xs"> <a href="[@url@]" class="nuhover dropdown-toggle">[@name@] [%data id:'next_level' if:'ne' value:''%]
-					<span class="fa fa-caret-right"></span>
-					[%end data%]</a>
-					[%data id:'next_level' if:'ne' value:''%]
-					<ul class="dropdown-menu dropdown-menu-horizontal">
-						[@next_level@]
-					</ul>
-					[%end data%]
-				</li>
+				</div>
+			</nav>
 
-				[%end param%]
-								[%param *level_3%]
-				<li class="[%data id:'next_level' if:'ne' value:''%]dropdown dropdown-hover[%end data%] hidden-xs"> <a href="[@url@]">[@name@]</a>
-					[%data id:'next_level' if:'ne' value:''%]
-					<ul class="dropdown-menu dropdown-menu-horizontal">
-						[@next_level@]
-					</ul>
-					[%end data%]
-				</li>
-				[%end param%]
-							[%end CATEGORYMENU%]
-				<li class="hidden-xs"><a href="[%url type:'page' id:'2418'%][%/url%]">New In</a></li>
-				<li class="hidden-xs"><a href="[%url type:'page' id:'2417'%][%/url%]">Sale</a></li>
-
-				<!-- links were different to above so removing in favor of 20/7/15 for code below<li class="hidden-sm hidden-md hidden-lg mobile-menu"><a style="font-size:26px !important; padding:10px;" class="btn btn-block btn-default btn-lg" href="/shop/all-products/2434?rf=&sortby=new_arrivals&templatebody=new">New In</a></li>
-				<li class="hidden-sm hidden-md hidden-lg mobile-menu"><a style="font-size:26px !important; padding:10px;"  class="btn btn-block btn-default btn-lg" href="[%url type:'page' id:'2417'%][%/url%]">Sale</a></li>-->
-
-				<li class="hidden-sm hidden-md hidden-lg mobile-menu"><a style="font-size:26px !important; padding:10px;" class="btn btn-block btn-default btn-lg" href="[%url type:'page' id:'2418'%][%/url%]">New In</a></li>
-				<li class="hidden-sm hidden-md hidden-lg mobile-menu"><a style="font-size:26px !important; padding:10px;"  class="btn btn-block btn-default btn-lg" href="[%url type:'page' id:'2417'%][%/url%]">Sale</a></li>
-
-			</ul>
 			<ul class="nav navbar-nav visible-xs" id="mob-menu">
 				[%cache type:'menu' id:'header-category-menu-mobile'%]
 					[%CATEGORYMENU sortby:'sortorder, name' show_empty:'1'%]
