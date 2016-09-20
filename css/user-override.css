@@ -114,17 +114,17 @@
 	}
 }
 
-.tab-pane .navbar-nav>li.mob-1,
-.tab-pane .navbar-nav>li.mob-2,
-.tab-pane .navbar-nav>li.mob-3{
+.navbar-nav>li.mob-1,
+.navbar-nav>li.mob-2,
+.navbar-nav>li.mob-3{
     display: block;
 }
-.tab-pane .navbar-nav>li.mobilelink a {
+.navbar-nav>li.mobilelink a {
 	font-size: 16px;
 	display:block;
 	padding:5px 15px;
 }
-.tab-pane .navbar-nav>li.mob-1>a {
+.navbar-nav>li.mob-1>a {
 	font-size: 26px;
 	font-weight: 700;
 	font-style: italic;
@@ -139,6 +139,8 @@
 #mob-menu,
 .mob-1 {
 	overflow-x: hidden;
+	padding-left: 5px;
+	max-width: 100%;
 }
 #mob-menu a:hover,
 #mob-menu a:focus {
@@ -294,7 +296,7 @@ p.afterpay-text{
 	.category-sub-links {color:#374140; list-style-type:none; padding:0px;}
 	.category-sub-links li {margin-bottom:15px;}
 	.navigation-list.list-inline.visible-xs {margin-bottom:0px;}
-	.navbar-custom {border:none; min-height:none;}
+	.navbar-custom {border:none;}
 	.navbar-collapse.navbar-responsive-collapse.collapse {z-index:999; background:#ec6f34; width:100%; }
 	.product-main-wrapper {margin-bottom:50px; position:relative; margin-top:0px;}
 	.sub-images .thumbnail {border:3px solid #DDD; box-shadow:none; margin-bottom:15px;}
@@ -859,7 +861,7 @@ i.fa.fa-star {
 		}
 
 
-	/* Redshift Blog Styling */
+	/* Redshift Styling */
 	.megamenu {
 		background-color: #EC6F34;
 		border: 0 none;
@@ -876,56 +878,111 @@ i.fa.fa-star {
 		.megamenu .dropdown:hover .dropdown-menu {
 			display: block;
 		}
+		.megamenu .dropdown:hover .dropdown-toggle {
+			background-color: #fff;
+			color: #ec6f34;
+		}
 		.megamenu .dropdown-menu {
 			left: auto;
 		}
 		.megamenu .dropdown.megamenu-fw .dropdown-menu {
+			border-top: 0;
 			left: 0;
 			right: 0;
 		}
 		.megamenu .megamenu-content {
-			padding: 5px 30px 20px;
+			padding: 10px 40px 20px;
 		}
 		.megamenu .megamenu-content ul li a {
-			font-size: 12px;
+			color: #333;
+			font-size: 14px;
 			font-weight: normal;
 		}
 		.megamenu .megamenu-content ul li.parent-item {
 			margin-top: 15px;
 		}
 		.megamenu .megamenu-content ul li.parent-item a {
-			font-size: 14px;
+			color: #ec6f34;
+			font-size: 16px;
 			font-weight: bold;
+		}
+		.megamenu .megamenu-content .megamenu-column {
+			position: relative;
+			min-height: 1px;
+			padding-right: 10px;
+			padding-left: 10px;
+			width: 20%;
+			float: left;
+		}
+		.megamenu .hidden-sm {
+			padding-top: 5px;
+		}
+		.megamenu .thumbnail {
+			margin-top: 10px;
+			margin-bottom: 0;
+		}
+		.megamenu .banner-ad {
+			margin-top: 10px;
+		}
+		@media (min-width: 768px) {
+			.megamenu .megamenu-content .megamenu-column {
+				width: 25%;
+				float: left;
+			}
+		}
+		@media (max-width : 992px) {
+			.megamenu .navbar-nav > li > a {
+				padding-right: 10px;
+				padding-left: 10px;
+			}
+		}
+		@media (min-width: 992px) {
+			.megamenu .megamenu-content .megamenu-column {
+				width: 20%;
+				float: left;
+			}
+		}
+		@media (min-width: 1200px) {
+			.megamenu .megamenu-content .megamenu-column{
+				width: 20%;
+				float: left;
+			}
 		}
 
 
-	/* Media Queries */
+/* Media Queries */
 		@media (max-width: 1199px) {
 			.new-header .logo img {
 				margin: 10px 0 0 0;
 			}
+
 			.offers {
 				float: left;
 				width: 31%;
 				margin: 42px 0 0 0;
 			}
+
 			.offers .free-shipping,
 			.offers .newsletter-signup {
 				width: 50%;
 			}
+
 			.offers .free-shipping {
 				margin: 0 4% 0 0;
 				width: 46%;
 			}
+
 			.offers .free-shipping .fa,
 			.offers .newsletter-signup .fa {
 				font-size: 18px;
 				line-height: 19px;
 			}
+
 			.offers .free-shipping h5 a,
 			.offers .newsletter-signup h5 a {
 				font-size: 17px;
 			}
+		}
 		@media (max-width: 991px) {
 			.header-group-one {
 				display: block;
@@ -934,33 +991,40 @@ i.fa.fa-star {
 				float: left;
 				width: 40%;
 			}
+
 			.new-header .logo {
 				width: 87%;
 				padding: 0 2% 0 0;
 				margin: 0;
 			}
+
 			.phone-search {
 				width: 90%;
 				float: left;
 				margin: 0 0 8px 0;
 			}
+
 			.social-tagline {
 				width: 59%;
 				margin: 33px 0 15px 0;
 			}
+
 			.social-tagline .social-stack {
 				display: none;
 			}
+
 			.social-tagline .tagline {
 				width: 57%;
 				float: left;
 				padding: 0;
 				margin: 0;
 			}
+
 			.social-tagline .tagline p {
 				float: left;
 				margin: 0 5px 0 0;
 			}
+
 			.social-tagline .phone {
 				display: block;
 				float: right;
@@ -971,16 +1035,20 @@ i.fa.fa-star {
 				line-height: 15px;
 				text-decoration: none;
 			}
+
 			.social-tagline .phone a:hover {
 				text-decoration: none;
 			}
+
 			.offers {
 				width: 60%;
 				margin: 0;
 			}
+
 			.phone-search .phone {
 				display: none;
 			}
+		}
 		@media (max-width: 900px) {
 			.header-group-one {
 				display: block;
