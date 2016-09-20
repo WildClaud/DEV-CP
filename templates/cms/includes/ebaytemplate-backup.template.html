@@ -17,13 +17,13 @@
   
   
 </style>
-<div class="wrapper-header" style="background:#292929 url('[%advert type:'text' limit:'1' ad_group:'ebayheaderbg'%][%param *body%][%asset_url type:'adw' id:'[@ad_id@]' default:'[@config:imageurl@]/pixel.gif'%][%END asset_url%][%/param%][%/advert%]') no-repeat;">
+<div class="wrapper-header">
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-7 col-md-4 wrap-logo">
                 <img src="[%asset_url type:'logo' thumb:'ebay'/%]" alt="Logo">
             </div>
-            <div class="col-xs-12 col-sm-5 col-md-5 searchwrap">
+            <div class="col-xs-12 col-sm-5 col-md-4 searchwrap">
                 <form name="productsearch" method="get" action="[@ebstore_url@]">
                     <div class="input-group">
                         <input id="searchId" class="form-control" name="_nkw" type="text" placeholder="What are you looking for? eg. Hiking Tents">
@@ -32,9 +32,8 @@
                         </span>
                     </div>
                 </form>
-                <p class="tagline"><span>Your favourite brands. Our expert knowledge.</span> ADVENTURE IS HERE</p>
             </div>
-            <div class="col-xs-12 col-sm-7 col-md-3 wrap-phone">
+            <div class="col-xs-12 col-sm-7 col-md-4 wrap-phone">
                 <p><i class="fa fa-phone"></i> [@config:company_phone@]</p>
             </div>
 
@@ -81,7 +80,7 @@
             [%/param%]
             [%param *body%]
             <div class="col-sm-3 text-center">
-                [%if [@linktext@]%]<!--##[%format type:'text' nohtml:'0' rmhtml:'1'%]##-->[@linktext@]<!--##[%END FORMAT%]##-->[%/if%]
+                [%if [@linktext@]%][%format type:'text' nohtml:'0' rmhtml:'1'%][@linktext@][%END FORMAT%][%/if%]
                 [%if [@headline@]%] [@headline@][%/if%]
             </div>
             [%/param%]
@@ -95,7 +94,7 @@
 <div class="container maincontent">
 
     <div class="row">
-        <div class="col-sm-3 col-lg-2 hidden-xs">
+        <div class="col-sm-5 col-md-4 col-lg-3 hidden-xs">
 
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -115,6 +114,15 @@
                             [%/DATA%]
                         </li>
                         [%/PARAM%]
+                         [%PARAM *level_2%]
+                        <li><a href="[@url@]" class="list-group-item dropdown-toggle list-categ [%DATA id:'next_level' if:'ne' value:''%]list-categ-arrow[%/DATA%]">[@name@]</a>
+                            [%DATA id:'next_level' if:'ne' value:''%]
+                            <ul>
+                                [@next_level@]
+                            </ul>
+                            [%/DATA%]
+                        </li>
+                        [%/PARAM%]
                         [%param footer%]
                         </ul>
                         [%end param%]
@@ -122,7 +130,7 @@
                 </div>
             </div>
 
-            <!-- [%content_menu content_type:'brand' limit:'12' sortby:'sortorder' show_empty:'1'%]
+            [%content_menu content_type:'brand' limit:'12' sortby:'sortorder' show_empty:'1'%]
                 [%param header%]
                     <div class="panel panel-default hidden-xs">
                         <div class="panel-heading"><h3 class="panel-title">Brands</h3></div>
@@ -135,7 +143,7 @@
                         </ul>
                     </div>
                 [%/param%]
-            [%/content_menu%] -->
+            [%/content_menu%]
             
             <div class="newsletter product-btn">
                 <h3 class="newsTitle"><span class="fa fa-user"></span>Subscribe <br> to the Seller</h3>
@@ -145,7 +153,7 @@
 
         </div><!-- col-xs-3 -->
 
-        <div class="col-xs-12 col-sm-7 col-md-6 col-lg-8">
+        <div class="col-xs-12 col-sm-7 col-md-8 col-lg-9">
             
             <div class="row">
                 <div class="col-xs-2">
@@ -200,7 +208,7 @@
                     <h1>[@MODEL@]</h1>
                 </div>
                 <div class="col-xs-12">
-                    <p class="prodprice">[%FORMAT type:'currency'%][@price_5@][%/FORMAT%]</p>
+                    <p class="prodprice">[%FORMAT type:'currency'%][@store_price@][%/FORMAT%]</p>
                 </div>
                 <div class="col-xs-12">
                     <hr>
@@ -209,29 +217,29 @@
 
 
             <div class="row product-btn">
-                <div class="col-md-12 col-lg-4">
+                <div class="col-sm-12 col-md-4">
                     <a href="http://my.ebay.com.au/ws/eBayISAPI.dll?AcceptSavedSeller&linkname=includenewsletter&sellerid='wildearth-australia'" title="Add to Favourite Sellers" class="btn btn-default" target="_parent"><span class="fa fa-user-plus"></span> Add to Favourite Sellers</a>
                 </div>
 
 
-                <!-- <div class="col-sm-12 col-md-4">
+                <div class="col-sm-12 col-md-4">
                     <a href="#" title="Tell a Friend" class="btn btn-default" target="_parent"><span class="fa fa-envelope"></span> Tell a Friend</a>
                 </div>
                 <div class="col-sm-12 col-md-4">
                     <a href="#" title="Add to Watchlist" class="btn btn-default" target="_parent"><span class="fa fa-eye"></span> Add to Watchlist</a>
-                </div> -->
+                </div>
                 <script type="text/javascript">
-                    document.write ("<div class=\"col-sm-12 col-md-4\">");
-                    document.write ("<a href=\"mailto:?subject=Checkout%20this%20[%url_encode%][@model@][%/url_encode%]&body=http://www.ebay.com.au/itm/"+ebayItemID +"\" title=\"Tell a Friend\" class=\"btn btn-default\" target=\"_parent\"><span class=\"fa fa-envelope\"></span>");
-                    document.write (" Tell a Friend");
-                    document.write ("</a>");
-                    document.write ("</div>");
+                    // document.write ("<div class=\"col-sm-12 col-md-4\">");
+                    // document.write ("<a href=\"mailto:?subject=Checkout%20this%20[%url_encode%][@model@][%/url_encode%]&body=http://www.ebay.com.au/itm/"+ebayItemID +"\" title=\"Tell a Friend\" class=\"btn btn-default\" target=\"_parent\"><span class=\"fa fa-envelope\"></span>");
+                    // document.write (" Tell a Friend");
+                    // document.write ("</a>");
+                    // document.write ("</div>");
 
-                    document.write ("<div class=\"col-sm-12 col-md-4\">");
-                    document.write ("<a href=\"http://www.ebay.com.au/myb/WatchListAdd?_trksid=p2047675.l1359&SubmitAction.AddToListVI=x&item="+ebayItemID +"\" title=\"Add to Watchlist\" class=\"btn btn-default\" target=\"_parent\"><span class=\"fa fa-eye\"></span>");
-                    document.write (" Add to Watchlist");
-                    document.write ("</a>");
-                    document.write ("</div>");
+                    // document.write ("<div class=\"col-sm-4\">");
+                    // document.write ("<a href=\"http://www.ebay.com.au/myb/WatchListAdd?_trksid=p2047675.l1359&SubmitAction.AddToListVI=x&item="+ebayItemID +"\" title=\"Add to Watchlist\" class=\"btn btn-default\" target=\"_parent\"><span class=\"fa fa-eye\"></span>");
+                    // document.write (" Add to Watchlist");
+                    // document.write ("</a>");
+                    // document.write ("</div>");
                 </script>
             </div><!-- row -->
 
@@ -251,9 +259,6 @@
                             <!-- Tab panes -->
                             <div class="tab-content">
                                 <div role="tabpanel" class="tab-pane active" id="desc">
-                                    <p>
-                                        <img alt="" src="[%ASSET_URL type:'brand' id:'[@brand@]' default:'[@config:imageurl@]/pixel.gif' %][%END ASSET_URL%]" />
-                                    </p>
                                     [%if [@ebay_description@]%]
                                     <div class="productdetails">[@ebay_description@]</div>
                                     [%/if%]
@@ -264,7 +269,7 @@
                                     [%/if%]
                                 </div><!-- desc -->
                                 <div role="tabpanel" class="tab-pane" id="specs">
-                                    <div class="specifications productdetails">
+                                    <div class="specifications">
                                         [%if [@features@]%]
                                         [@features@]
                                         <div class="clear"></div><br/>
@@ -280,94 +285,17 @@
 
             <div class="row">
                 <div class="col-xs-12">
-                    <div class="tabbable2">
-                        <ul class="nav nav-tabs tablinks">
-                            <li class="active"><a href="#about" data-toggle="tab">About Us</a></li>
-                            <li><a href="#payment" data-toggle="tab">Payment</a></li>       
-                            <li><a href="#shipping" data-toggle="tab">Shipping</a></li>
-                            <li><a href="#terms" data-toggle="tab">Terms</a></li>
-                            <li><a href="#returns" data-toggle="tab">Returns</a></li>           
-                        </ul>
-
-                        <div class="tab-content">   
-                            <div class="tab-pane active" id="about">
-                                <h4 class="tabtitle">About Us</h4>
-                                [%content_zone id:'ebay_about'%][%end content_zone%]
-                            </div>
-                            <div class="tab-pane" id="payment">
-                                <h4 class="tabtitle">Payment</h4>
-                                [%content_zone id:'ebay_payment'%][%end content_zone%]
-                            </div>
-                            <div class="tab-pane" id="shipping">
-                                <h4 class="tabtitle">Shipping</h4>
-                                [%content_zone id:'ebay_shipping'%][%end content_zone%]
-                            </div>
-                            <div class="tab-pane" id="terms">
-                                <h4 class="tabtitle">Terms</h4>
-                                [%content_zone id:'ebay_terms'%][%end content_zone%]
-                            </div>
-                            <div class="tab-pane" id="returns">
-                                <h4 class="tabtitle">Returns</h4>
-                                [%content_zone id:'ebay_returns'%][%end content_zone%]
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- col-xs-12 -->
-            </div><!-- div that corrects -->
-            </div><!-- row -->
-
-            <div class="row">
-                <div class="col-xs-12">
                     <div class="productvideo">
-                        [%IF [@misc6@]%]
+                        [%IF [@misc1@]%]
                             <span>
-                                <object width="853" height="480" type="text/html" allowscriptaccess="always" allowfullscreen="true" data="https://www.youtube.com/embed/[@misc6@]?rel=0"></object>
+                                <object width="853" height="480" type="text/html" allowscriptaccess="always" allowfullscreen="true" data="https://www.youtube.com/embed/[@misc1@]?rel=0"></object>
                             </span>
                         [%END IF%]
                     </div>
                 </div><!-- col-xs-12" -->
             </div><!-- row -->
-        </div><!-- div that corrects -->
+
         </div><!-- col-xs-9 -->
-
-        <div class="col-sm-2 hidden-xs">
-            <div class="rightpane">
-            <div id="brands2">
-                <ul>
-                <li><a href="http://stores.ebay.com.au/Wild-Earth-Australia__W0QQLHQ5fSellerWithStoreZ1QQ_sasiZ1QQ_sidZ104420875?_nkw=sea+to+summit&submit=Search"></a></li>
-                <li><a href="http://stores.ebay.com.au/Wild-Earth-Australia__W0QQLHQ5fSellerWithStoreZ1QQ_sasiZ1QQ_sidZ104420875?_nkw=thermarest&submit=Search"></a></li>
-                <li><a href="http://stores.ebay.com.au/Wild-Earth-Australia__W0QQLHQ5fSellerWithStoreZ1QQ_sasiZ1QQ_sidZ104420875?_nkw=camelbak&submit=Search"></a></li>
-                <li><a href="http://stores.ebay.com.au/Wild-Earth-Australia__W0QQLHQ5fSellerWithStoreZ1QQ_sasiZ1QQ_sidZ104420875?_nkw=osprey&submit=Search"></a></li>
-                <li><a href="http://stores.ebay.com.au/Wild-Earth-Australia__W0QQLHQ5fSellerWithStoreZ1QQ_sasiZ1QQ_sidZ104420875?_nkw=black+wolf&submit=Search"></a></li>
-                <li><a href="http://stores.ebay.com.au/Wild-Earth-Australia__W0QQLHQ5fSellerWithStoreZ1QQ_sasiZ1QQ_sidZ104420875?_nkw=msr&submit=Search"></a></li>
-                <li><a href="http://stores.ebay.com.au/Wild-Earth-Australia__W0QQLHQ5fSellerWithStoreZ1QQ_sasiZ1QQ_sidZ104420875?_nkw=black+diamond&submit=Search"></a></li>
-                <li><a href="http://stores.ebay.com.au/Wild-Earth-Australia__W0QQLHQ5fSellerWithStoreZ1QQ_sasiZ1QQ_sidZ104420875?_nkw=led+lenser&submit=Search"></a></li>
-                <li><a href="http://stores.ebay.com.au/Wild-Earth-Australia__W0QQLHQ5fSellerWithStoreZ1QQ_sasiZ1QQ_sidZ104420875?_nkw=burke&submit=Search"></a></li>
-                <li><a href="http://stores.ebay.com.au/Wild-Earth-Australia__W0QQLHQ5fSellerWithStoreZ1QQ_sasiZ1QQ_sidZ104420875?_nkw=caribee&submit=Search"></a></li>
-                <li><a href="http://stores.ebay.com.au/Wild-Earth-Australia__W0QQLHQ5fSellerWithStoreZ1QQ_sasiZ1QQ_sidZ104420875?_nkw=vango&submit=Search"></a></li>
-                <li><a href="http://stores.ebay.com.au/Wild-Earth-Australia__W0QQLHQ5fSellerWithStoreZ1QQ_sasiZ1QQ_sidZ104420875?_nkw=roman&submit=Search"></a></li>
-                <li><a href="http://stores.ebay.com.au/Wild-Earth-Australia__W0QQLHQ5fSellerWithStoreZ1QQ_sasiZ1QQ_sidZ104420875?_nkw=EPE&submit=Search"></a></li>
-                </ul>
-            </div>
-
-            <!-- helpful links -->
-            <div id="helpful_links" class="boxtitle">Helpful Links</div>
-            <div id="helpful_links_content" class="boxlinks">
-            <a target="_top" href="http://stores.ebay.com.au/Wild-Earth-Australia/FAQs.html">FAQ</a>
-            <script>document.write ("<a target=\"_top\" href=\"http://my."+ domain +"/ws/eBayISAPI.dll?AcceptSavedSeller&linkname=includenewsletter&sellerid="+ userid +"\">Sign up to Newsletter</a>");</script>
-            <a target="_top" href="http://stores.ebay.com.au/Wild-Earth-Australia/Size-Charts.html">View Size Charts</a>
-            <script>document.write ("<a target=\"_top\" href=\"http://contact."+ domain +"/ws/eBayISAPI.dll?ShowCoreAskSellerQuestion&requested="+ userid +"&iid="+ itemid +"&frm=284&redirect=0&SSPageName=PageAskSellerQuestion_VI\">Ask seller a question</a>");</script>
-            <script>document.write ("<a target=\"_top\" href=\"http://stores."+ domain +"/"+ storename +"\">Visit seller's eBay Shop</a>");</script>
-            <script>document.write ("<a target=\"_top\" href=\"http://members."+ domain +"/ws/eBayISAPI.dll?ViewUserPage&userid="+ userid +"\">About Seller Page</a>");</script>
-            </div>
-            <div id="helpful_links_base" class="boxbase"></div>
-            <!-- right custom box -->
-
-            <div class="colspacer"></div>
-
-            <!-- right custom box -->
-            </div><!-- rightpane -->
-        </div><!-- col-xs-3 -->
 
     </div><!-- row -->
 </div><!-- container -->
@@ -531,3 +459,4 @@
 
     </div>
 </div>
+

@@ -1,124 +1,123 @@
-	<!-- [@itm_sortorder@] -->
-	<div class="thumbnail thumbnail-catp" itemscope itemtype="http://schema.org/Product">
-		<a href="[@URL@]" class="thumbnail-image">
-			<img src="[%asset_url type:'product' thumb:'thumb' id:'[@SKU@]'%][%param default%][%NTHEME_ASSET%]img/default_product.gif[%END NTHEME_ASSET%][%end param%][%END asset_url%]" class="product-image" alt="[@model@]" rel="itmimg[@SKU@]">
-		</a>
-		<div class="caption">
-			<div class="visible-xs">
-				[%DATA id:'reviews' if:'>' value:'0'%]
-					[%PARAM if_true%]
-						[%SET [@data:ratings-count@] = 1 /%]
-						[%WHILE [@data:ratings-count@] <= [@data:rating@]%]
-							[%SET [@data:ratings-count@] = [@data:ratings-count@]+1 /%]
-							<i class="fa fa-star"></i>
-						[%/ WHILE%]
-						[%WHILE [@data:ratings-count@] <= 5%]
-							[%SET [@data:ratings-count@] = [@data:ratings-count@]+1 /%]
-							<i class="fa fa-star-o"></i>
-						[%/ WHILE%]
-					[%END PARAM%]
-					[%PARAM if_false%]
-						<em class="small rating no-rating text-muted">
-							Not yet rated
-						</em>
-					[%END PARAM%]
-				[%END DATA%]
-			</div>
-			<h3 itemprop="name" class="prod-title">
-				<a href="[@URL@]" title="[@model@]">
-					[%format type:'text' maxlength:'100' rmhtml:'1'%][@model@][%END FORMAT%]
-				</a>
-			</h3>
-			<p class="price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+<!-- [@itm_sortorder@] -->
+<div class="thumbnail thumbnail-catp" itemscope itemtype="http://schema.org/Product">
+	<a href="[@URL@]" class="thumbnail-image">
+		<img src="[%asset_url type:'product' thumb:'thumb' id:'[@SKU@]'%][%param default%][%NTHEME_ASSET%]img/default_product.gif[%END NTHEME_ASSET%][%end param%][%END asset_url%]" class="product-image" alt="[@model@]" rel="itmimg[@SKU@]">
+	</a>
+	<div class="caption">
+		<div class="visible-xs">
+			[%DATA id:'reviews' if:'>' value:'0'%]
+			[%PARAM if_true%]
+			[%SET [@data:ratings-count@] = 1 /%]
+			[%WHILE [@data:ratings-count@] <= [@data:rating@]%]
+			[%SET [@data:ratings-count@] = [@data:ratings-count@]+1 /%]
+			<i class="fa fa-star"></i>
+			[%/ WHILE%]
+			[%WHILE [@data:ratings-count@] <= 5%]
+			[%SET [@data:ratings-count@] = [@data:ratings-count@]+1 /%]
+			<i class="fa fa-star-o"></i>
+			[%/ WHILE%]
+			[%END PARAM%]
+			[%PARAM if_false%]
+			<em class="small rating no-rating text-muted">
+				Not yet rated
+			</em>
+			[%END PARAM%]
+			[%END DATA%]
+		</div>
+		<h3 itemprop="name" class="prod-title">
+			<a href="[@URL@]" title="[@model@]">
+				[%format type:'text' maxlength:'100' rmhtml:'1'%][@model@][%END FORMAT%]
+			</a>
+		</h3>
+		<p class="price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
 			<meta itemprop="itemCondition" itemtype="http://schema.org/OfferItemCondition" content="http://schema.org/NewCondition"/>
-				[%IF [@has_child@]%]
-                [%IF ![@inpromo@]%]
-					<span class="price-wrapper">From</span>
-                    [%END IF%]
-				[%END IF%]
-				[%IF [@inpromo@]%]
-					<span class="price-wrapper price-sale" style="font-size: 20px;">
+			[%IF [@has_child@]%]
+			[%IF ![@inpromo@]%]
+			<span class="price-wrapper">From</span>
+			[%END IF%]
+			[%END IF%]
+			[%IF [@inpromo@]%]
+			<span class="price-wrapper price-sale" style="font-size: 20px;">
 						Sale:
 						<span itemprop="price">[%format type:'currency'%][@promo_price@][%END format%]</span>
 					</span>
-				[%ELSE%]
-					<span class="price-wrapper">
+			[%ELSE%]
+			<span class="price-wrapper">
 						<span itemprop="price">[%format type:'currency'%][@store_price@][%END format%]</span>
 					</span>
-				[%END IF%]
-			</p>
-			[%IF [@save@] > 0%]
-			<p class="price-extras">
+			[%END IF%]
+		</p>
+		[%IF [@save@] > 0%]
+		<p class="price-extras">
 				<span class="price-rrp mob-price">
 					RRP [%format type:'currency'%][@retail@][%END format%]
 				</span>
-				<span class="price-save mob-price">
+			<span class="price-save mob-price">
 					[%format type:'percent'%][@save@][%END format%] OFF
 				</span>
-			</p>
-			[%/IF%]
+		</p>
+		[%/IF%]
 
-			<div class="clearfix"></div>
-			<div class="hidden-xs status-tray clearfix">
-				<div class="pull-left">
-					[%DATA id:'reviews' if:'>' value:'0'%]
-						[%PARAM if_true%]
-							[%SET [@data:ratings-count@] = 1 /%]
-							[%WHILE [@data:ratings-count@] <= [@data:rating@]%]
-								[%SET [@data:ratings-count@] = [@data:ratings-count@]+1 /%]
-								<i class="fa fa-star"></i>
-							[%/ WHILE%]
-							[%WHILE [@data:ratings-count@] <= 5%]
-								[%SET [@data:ratings-count@] = [@data:ratings-count@]+1 /%]
-								<i class="fa fa-star-o"></i>
-							[%/ WHILE%]
-						[%END PARAM%]
-						[%PARAM if_false%]
-							<em class="small rating no-rating text-muted">
-								Not yet rated
-							</em>
-						[%END PARAM%]
-					[%END DATA%]
-				</div>
-				<div class="pull-right status-icons">
-					[%IF [@extra@] or [@has_child@] %]
-						<i class="fa fa-question-circle tipsy" data-toggle="tooltip" data-placement="top" title="Click product for more stock info"></i>
-					[%ELSEIF [@store_quantity@] > 0 AND [@preorder@] %]
-						<i class="fa fa-exclamation-circle tipsy" data-toggle="tooltip" data-placement="top" title="Pre-order now!"></i>
-					[%ELSEIF [@store_quantity@] > 0 AND ![@preorder@] %]
-						<i class="fa fa-check-circle tipsy" data-toggle="tooltip" data-placement="top" title="In stock"></i>
-					[%ELSEIF [@store_quantity@] < 1 AND [@config:ALLOW_NOSTOCK_CHECKOUT@] %]
-						<i class="fa fa-exclamation-circle tipsy" data-toggle="tooltip" data-placement="top" title="Backorder available"></i>
-					[%ELSE%]
-						<i class="fa fa-times-circle tipsy" data-toggle="tooltip" data-placement="top" title="Out of stock"></i>
-					[%END IF%]
+		<div class="clearfix"></div>
+		<div class="hidden-xs status-tray clearfix">
+			<div class="pull-left">
+				[%DATA id:'reviews' if:'>' value:'0'%]
+				[%PARAM if_true%]
+				[%SET [@data:ratings-count@] = 1 /%]
+				[%WHILE [@data:ratings-count@] <= [@data:rating@]%]
+				[%SET [@data:ratings-count@] = [@data:ratings-count@]+1 /%]
+				<i class="fa fa-star"></i>
+				[%/ WHILE%]
+				[%WHILE [@data:ratings-count@] <= 5%]
+				[%SET [@data:ratings-count@] = [@data:ratings-count@]+1 /%]
+				<i class="fa fa-star-o"></i>
+				[%/ WHILE%]
+				[%END PARAM%]
+				[%PARAM if_false%]
+				<em class="small rating no-rating text-muted">
+					Not yet rated
+				</em>
+				[%END PARAM%]
+				[%END DATA%]
+			</div>
+			<div class="pull-right status-icons">
+				[%IF [@extra@] or [@has_child@] %]
+				<i class="fa fa-question-circle tipsy" data-toggle="tooltip" data-placement="top" title="Click product for more stock info"></i>
+				[%ELSEIF [@store_quantity@] > 0 AND [@preorder@] %]
+				<i class="fa fa-exclamation-circle tipsy" data-toggle="tooltip" data-placement="top" title="Pre-order now!"></i>
+				[%ELSEIF [@store_quantity@] > 0 AND ![@preorder@] %]
+				<i class="fa fa-check-circle tipsy" data-toggle="tooltip" data-placement="top" title="In stock"></i>
+				[%ELSEIF [@store_quantity@] < 1 AND [@config:ALLOW_NOSTOCK_CHECKOUT@] %]
+				<i class="fa fa-exclamation-circle tipsy" data-toggle="tooltip" data-placement="top" title="Backorder available"></i>
+				[%ELSE%]
+				<i class="fa fa-times-circle tipsy" data-toggle="tooltip" data-placement="top" title="Out of stock"></i>
+				[%END IF%]
 
-					[%IN_WISHLIST id:'[@SKU@]' %]
-					[%PARAM if_true%]
-						<a class="wishlist_toggle" rel="[@SKU@]">
+				[%IN_WISHLIST id:'[@SKU@]' %]
+				[%PARAM if_true%]
+				<a class="wishlist_toggle" rel="[@SKU@]">
 							<span class="remove" rel="wishlist_text[@SKU@]">
 								<i class="fa fa-thumb-tack tipsy remove" data-toggle="tooltip" data-placement="top" title="Remove from saved"></i>
 							</span>
-						</a>
-					[%END PARAM%]
-					[%PARAM if_false%]
-						<a class="wishlist_toggle" rel="[@SKU@]">
+				</a>
+				[%END PARAM%]
+				[%PARAM if_false%]
+				<a class="wishlist_toggle" rel="[@SKU@]">
 							<span class="add" rel="wishlist_text[@SKU@]">
 								<i class="fa fa-thumb-tack tipsy" data-toggle="tooltip" data-placement="top" title="Save for later"></i>
 							</span>
-						</a>
-					[%END PARAM%]
-					[%END IN_WISHLIST%]
+				</a>
+				[%END PARAM%]
+				[%END IN_WISHLIST%]
 
-					&nbsp;
-					[%IF [@misc1@]%]
-					<a class="ytbutton" href="http://www.youtube.com/watch?v=[@misc1@]">
+				&nbsp;
+				[%IF [@misc1@]%]
+				<a class="ytbutton" href="http://www.youtube.com/watch?v=[@misc1@]">
 					<i class="fa fa-youtube-play tipsy" data-toggle="tooltip" data-placement="top" title="Watch video"></i></a>
-					[%/ IF%]
-				</div>
+				[%/ IF%]
 			</div>
 		</div>
-		[%IF [@inpromo@]%]
-			<a href="[@url@]" class="on-sale-tag ir">On Sale</a>
-		[%END IF%]
-
+	</div>
+	[%IF [@inpromo@]%]
+	<a href="[@url@]" class="on-sale-tag ir">On Sale</a>
+	[%END IF%]

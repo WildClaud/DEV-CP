@@ -343,6 +343,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 											<div class="payment-icon payment-icon-paypal"></div>
 										</div>
 									</li>
+[%cart_items%]
+	[%param *header%]
+		[%if [@store_price@] <= 1000 && [@grand_total@] <= 1000%]
 									<style>
 				                        .payment-icon-afterpay-1 {
 				                            background-image: url(/assets/afterpay/ap-01.png?theres);
@@ -357,6 +360,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 			                                <div class="payment-icon payment-icon-afterpay-1 afterpay-pp"></div>
 			                            </a>
 									</li>
+		[%/if%]
+	[%/param%]
+[%/cart_items%]
 								</ul>
 							</div>
 						</div>
