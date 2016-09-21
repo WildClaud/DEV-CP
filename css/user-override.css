@@ -862,8 +862,15 @@ img[height='0'][width='0'] {
 
 
 /* Redshift Styling */
+
+.nav-item:hover, .nav-item:active, .nav-item:hover a, .nav-item:active a {
+	background-color: #ffffff;
+	color: #EC6F34!important;
+}
+
+
 .megamenu {
-	background-color: #EC6F34;
+	background-color: #ec6f34;
 	border: 0 none;
 }
 .megamenu .nav,
