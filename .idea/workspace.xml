@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6cb2fa6d-abe7-4d7f-8dbb-2afe9550fc5c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/webServers.xml" afterPath="$PROJECT_DIR$/.idea/webServers.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/user-override.css" afterPath="$PROJECT_DIR$/css/user-override.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/headers/template.html" afterPath="$PROJECT_DIR$/templates/headers/template.html" />
@@ -28,10 +27,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="template.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="template.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/headers/template.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
+            <state relative-caret-position="420">
               <caret line="20" column="115" selection-start-line="20" selection-start-column="115" selection-end-line="20" selection-end-column="115" />
               <folding>
                 <element signature="n#style#0;n#a#0;n#li#9;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -41,11 +40,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user-override.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="user-override.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/user-override.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="379">
-              <caret line="941" column="9" selection-start-line="941" selection-start-column="9" selection-end-line="941" selection-end-column="9" />
+            <state relative-caret-position="299">
+              <caret line="886" column="5" selection-start-line="886" selection-start-column="5" selection-end-line="886" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -63,8 +62,8 @@
         <option value="$PROJECT_DIR$/templates/thumbs/product/featured.template.html" />
         <option value="$PROJECT_DIR$/templates/cart/onepage.template.html" />
         <option value="&lt;32ed93c5-e1e4-4f9a-8ff7-90dc318cc2de&gt;/css/user-override.css" />
-        <option value="$PROJECT_DIR$/templates/headers/template.html" />
         <option value="$PROJECT_DIR$/css/user-override.css" />
+        <option value="$PROJECT_DIR$/templates/headers/template.html" />
       </list>
     </option>
   </component>
@@ -197,11 +196,13 @@
       <workItem from="1474607852972" duration="1109000" />
       <workItem from="1474804164280" duration="1424000" />
       <workItem from="1474879714986" duration="381000" />
+      <workItem from="1474922562959" duration="240000" />
+      <workItem from="1474976932638" duration="924000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21200000" />
+    <option name="totallyTimeSpent" value="22364000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -243,6 +244,36 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/templates/headers/template.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="20" column="115" selection-start-line="20" selection-start-column="115" selection-end-line="20" selection-end-column="115" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#li#9;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#li#10;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/user-override.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/headers/template.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#li#9;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#li#10;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/headers/template.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -477,13 +508,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="805">
           <caret line="660" column="15" selection-start-line="660" selection-start-column="15" selection-end-line="660" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/user-override.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="886" column="5" selection-start-line="886" selection-start-column="5" selection-end-line="886" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/headers/template.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
+        <state relative-caret-position="420">
           <caret line="20" column="115" selection-start-line="20" selection-start-column="115" selection-end-line="20" selection-end-column="115" />
           <folding>
             <element signature="n#style#0;n#a#0;n#li#9;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -492,16 +530,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/user-override.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="941" column="9" selection-start-line="941" selection-start-column="9" selection-end-line="941" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
   </component>
   <component name="webServersAuthStorage">
-    <data>AAAAwKDRa8IHUTmgfjbGZrcV2X4CQoMkotHO8ADRrP2grIkXKMdKqBjE8fluvv0l3KG2q5dpQG5oi3raVaYL3GpZv9dBIxbFQpO3ndLbpRFhno9yP+GECd92Ce0943kzTVExtbr1+2T4D3eRv8nqkBreEnRe+ZqLh4/jY0EXSWDR29e2EntXwI4VurSDX84qM0C9MqQ6LuVTZU8hbELsElPggQJbMwSrs7tW0IM3Bo7/aUNZ3iauVZtz0MA3YgnX7u4Zr88e4sfOlxO1Ta4Z+mqrHNc=</data>
+    <data>AAAAwAHEi97+diR6kVNl/Gd7HEf8kZS0+QbO/QeCiTxP1rTd8py6KGb5XvJGQ1U/4+t3bUMTAEIyYhA6XC8eTdTwW6YEBzQfOCDHLxR23p/FrDBxWXeCUWizVD2EwfsAtLStVccEI+EcNHkntc78NuZ8LNmKoTTPaOXrc9jki3lQHru7CqTxGZm71ymIHtiPt351cTTm2kEeHoUUoWTIUvEq7mXckjGWEsxqFPcj1QnqxD/E2vkzupefb72Kh4zqyWl0SlOgsHGwDkgyRNU2GYkxW74=</data>
   </component>
 </project>

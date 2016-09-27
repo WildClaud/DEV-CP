@@ -882,6 +882,9 @@ img[height='0'][width='0'] {
 	.megamenu .container {
 		position: relative;
 	}
+	.megamenu .navbar-nav > li > a:focus {
+		color: #fff;
+	}
 	.megamenu .dropdown:hover .dropdown-menu {
 		display: block;
 	}
