@@ -1,5 +1,7 @@
 /* CUSTOM */
-
+.text-agree a {
+	color: #090;
+}
 #myCarouselBanner {
 	margin-bottom: 20px;
 }
