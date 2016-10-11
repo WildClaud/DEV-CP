@@ -170,36 +170,33 @@
 
 [%PARAM template%][%VIEWBY type:'products' default:'[@templatethumb@]'%][%END VIEWBY%][%END PARAM%]
 	[%PARAM *header%]
+
+
+
+
+
+
+
+
 		<div class="hidden-xs panel panel-default">
 			<div class="panel-body">
 				<div class="row sort_container">
-					<div class="hidden-xs col-sm-7 col-md-4">
-						<script language="javascript" type="text/javascript">
-							function viewtype(view) {
-								var f=document.viewForm;
-								f['viewby'].value=view;
-								f.submit();
-							}
-						</script>
 
-						<form method="get" name="viewForm" action="[$CURRENT_URL$]" class="hidden">
-							<input name="rf" type="hidden" value="[%FILTER_CODE%][%END FILTER_CODE%]">
-							<input name="viewby" type="hidden" value=""/>
-						</form>
-
-						<div class="viewby btn-group">
-							<a href="javascript:viewtype('');" class="[%VIEWBY type:'products' if:'ne' value:'list' if_true:'active' if_false:''%][%END VIEWBY%]" rel="nofollow">
-								<i class="fa fa-th"></i>
-							</a>
-							<a href="javascript:viewtype('list');" class="[%VIEWBY type:'products' if:'eq' value:'list' if_true:'active' if_false:''%][%END VIEWBY%]" rel="nofollow">
-								<i class="fa fa-th-list"></i>
-							</a>
+						<div style="float:left;">
+							<ul class="pagination">
+								[%paging limit:'3'%]
+									[%PARAM *previous_page%]<li><a href="[@URL@]">Previous</a></li>[%END PARAM%]
+									[%PARAM *goback_pages%]<li><a href="[@URL@]">[@PAGE@]</a></li>[%END PARAM%]
+									[%PARAM *current_page%]<li class="active"><a href="[@URL@]">[@PAGE@]</a></li>[%END PARAM%]
+									[%PARAM *gonext_pages%]<li><a href="[@URL@]">[@PAGE@]</a></li>[%END PARAM%]
+									[%PARAM *next_page%]<li><a href="[@URL@]">Next</a></li>[%END PARAM%]
+								[%END paging%]
+							</ul>
 						</div>
-					</div>
 
 					<div class="col-md-4 hidden-xs hidden-sm">
 						<div class="btn-text">
-							<strong>[@total_results@]</strong> Products Found
+							<strong>[@total_results@]</strong> Products Founds
 						</div>
 					</div>
 
@@ -233,9 +230,18 @@
 							</div>
 						</form>
 					</div>
+
+
+
+
 				</div>
 			</div>
 		</div>
+
+
+
+
+
 
 		<div class="[%VIEWBY type:'products' if:'eq' value:'list' if_true:'thumb_list' if_false:'thumb'%][%END VIEWBY%]">
 			<div class="row">
@@ -247,7 +253,7 @@
 			<div class="panel panel-default panel-cat-mob">
 				<div class="panel-body">
 					<div class="row">
-						<div class="col-xs-12 col-sm-6">
+						<div style="float:left;">
 							<ul class="pagination">
 								[%paging limit:'3'%]
 									[%PARAM *previous_page%]<li><a href="[@URL@]">Previous</a></li>[%END PARAM%]
@@ -258,19 +264,44 @@
 								[%END paging%]
 							</ul>
 						</div>
-						<div class="hidden-xs col-sm-6 text-right">
-							<form method="get" action="[$CURRENT_URL$]" class="form-inline">
-								<input name="rf" type="hidden" value="[%FILTER_CODE%][%END FILTER_CODE%]" >
 
-
-
-									<label>Go to Page:</label>
-
-									<input name="pgnum" type="text" value="[@current_page@]" size="2" class="form-control">
-									<input type="submit" class="btn btn-default btn-sm" value="GO">
-
-							</form>
+					<div class="col-md-4 hidden-xs hidden-sm">
+						<div class="btn-text">
+							<strong>[@total_results@]</strong> Products Found
 						</div>
+					</div>
+
+					<div class="col-sm-5 col-md-4">
+						<form method="get" class="form-horizontal" action="[$CURRENT_URL$]">
+							<input name="rf" type="hidden" value="[%FILTER_CODE%][%END FILTER_CODE%]">
+							<div class="form-group" style="margin-bottom: 0;">
+								<label class="control-label col-xs-2">Sort</label>
+								<div class="col-xs-10">
+									<select name="sortby" onChange="return this.form.submit();" class="form-control">
+										<option value="popular" [%SORTBY type:'products' if:'eq' value:'popular'%]selected[%END SORTBY%]>
+											Most Popular
+										</option>
+										<option value="brand" [%SORTBY type:'products' if:'eq' value:'brand'%]selected[%END SORTBY%]>
+											Brand A-Z
+										</option>
+										<option value="brand_desc" [%SORTBY type:'products' if:'eq' value:'brand_desc'%]selected[%END SORTBY%]>
+											Brand Z-A
+										</option>
+										<option value="new_arrivals" [%SORTBY type:'products' if:'eq' value:'new_arrivals'%]selected[%END SORTBY%]>
+											Newest
+										</option>
+										<option value="lowest_price" [%SORTBY type:'products' if:'eq' value:'lowest_price'%]selected[%END SORTBY%]>
+											Lowest Price
+										</option>
+										<option value="highest_price" [%SORTBY type:'products' if:'eq' value:'highest_price'%]selected[%END SORTBY%]>
+											Highest Price
+										</option>
+									</select>
+								</div>
+							</div>
+						</form>
+					</div>
+
 					</div>
 				</div>
 			</div>
