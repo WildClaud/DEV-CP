@@ -18,7 +18,7 @@
 	<link rel="shortcut icon" href="[@config:homeurl@]/assets/favicon_logo.png"/>
 	<link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,700italic,900,400italic' rel='stylesheet' type='text/css'>
 	<link class="theme-selector" rel="stylesheet" type="text/css" href="[%ntheme_asset%]css/app.css[%end ntheme_asset%]" media="all"/>
-	<link class="theme-selector" rel="stylesheet" type="text/css" href="[%ntheme_asset%]css/user-override.css?16474[%end ntheme_asset%]" media="all"/>
+	<link class="theme-selector" rel="stylesheet" type="text/css" href="[%ntheme_asset%]css/user-override.css?16475[%end ntheme_asset%]" media="all"/>
 	[%if [@form:npurpose@] eq 'facebook'%]
 	<link rel="stylesheet" type="text/css" href="[%ntheme_asset%]css/facebook.css[%end ntheme_asset%]" media="all"/>
 	[%/if%]
@@ -32,6 +32,10 @@
 	<link class="theme-selector" rel="stylesheet" type="text/css" href="[%ntheme_asset%]css/ie8up.css[%end ntheme_asset%]" media="all"/>
 	<![endif]-->
 	[%tracking_code type:'Declaration'%][%end tracking_code%]
+
+	<!-- External search include files -->
+	<link rel="stylesheet" type="text/css" href="//wildearth.resultspage.com/autocomplete/sli-rac.css">
+
 </head>
 
 <body id="n_[@config:current_page_type@]">
@@ -121,11 +125,21 @@
 				</div>
 
 				<div class="header-search">
-					<form class="form" name="productsearch" method="get" action="/">
-						<input type="hidden" name="rf" value="kw"/>
-						<input class="form-control ajax_search" value="[%nohtml%][%filter ID:'keywords'%][%end filter%][%end nohtml%]" id="name_search" autocomplete="off" name="kw" type="text" placeholder="What are you looking for? eg. Hiking Tents"/>
-						<i class="fa fa-search"></i>
+
+					<form class="form" name="productsearch" action="//explore.wildearth.com.au/search" method="get">
+						<input class="form-control ajax_search" default="Search Wild Earth" type="search" name="w" value="" onfocus="this.value=''" id="sli_search_1" autocomplete="off" data-provide="rac" placeholder="Search Wild Earth" onkeydown="if(event.keyCode == 13){ if(jQuery('.sli_ac_active').size() <1 ){searchFormSubmit(this);}return false;}">
+						<i class="fa fa-search" onclick="//searchFormSubmit()"></i>
 					</form>
+					<script type="text/javascript">
+						function searchFormSubmit(event) {
+							event.cancel
+							var search = encodeURIComponent(document.getElementById("sli_search_1").value);
+							document.activeElement.blur();
+							document.location = "http://explore.wildearth.com.au/search?w=" +search;
+							return false;
+						}
+					</script>
+
 				</div>
 			</div>
 		</div>
