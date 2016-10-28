@@ -195,8 +195,7 @@
         </div>
     [%END IF%]
 </div>
-[%cart_items%]
-	[%param *header%]
+
 		[%if [@store_price@] <= 1000 && [@grand_total@] <= 1000%]
 			<a class="hidden-xs" data-toggle="modal" data-target="#afterpayModal" href="#"><img src="/assets/afterpay/apblue.png" class="img-responsive" style="border:1px solid #000; border-radius:4px;"/></a>
 			<p class="afterpay-text hidden-xs" >Make 4 fortnightly payments of [%format type:'currency'%][%calc [@store_price@]/4 /%][%/format%] over 8 weeks and get it now!
@@ -206,8 +205,6 @@
 				</button>
 			</p>
 		[%/if%]
-	[%/param%]
-[%/cart_items%]
 <input id="product_price" type="hidden" value="[@store_price@]" />
 
 

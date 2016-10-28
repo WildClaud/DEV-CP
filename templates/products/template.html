@@ -386,48 +386,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 		<div class="row">
 			<div class="col-xs-12">
 				<div class="thumbnail thumbnail-padding description-block desc-block-mob">
-					[%discount_products id:'[@SKU@]' template:'' show_all:'1' limit:'100'%]
-					[%PARAM HEADER%]
-					<div class="alert alert-success">
-						<h3>BONUS ITEMS! <small>Buy [@name@] Today &amp; Receive These For FREE!</small></h3>
-						<br />
-						<ul class="thumbnails">
-							[%END PARAM%]
-							[%PARAM FOOTER%]
-						</ul>
-						<div class="clear"></div>
-						<small>*Strictly limited offer - act fast to secure yours!</small> </div>
-					[%END PARAM%][%END discount_products%]
-					[%free_gifts id:'[@SKU@]'%]
-						[%PARAM *header%]
-					<div class="alert alert-success">
-						<h3>FREEBIES! <small>Buy [@name@] Today &amp; Choose From One Of These FREE Gifts!</small></h3>
-						<br />
-						<div id="freeitems">
-							<ul class="thumbnails">
-								[%END PARAM%]
-						[%PARAM *body%]
-								<li class="grid_5">
-									<div class="thumbnail">
-										<div class="image">
-											<center>
-												<a href="[%url type:'item ' id:'[@SKU@]'%][%END url%]"><img width="120" height="120" src="[@thumb@]" alt="[@name@]"></a>
-											</center>
-										</div>
-										<br />
-										<div class="title"> <a href="[%URL type:'item' id:'[@SKU@]'%][%END URL%]">[%format type:'text' maxlength:'150' rmhtml:'1'%][@name@][%END FORMAT%]</a> </div>
-										<div class="freebie"><b>FREE</b> With This Item!</div>
-									</div>
-								</li>
-								[%END PARAM%]
-						[%PARAM *footer%]
-							</ul>
-							<div class="clear"></div>
-							<small>*Strictly limited offer while stocks last - act fast to secure yours!</small> </div>
-					</div>
-					[%END PARAM%]
-					[%END free_gifts%]
-
 					<div class="row description_tab">
 	[%SITE_VALUE id:'footer_javascript'%]
     	<script type="text/javascript" language="javascript">
