@@ -3,7 +3,7 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="32ed93c5-e1e4-4f9a-8ff7-90dc318cc2de" name="Neto WE" url="http://wildearth.neto.com.au">
-        <fileTransfer host="wildearth.neto.com.au" port="2022" rootFolder="/httpdocs/assets/themes/devJH" accessType="SFTP">
+        <fileTransfer host="wildearth.neto.com.au" port="2022" rootFolder="/httpdocs/assets/themes/2016-11-master-242849" accessType="SFTP">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" />
           </advancedOptions>

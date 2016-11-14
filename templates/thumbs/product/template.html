@@ -74,8 +74,12 @@
 				<input type="hidden" id="thumb[@rndm@][@SKU@]" name="thumb[@rndm@][@SKU@]" value="[@thumb@]">
 				<input type="hidden" id="qty[@rndm@][@SKU@]" name="qty[@rndm@][@SKU@]" value="1" class="input-tiny">
 				[%if [@extra@] or [@has_child@] or [@editable_bundle@]%]
-					<a href="[@URL@]" title="Buying Options" class="btn btn-primary btn-block btn-loads" data-loading-text="<i class='fa fa-spinner fa-spin' style='font-size: 14px'></i>">Buy Now</a>
-				[%ELSEIF [@store_quantity@ > 0 %]
+					[%if [@store_quantity@] > 0 OR [@config:ALLOW_NOSTOCK_CHECKOUT@]%]
+						<a href="[@URL@]" title="Buying Options" class="btn btn-primary btn-block btn-loads" data-loading-text="<i class='fa fa-spinner fa-spin' style='font-size: 14px'></i>">Buy Now</a>
+					[%else%]
+						<a class="btn btn-default btn-block btn-notify" data-sku="[@sku@]" data-toggle="modal" data-target="#notifymodal" >Notify Me <span class="hidden-xs hidden-md">When Back In Stock</span></a>
+					[%/if%]
+				[%ELSEIF [@store_quantity@] > 0 %]
 				<a href="[@URL@]" title="Buying Options" class="btn btn-primary btn-block btn-loads" data-loading-text="<i class='fa fa-spinner fa-spin' style='font-size: 14px'></i>">Add to Cart</a>
 				[%ELSEIF [@store_quantity@] < 1 AND [@preorder@] %]
 				<button type="button" title="Pre-Order Now!" class="addtocart btn btn-primary btn-block btn-loads" rel="[@rndm@][@SKU@]" data-loading-text="<i class='fa fa-spinner fa-spin' style='font-size: 14px'></i>">Pre-Order Now</button>
