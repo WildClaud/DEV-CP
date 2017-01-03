@@ -45,9 +45,9 @@
 
 	<!--##[%CATEGORYMENU start_category:'[$CURRENT_CATEGORY$]' sortby:'sortorder,name' show_empty:'0' limit:''%]
 	[%PARAM header%]##-->
-	 <li class="list-group-item">
-							<h4 class="list-group-item-heading">Categories</h4>
-						</li>
+	 		<li class="list-group-item">
+				<h4 class="list-group-item-heading">Categories</h4>
+					<ul class="filter-cat">
 	      <!--##[%END PARAM%][%PARAM *level_1_selected%]##-->[@next_level@]
 	 <!--##[%END PARAM%]
 	[%PARAM *level_1%]##-->
@@ -55,8 +55,8 @@
 
 	      <!--##[%END PARAM%]
 	[%PARAM footer%]##-->
-
-
+    			</ul>
+    		</li>
 	  <!--##[%END PARAM%]
 	[%END CATEGORYMENU%]##-->
 
@@ -78,7 +78,7 @@
 						[%END DATA%]##-->
 						<li class="list-group-item">
 							<h4 class="list-group-item-heading">Filter By [@filter_name@]</h4>
-						</li>
+							<ul class="filter-prods">
 					<!--##[%END PARAM%]
 					[%PARAM *body%]##-->
 						<!--##[%DATA id:'selected' if:'==' value:'1'%]
@@ -95,6 +95,10 @@
 							<!--##[%END PARAM%]
 						[%END DATA%]##-->
 					<!--##[%END PARAM%]
+                    [%PARAM *footer%]##-->
+                    		</ul>
+						</li>
+                    <!--##[%END PARAM%]
 				[%END PRODUCT_FILTER%]##-->
 
 
@@ -187,7 +191,7 @@
 					[%PARAM header%]##-->
 						<li class="list-group-item">
 							<h4 class="list-group-item-heading">Filter By Brand</h4>
-						</li>
+							<ul class="filter-brands">
 					<!--##[%END PARAM%]
 					[%PARAM *body%]##-->
 						<!--##[%DATA id:'selected' if:'==' value:'1'%]
@@ -205,6 +209,10 @@
 					[%PARAM more%]##-->
 						<li class="lv1"><a class="list-group-item" href="[%URL type:'page' id:'brands'%][%END URL%]">Show all brands...</a></li>
 					<!--##[%END PARAM%]
+                    [%PARAM *footer%]##-->
+                    		</ul>
+						</li>
+                    <!--##[%END PARAM%]
 				[%END PRODUCT_FILTER%]##-->
 			</ul>
 		</div>

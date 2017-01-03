@@ -55,12 +55,12 @@
 
 		[%ADVERT type:'banner' limit:'1' ad_group:''%]
 						[%PARAM *header%]
-							
+
 						[%END PARAM%]
 						[%PARAM *body%]
-							
+
 							<a href="[@url@]"><img src="[%asset_url type:'adw' id:'[@ad_id@]' default:'[$imageurl$]/pixel.gif'%][%END asset_url%]" class="img-responsive"  style="padding-bottom:10px" alt="[@headline@]"></a>
-							
+
 						[%END PARAM%]
 						[%PARAM *footer%]
 
@@ -83,7 +83,7 @@
 
 		<div class="panel panel-default">
 			<ul id="filters" class="panel-collapse collapse list-group">
-			
+
 		[%PRODUCT_FILTER type:'category' limit:'100' autohide:'0' filter_parent_content:'1' inpromo:'y'%]
 					[%PARAM header%]
 						<li class="list-group-item">
@@ -105,9 +105,9 @@
 						[%/DATA%]
 					[%/PARAM%]
 				[%/PRODUCT_FILTER%]
-	
-	
-		
+
+
+
 
 
 
@@ -145,7 +145,7 @@
 
 				<li class="list-group-item"><hr></li>
 
-				 
+
 					[%PRODUCT_FILTER type:'price' limit:'6' inpromo:'y'%]
 						[%PARAM header%]
 							<li class="list-group-item hidden-md hidden-lg"><h4>Filter By Price Range</h4></li>
@@ -173,8 +173,8 @@
 					[%PARAM ifempty%]
 					[%END PARAM%]
 				[%END PRODUCT_FILTER%]
-				 
-				 
+
+
 				[%PRODUCT_FILTER type:'price' limit:'1'%]
 					[%PARAM header%]
 						<li class="list-group-item hidden-sm hidden-xs">
@@ -226,7 +226,7 @@
 
 				<li class="list-group-item"><hr></li>
 
-				 
+
 				[%PRODUCT_FILTER type:'brand' limit:'50' autohide:'0' inpromo:'y'%]
 					[%PARAM header%]
 						<li class="list-group-item">
@@ -301,20 +301,23 @@
 							<div class="form-group">
 								<label class="control-label col-xs-2">Sort</label>
 								<div class="col-xs-10">
-									<select name="sortby" onChange="return this.form.submit();" class="form-control">
-										<option value="popular" [%SORTBY type:'products' if:'eq' value:'popular'%]selected[%END SORTBY%]>
+									<select name="sortby" onChange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);" class="form-control">
+										<option value="/view/sale/2417?sortby=popular" [%if [@form:sortby@] eq "popular" %] selected [%/if%]>
 											Most Popular
 										</option>
-										<option value="name" [%SORTBY type:'products' if:'eq' value:'name'%]selected[%END SORTBY%]>
-											Name
+										<option value="/view/sale/2417?sortby=brand" [%if [@form:sortby@] eq "brand" %] selected [%/if%]>
+											Brand A-Z
 										</option>
-										<option value="new_arrivals" [%SORTBY type:'products' if:'eq' value:'new_arrivals'%]selected[%END SORTBY%]>
+										<option value="/view/sale/2417?sortby=brand-desc" [%if [@form:sortby@] eq "brand-desc" %] selected [%/if%]>
+											Brand Z-A
+										</option>
+										<option value="/view/sale/2417?sortby=newarrivals" [%if [@form:sortby@] eq "newarrivals" %] selected [%/if%]  >
 											Newest
 										</option>
-										<option value="lowest_price" [%SORTBY type:'products' if:'eq' value:'lowest_price'%]selected[%END SORTBY%]>
+										<option value="/view/sale/2417?sortby=lowest_price" [%if [@form:sortby@] eq "lowest_price" %] selected [%/if%]>
 											Lowest Price
 										</option>
-										<option value="highest_price" [%SORTBY type:'products' if:'eq' value:'highest_price'%]selected[%END SORTBY%]>
+										<option value="/view/sale/2417?sortby=highest_price" [%if [@form:sortby@] eq "highest_price" %] selected [%/if%]>
 											Highest Price
 										</option>
 									</select>
@@ -363,7 +366,7 @@
 					</div>
 				</div>
 			</div>
-		[%END IF%] 
+		[%END IF%]
 	[%END PARAM%]
 	[%PARAM *ifempty%]
 		<div class="row">
